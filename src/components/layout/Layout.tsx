@@ -3,26 +3,18 @@ import { FC, Fragment, ReactNode } from 'react'
 import Meta from '../seo/Meta'
 import { IMeta } from '../seo/meta.interface'
 
+import Footer from './Footer/Footer'
 import styles from './Layout.module.scss'
 
 // import Header from './header/Header'
 
 interface ILayoutProps {
-	bgImage?: any
-	heading?: string
 	backLink?: string
 	children?: ReactNode
-
 	meta: IMeta
 }
 
-const Layout: FC<ILayoutProps> = ({
-	bgImage = '',
-	heading = '',
-	backLink = '/',
-	children,
-	meta
-}) => {
+const Layout: FC<ILayoutProps> = ({ backLink = '/', children, meta }) => {
 	return (
 		<>
 			<Meta title={meta.title} description={meta.description}>
@@ -30,6 +22,7 @@ const Layout: FC<ILayoutProps> = ({
 				<main className={styles.wrapper}>
 					{children && <Fragment>{children}</Fragment>}
 				</main>
+				<Footer />
 			</Meta>
 		</>
 	)
