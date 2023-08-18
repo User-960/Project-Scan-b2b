@@ -1,0 +1,20 @@
+// main colors
+$accent: #029491;
+$white: #ffffff;
+$black: #000000;
+
+// extra colors
+$yellow: #ffb64f;
+$accent-light: #7ce3e1;
+$blue: #5970ff;
+
+// fonts
+$default-font: 'Open Sans', sans-serif;
+
+$dark-accent: darken($accent, 20%);
+$hard-dark-accent: darken($accent, 30%);
+
+$bx-accent: 0 4px 4px rgba($accent, 0.25);
+$bx-16: 0 3px 6px rgba(0, 0, 0, 0.16);
+
+$mobile: 480px;
