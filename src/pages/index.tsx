@@ -1,3 +1,7 @@
-export default function Home() {
-	return <div>Main Page</div>
+import Home from '@/components/screens/home/Home'
+
+export const HomePage = () => {
+	return <Home />
 }
+
+export default HomePage
