@@ -46,8 +46,6 @@ const Home: FC = () => {
 					<Image
 						className={styles.mainImage}
 						src={mainImage}
-						width={560}
-						height={520}
 						alt='Main image'
 					/>
 				</section>
