@@ -6,7 +6,7 @@
 	justify-content: space-between;
 	background-color: $accent;
 	padding: 25px 45px 25px 60px;
-	& > .img {
+	& > .logo {
 		background-image: url('../../../../public/images/logo-footer.svg');
 		background-repeat: none;
 		background-size: contain;
@@ -32,7 +32,7 @@
 @media (max-width: $mobile) {
 	.footer {
 		padding: 25px 19px 25px 19px;
-		& > .img {
+		& > .logo {
 			max-width: 112px;
 			height: 45px;
 		}

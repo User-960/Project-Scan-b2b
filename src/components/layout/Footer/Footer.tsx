@@ -10,7 +10,7 @@ const Footer: FC = () => {
 
 	return (
 		<footer className={styles.footer}>
-			<div className={styles.img} onClick={() => push('/')}></div>
+			<div className={styles.logo} onClick={() => push('/')}></div>
 
 			<div className={styles.info}>
 				<p>г. Москва, Цветной б-р, 40</p>
