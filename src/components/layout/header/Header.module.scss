@@ -80,7 +80,50 @@
 }
 
 .account {
-	& > .profile {
+	display: flex;
+	justify-content: space-between;
+	max-width: 400px;
+	width: 100%;
+}
+
+.info {
+	padding: 10px 8px;
+	width: 180px;
+	height: 65px;
+	border-radius: 5px;
+	background-color: rgba(217, 217, 217, 0.4);
+
+	color: rgba(0, 0, 0, 0.3);
+	font-family: Inter;
+	font-size: 10px;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: 0.1px;
+	& > .used {
+		margin-bottom: 4px;
+	}
+	& > .used span {
+		color: $black;
+		font-family: Inter;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: normal;
+		letter-spacing: 0.14px;
+		margin-left: 6px;
+	}
+	& > .limit span {
+		color: $green;
+		font-family: Inter;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: normal;
+		letter-spacing: 0.14px;
+		margin-left: 6px;
+	}
+}
+
+.profile {
+	& > .profileInfo {
 		position: relative;
 		display: flex;
 		width: 120px;
