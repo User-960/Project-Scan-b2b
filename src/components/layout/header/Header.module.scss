@@ -6,7 +6,6 @@
 
 .header {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	width: 100%;
 	padding: 20px 60px;
@@ -24,10 +23,9 @@
 	& > .desktopMenu {
 		display: flex;
 		justify-content: space-between;
-		max-width: 700px;
 		width: 100%;
 		& > .menu {
-			margin: 0px 5px;
+			margin: 0px auto;
 			align-self: center;
 			& > .listMenu {
 				display: flex;
@@ -84,7 +82,7 @@
 		border: none;
 		border-radius: 5px;
 		cursor: pointer;
-		background: $accent-light;
+		background-color: $accent-light;
 		margin-left: 20px;
 		transition: background-color 0.15s ease-in-out;
 
@@ -100,7 +98,6 @@
 	justify-content: space-between;
 	max-width: 400px;
 	width: 100%;
-	margin-left: 35px;
 }
 
 .info {
@@ -177,6 +174,7 @@
 
 @media (max-width: $tablet) {
 	.header {
+		justify-content: space-between;
 		.mobileMenu {
 			display: block;
 		}
