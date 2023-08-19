@@ -35,6 +35,8 @@ const Plans: FC = () => {
 							<GlobalSvgSelector id={plan.img} />
 						</div>
 						<div className={styles.planInfo}>
+							<div className={styles.planInfoBadge}>Текущий тариф</div>
+
 							<div className={styles.planPrice}>
 								<p className={styles.planPriceFull}>
 									<span className={styles.newPrice}>{plan.newPrice} ₽</span>
@@ -58,9 +60,21 @@ const Plans: FC = () => {
 										</li>
 									))}
 								</ul>
-								<Button size='medium' clickHandler={() => console.log('1')}>
+								<Button
+									size='medium'
+									state='btnAvailable'
+									clickHandler={() => console.log('1')}
+								>
 									Подробнее
 								</Button>
+
+								{/* <Button
+									size='medium'
+									state='btnBlock'
+									clickHandler={() => console.log('1')}
+								>
+									Перейти в личный кабинет
+								</Button> */}
 							</div>
 						</div>
 					</li>

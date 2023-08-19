@@ -4,7 +4,6 @@
 	border: none;
 	outline: none;
 	padding: 14px 60px;
-	background-color: $blue;
 	border-radius: 5px;
 
 	color: $white;
@@ -21,10 +20,6 @@
 		font-size: 18px;
 		padding: 14px 30px;
 	}
-
-	&:hover {
-		background-color: rgba($accent, 0.7);
-	}
 }
 
 .wrapper {
@@ -34,6 +29,18 @@
 .medium {
 	width: 355px;
 	height: 59px;
+}
+
+.btnAvailable {
+	background-color: $blue;
+	&:hover {
+		background-color: rgba($accent, 0.7);
+	}
+}
+
+.btnBlock {
+	background-color: #d2d2d2;
+	cursor: not-allowed;
 }
 
 /* .large {

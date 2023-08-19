@@ -40,7 +40,11 @@ const Home: FC = () => {
 							Комплексный анализ публикаций, получение данных в формате PDF на
 							электронную почту.
 						</h4>
-						<Button size={'medium'} clickHandler={() => push('/getdata')}>
+						<Button
+							size={'medium'}
+							state='btnAvailable'
+							clickHandler={() => push('/getdata')}
+						>
 							Запросить данные
 						</Button>
 					</div>
