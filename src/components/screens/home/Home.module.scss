@@ -41,9 +41,22 @@
 	}
 }
 
+.sectionImage {
+	margin-bottom: 110px;
+	& > img {
+		overflow: hidden;
+	}
+}
+
 @media (max-width: $tablet) {
 	.sectionMain {
 		flex-direction: column;
+	}
+
+	.sectionImage {
+		& > img {
+			height: 280px;
+		}
 	}
 }
 
@@ -59,6 +72,13 @@
 				font-size: 18px;
 				margin-bottom: 30px;
 			}
+		}
+	}
+
+	.sectionImage {
+		margin-bottom: 30px;
+		& > img {
+			height: 220px;
 		}
 	}
 }

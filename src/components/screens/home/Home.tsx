@@ -10,6 +10,7 @@ import Layout from '@/components/layout/Layout'
 import { IMeta } from '@/components/seo/meta.interface'
 
 import mainImage from '../../../../public/images/main.png'
+import sectionImage from '../../../../public/images/sectionImage.svg'
 import Plans from '../plans/Plans'
 
 import styles from './Home.module.scss'
@@ -53,6 +54,10 @@ const Home: FC = () => {
 						src={mainImage}
 						alt='Main image'
 					/>
+				</section>
+
+				<section className={styles.sectionImage}>
+					<Image src={sectionImage} alt='Section image' />
 				</section>
 
 				<Plans />
