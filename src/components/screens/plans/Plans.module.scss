@@ -1,0 +1,136 @@
+@import 'src/assets/styles/variables';
+
+.sectionPlans {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	.title {
+		max-width: 540px;
+		color: $black;
+		font-size: 45px;
+		font-weight: 900;
+		line-height: normal;
+		letter-spacing: 0.45px;
+		margin-bottom: 70px;
+	}
+
+	.listPlans {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+
+		.itemPlans {
+			max-width: 530px;
+			border-radius: 10px;
+			background: $white;
+			box-shadow: $box-shadow;
+
+			.planTitle {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				border-radius: 10px 10px 0px 0px;
+				padding: 15px 10px 20px 30px;
+
+				> svg {
+					width: 82px;
+					height: 82px;
+				}
+				.planTitleText {
+					font-size: 30px;
+					font-weight: 500;
+					line-height: normal;
+					letter-spacing: 0.3px;
+					margin-bottom: 10px;
+				}
+				.planTitleDesc {
+					max-width: 313px;
+					font-size: 18px;
+					font-weight: 400;
+					line-height: normal;
+					letter-spacing: 0.18px;
+				}
+			}
+		}
+
+		.planInfo {
+			padding: 30px 10px 20px 30px;
+		}
+
+		.planInfo .planPrice {
+			height: 91px;
+			margin-bottom: 60px;
+		}
+
+		.planInfo .newPrice {
+			color: $black;
+			font-size: 30px;
+			font-weight: 500;
+			line-height: normal;
+			letter-spacing: 0.3px;
+		}
+
+		.planInfo .oldPrice {
+			color: $black;
+			font-size: 25px;
+			opacity: 0.5;
+			font-weight: 500;
+			line-height: normal;
+			letter-spacing: 0.25px;
+			text-decoration-line: line-through;
+			margin-left: 20px;
+		}
+
+		.planInfo .installmentPrice {
+			color: $black;
+			font-family: Inter;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: 0.18px;
+			margin-top: 10px;
+		}
+
+		.planInfo .planConditionsTitle {
+			color: $black;
+			font-size: 20px;
+			font-weight: 500;
+			line-height: normal;
+			letter-spacing: 0.2px;
+			margin-bottom: 10px;
+		}
+
+		.listPlanConditions {
+			margin-bottom: 30px;
+			.itemPlanConditions {
+				display: flex;
+				margin-bottom: 5px;
+			}
+		}
+
+		.listPlanConditions .itemPlanConditionsText {
+			color: $black;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: 0.18px;
+			margin-left: 8px;
+		}
+	}
+}
+
+.planBeginner {
+	color: $black;
+	background-color: $yellow;
+}
+
+.planPro {
+	color: $black;
+	background-color: $accent-light;
+}
+
+.planBusiness {
+	color: $white;
+	background-color: $black;
+}

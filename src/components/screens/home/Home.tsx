@@ -10,6 +10,7 @@ import Layout from '@/components/layout/Layout'
 import { IMeta } from '@/components/seo/meta.interface'
 
 import mainImage from '../../../../public/images/main.png'
+import Plans from '../plans/Plans'
 
 import styles from './Home.module.scss'
 
@@ -49,6 +50,8 @@ const Home: FC = () => {
 						alt='Main image'
 					/>
 				</section>
+
+				<Plans />
 			</div>
 		</Layout>
 	)
