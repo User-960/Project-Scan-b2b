@@ -1,8 +1,11 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
 import styles from './Header.module.scss'
 import Account from './account/Account'
+import Burger from './burger/Burger'
+import { menu } from './menu.data'
 
 const Header: FC = () => {
 	const { push } = useRouter()
@@ -11,19 +14,23 @@ const Header: FC = () => {
 		<header className={styles.header}>
 			<div className={styles.logo} onClick={() => push('/')}></div>
 
-			<menu className={styles.menu}>
-				<a href='#'>
-					<span>Главная</span>
-				</a>
-				<a href='#'>
-					<span>Тарифы</span>
-				</a>
-				<a href='#'>
-					<span>FAQ</span>
-				</a>
-			</menu>
+			<div className={styles.mobileMenu}>
+				<Burger />
+			</div>
 
-			<Account isAuthorized={false} />
+			<div className={styles.desktopMenu}>
+				<nav className={styles.menu}>
+					<ul className={styles.listMenu}>
+						{menu.map((item, index) => (
+							<li key={`_menu_${index}`}>
+								<Link href={`${item.link}`}>{item.title}</Link>
+							</li>
+						))}
+					</ul>
+				</nav>
+
+				<Account isAuthorized={false} />
+			</div>
 		</header>
 	)
 }

@@ -58,8 +58,13 @@ body {
 
 button {
 	background-color: transparent;
-	outline: none;
 	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+ul {
+	list-style: none;
 }
 
 img {

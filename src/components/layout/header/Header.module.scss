@@ -1,13 +1,18 @@
 @import 'src/assets/styles/variables';
 
+.mobileMenu {
+	display: none;
+}
+
 .header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 100%;
 	padding: 20px 60px;
 	& > .logo {
 		background-image: url('../../../../public/images/logo-header.svg');
-		background-repeat: none;
+		background-repeat: no-repeat;
 		background-size: contain;
 
 		max-width: 136px;
@@ -16,23 +21,34 @@
 		cursor: pointer;
 	}
 
-	& > .menu a {
-		color: $black;
-		text-decoration: none;
-		cursor: pointer;
+	& > .desktopMenu {
+		display: flex;
+		justify-content: space-between;
+		max-width: 700px;
+		width: 100%;
+		& > .menu {
+			margin: 0px 5px;
+			align-self: center;
+			& > .listMenu {
+				display: flex;
+			}
+			& > .listMenu li a {
+				color: $black;
+				text-decoration: none;
+				cursor: pointer;
+				margin: 0px 24px;
 
-		font-family: Inter;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: normal;
-		letter-spacing: 0.14px;
+				font-family: Inter;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: normal;
+				letter-spacing: 0.14px;
 
-		transition: color 0.15s ease-in-out;
-		&:hover {
-			color: $accent;
-		}
-		&:nth-child(2) {
-			margin: 0px 49px;
+				transition: color 0.15s ease-in-out;
+				&:hover {
+					color: $accent;
+				}
+			}
 		}
 	}
 }
@@ -84,6 +100,7 @@
 	justify-content: space-between;
 	max-width: 400px;
 	width: 100%;
+	margin-left: 35px;
 }
 
 .info {
@@ -127,6 +144,7 @@
 		position: relative;
 		display: flex;
 		width: 120px;
+		margin-left: 10px;
 		& > .name {
 			align-self: center;
 			margin-right: 5px;
@@ -153,6 +171,20 @@
 
 		&:hover {
 			opacity: 1;
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.header {
+		.mobileMenu {
+			display: block;
+		}
+	}
+
+	.header {
+		.desktopMenu {
+			display: none;
 		}
 	}
 }
