@@ -2,11 +2,13 @@ import { FC, useState } from 'react'
 
 import { GlobalSvgSelector } from '@/components/ui/global-svg-selector/GlobalSvgSelector'
 
+import { useOnClickOutside } from '@/components/hooks/useOnClickOutside'
+
 import styles from './Burger.module.scss'
 import Menu from './Menu'
 
 const Burger: FC = () => {
-	const [isShow, setIsShow] = useState<boolean>(false)
+	const { ref, isShow, setIsShow } = useOnClickOutside(false)
 
 	return (
 		<div className={styles.burgerMenu}>
@@ -22,7 +24,9 @@ const Burger: FC = () => {
 				)}
 			</button>
 
-			<Menu isShow={isShow} />
+			<menu>
+				<Menu isShow={isShow} />
+			</menu>
 		</div>
 	)
 }
