@@ -14,7 +14,7 @@ const Account: FC<IAccount> = ({ isAuthorized = false }) => {
 
 	return (
 		<>
-			{isAuthorized ? (
+			{!isAuthorized ? (
 				<div className={styles.enter}>
 					<button
 						className={styles.registration}
