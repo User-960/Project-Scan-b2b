@@ -29,7 +29,7 @@ const AuthField: FC<IAuthFieldProps> = ({
 	pattern
 }) => {
 	return (
-		<div style={{ marginBottom: '1rem' }}>
+		<div className={styles.fieldWrapper}>
 			<label htmlFor={id} className={styles.label}>
 				{label}
 			</label>
