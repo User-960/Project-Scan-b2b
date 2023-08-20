@@ -2,8 +2,8 @@ import { FC } from 'react'
 
 import Button from '@/components/ui/button/Button'
 import AuthField from '@/components/ui/field/AuthField/AuthField'
+import Loader from '@/components/ui/loader/Loader'
 
-// import Loader from '@/components/ui/loader/Loader';
 import { useAuthPage } from '@/components/hooks/useAuthPage'
 
 import styles from './Form.module.scss'
@@ -15,8 +15,7 @@ const Form: FC = () => {
 	return (
 		<>
 			<div className='wrapper-inner-page'>
-				{/* {isLoading && <Loader />} */}
-				{isLoading && <div>Loading...</div>}
+				{isLoading && <Loader />}
 
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<AuthField
