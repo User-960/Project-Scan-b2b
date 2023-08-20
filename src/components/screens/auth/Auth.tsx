@@ -14,7 +14,7 @@ const ferryFont = localFont({
 	display: 'swap'
 })
 
-const Enter: FC = () => {
+const Auth: FC = () => {
 	const meta: IMeta = {
 		title: 'Вход',
 		description: 'Enter to account'
@@ -22,7 +22,7 @@ const Enter: FC = () => {
 
 	return (
 		<Layout meta={meta}>
-			<div className={styles.enter}>
+			<div className={styles.authWrapper}>
 				<section className={styles.sectionTitle}>
 					<h2 className={cn(ferryFont.className, styles.title)}>
 						Для оформления подписки на тариф, необходимо авторизоваться.
@@ -42,4 +42,4 @@ const Enter: FC = () => {
 	)
 }
 
-export default Enter
+export default Auth

@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import { FC } from 'react'
 
 import Button from '@/components/ui/button/Button'
-import { GlobalSvgSelector } from '@/components/ui/global-svg-selector/GlobalSvgSelector'
+import { GlobalSvgSelector } from '@/components/ui/svg-selector/GlobalSvgSelector'
 
 import styles from './Plans.module.scss'
 import { plans } from './plans.data'

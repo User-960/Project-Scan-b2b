@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 
-import { GlobalSvgSelector } from '@/components/ui/global-svg-selector/GlobalSvgSelector'
+import { GlobalSvgSelector } from '@/components/ui/svg-selector/GlobalSvgSelector'
 
 import { useOnClickOutside } from '@/components/hooks/useOnClickOutside'
 

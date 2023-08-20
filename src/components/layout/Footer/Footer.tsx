@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
-import { GlobalSvgSelector } from '@/components/ui/global-svg-selector/GlobalSvgSelector'
+import { GlobalSvgSelector } from '@/components/ui/svg-selector/GlobalSvgSelector'
 
 import styles from './Footer.module.scss'
 
