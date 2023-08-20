@@ -1,7 +1,9 @@
-import { NextPage } from 'next'
+import { NextPageAuth } from '@/interfaces/page.interface'
 
-const SearchPage: NextPage = () => {
+const SearchPage: NextPageAuth = () => {
 	return <div>Search</div>
 }
+
+SearchPage.isOnlyUser = true
 
 export default SearchPage
