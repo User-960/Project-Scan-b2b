@@ -1,13 +1,13 @@
 export interface IUser {
 	id: number
-	token: string
+	accessToken: string
 	expire: string
-	tel: string
+	login: string
 	password: string
 }
 
 export interface IUserResponse {
-	token: string
+	accessToken: string
 	expire: string
 }
 
