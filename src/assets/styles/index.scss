@@ -99,3 +99,9 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
 	-moz-appearance: textfield;
 }
+
+.error {
+	color: #8d2b3d;
+	font-size: 1rem;
+	margin: 10px 0px;
+}
