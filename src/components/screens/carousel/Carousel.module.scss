@@ -1,0 +1,52 @@
+@import 'src/assets/styles/variables';
+
+.sectionCarousel {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-bottom: 60px;
+
+	.title {
+		max-width: 640px;
+		color: $black;
+		font-size: 45px;
+		font-weight: 900;
+		line-height: normal;
+		letter-spacing: 0.45px;
+		margin-bottom: 55px;
+	}
+}
+
+.carouselSlider {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	.card {
+		padding: 20px 50px 60px 20px;
+		max-width: 400px;
+		min-height: 225px;
+		border-radius: 10px;
+		background: $white;
+		box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+		margin: 15px 15px;
+
+		.cardText {
+			margin-top: 12px;
+			max-width: 313px;
+			color: $black;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: 0.18px;
+		}
+	}
+}
+
+@media (max-width: 680px) {
+	.sectionCarousel {
+		.title {
+			font-size: 28px;
+		}
+	}
+}

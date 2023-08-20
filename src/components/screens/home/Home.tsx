@@ -11,6 +11,7 @@ import { IMeta } from '@/components/seo/meta.interface'
 
 import mainImage from '../../../../public/images/main.png'
 import sectionImage from '../../../../public/images/sectionImage.svg'
+import Carousel from '../carousel/Carousel'
 import Plans from '../plans/Plans'
 
 import styles from './Home.module.scss'
@@ -55,6 +56,8 @@ const Home: FC = () => {
 						alt='Main image'
 					/>
 				</section>
+
+				<Carousel />
 
 				<section className={styles.sectionImage}>
 					<Image src={sectionImage} alt='Section image' />

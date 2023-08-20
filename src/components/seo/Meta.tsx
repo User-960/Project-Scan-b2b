@@ -15,6 +15,7 @@ const Meta: FC<PropsWithChildren<IMeta>> = ({
 			<Head>
 				<title>{getTitle(title)}</title>
 				<link rel='icon' href='/favicon.ico?v=2' type='image/x-icon' />
+
 				{description ? (
 					<>
 						<meta name='description' content={description} />
