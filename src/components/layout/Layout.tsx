@@ -17,11 +17,13 @@ const Layout: FC<ILayoutProps> = ({ backLink = '/', children, meta }) => {
 	return (
 		<>
 			<Meta title={meta.title} description={meta.description}>
-				<Header />
-				<main className={styles.wrapper}>
-					{children && <Fragment>{children}</Fragment>}
-				</main>
-				<Footer />
+				<div className={styles.mainWrapper}>
+					<Header />
+					<main className={styles.contentWrapper}>
+						{children && <Fragment>{children}</Fragment>}
+					</main>
+					<Footer />
+				</div>
 			</Meta>
 		</>
 	)
