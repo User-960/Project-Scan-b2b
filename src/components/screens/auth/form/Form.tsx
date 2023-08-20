@@ -15,8 +15,15 @@ import styles from './Form.module.scss'
 const Form: FC = () => {
 	const [authType, setAuthType] = useState<'login' | 'register'>('login')
 
-	const { setType, register, handleSubmit, errors, isLoading, onSubmit } =
-		useAuthPage()
+	const {
+		setType,
+		register,
+		handleSubmit,
+		errors,
+		isLoading,
+		onSubmit,
+		errorText
+	} = useAuthPage()
 
 	return (
 		<>
@@ -66,7 +73,7 @@ const Form: FC = () => {
 							label='Пароль:'
 							type='password'
 							placeholder=''
-							error={errors?.password?.message}
+							error={errorText}
 							name='password'
 							register={register}
 							required={'*Заполните поле пароля!'}

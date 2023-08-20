@@ -18,12 +18,12 @@ const Account: FC<IAccount> = ({ isAuthorized = false }) => {
 				<div className={styles.enter}>
 					<button
 						className={styles.registration}
-						onClick={() => push('/registration')}
+						onClick={() => push('/auth')}
 					>
 						Зарегистрироваться
 					</button>
 					|
-					<button className={styles.btnLogin} onClick={() => push('/login')}>
+					<button className={styles.btnLogin} onClick={() => push('/auth')}>
 						Войти
 					</button>
 				</div>

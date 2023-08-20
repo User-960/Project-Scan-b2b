@@ -9,6 +9,7 @@ import AuthService from '@/services/auth.service'
 
 export const useAuthPage = () => {
 	const [type, setType] = useState('login')
+	const [errorText, setErrorText] = useState<string>('')
 	const { push } = useRouter()
 	const { isAuth, setIsAuth } = useAuth()
 
@@ -27,18 +28,22 @@ export const useAuthPage = () => {
 			AuthService.main(login, password, type),
 		{
 			onSuccess: data => {
-				setIsAuth(true)
-				reset()
-				push('/')
+				if (typeof data !== 'string') {
+					setIsAuth(true)
+					reset()
+					// push('/')
+				} else {
+					setErrorText(data)
+				}
 			}
 		}
 	)
 
-	useEffect(() => {
-		if (isAuth) {
-			push('/')
-		}
-	}, [isAuth])
+	// useEffect(() => {
+	// 	if (isAuth) {
+	// 		push('/')
+	// 	}
+	// }, [isAuth])
 
 	const onSubmit: SubmitHandler<IAuthFields> = async data => {
 		await mutateAsync(data)
@@ -51,7 +56,8 @@ export const useAuthPage = () => {
 			handleSubmit,
 			errors,
 			isLoading,
-			onSubmit
+			onSubmit,
+			errorText
 		}),
 		[errors, isLoading]
 	)

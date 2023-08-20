@@ -16,7 +16,7 @@ class AuthService {
 
 			return data
 		} catch (error: any) {
-			throw new Error(error)
+			return error.response.data.message
 		}
 	}
 }
