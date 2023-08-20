@@ -45,7 +45,9 @@ const Form: FC = () => {
 				</div>
 
 				{isLoading ? (
-					<Loader />
+					<div className={styles.loader}>
+						<Loader />
+					</div>
 				) : (
 					<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 						<AuthField
