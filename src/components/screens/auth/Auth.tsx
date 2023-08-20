@@ -6,7 +6,8 @@ import { FC } from 'react'
 import Layout from '@/components/layout/Layout'
 import { IMeta } from '@/components/seo/meta.interface'
 
-import styles from './Enter.module.scss'
+import styles from './Auth.module.scss'
+import Form from './form/Form'
 
 const ferryFont = localFont({
 	src: '../../../assets/fonts/ferry_black.otf',
@@ -34,6 +35,8 @@ const Enter: FC = () => {
 						alt='Enter image'
 					/>
 				</section>
+
+				<Form />
 			</div>
 		</Layout>
 	)
