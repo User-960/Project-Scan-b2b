@@ -30,10 +30,39 @@
 	}
 }
 
+@media (max-width: 1000px) {
+	.authWrapper {
+		display: flex;
+		flex-direction: column;
+		.sectionTitle {
+			margin-right: 0px;
+			position: relative;
+			height: 1150px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+			& > img {
+				margin-left: 0px;
+			}
+		}
+	}
+}
+
 @media (max-width: 680px) {
-	.sectionTitle {
-		.title {
-			font-size: 22px;
+	.authWrapper {
+		.sectionTitle {
+			.title {
+				font-size: 22px;
+			}
+		}
+	}
+}
+@media (max-width: $mobile) {
+	.authWrapper {
+		.sectionTitle {
+			padding-bottom: 50px;
+			height: 1250px;
 		}
 	}
 }
