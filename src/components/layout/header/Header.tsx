@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
+import { useAuth } from '@/components/hooks/useAuth'
+
 import styles from './Header.module.scss'
 import Account from './account/Account'
 import Statistics from './account/Statistics'
@@ -10,13 +12,14 @@ import { menu } from './menu.data'
 
 const Header: FC = () => {
 	const { push } = useRouter()
+	const { isAuth } = useAuth()
 
 	return (
 		<header className={styles.header}>
 			<div className={styles.logo} onClick={() => push('/')}></div>
 
 			<div className={styles.mobileMenu}>
-				<Statistics />
+				{isAuth && <Statistics />}
 				<Burger />
 			</div>
 

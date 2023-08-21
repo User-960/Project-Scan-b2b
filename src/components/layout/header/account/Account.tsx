@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
@@ -8,6 +9,7 @@ import avatar from '../../../../../public/images/profile.png'
 import styles from '../Header.module.scss'
 
 import Statistics from './Statistics'
+import { ENUSER } from '@/config/app.constants'
 
 interface IAccount {
 	isAuthorized: boolean
@@ -15,7 +17,13 @@ interface IAccount {
 
 const Account: FC<IAccount> = ({ isAuthorized = false }) => {
 	const { push } = useRouter()
-	const { isAuth } = useAuth()
+	const { isAuth, setIsAuth } = useAuth()
+
+	const logoutHandler = () => {
+		Cookies.remove(ENUSER.TOKEN)
+		setIsAuth(false)
+		push('/auth')
+	}
 
 	return (
 		<>
@@ -43,10 +51,7 @@ const Account: FC<IAccount> = ({ isAuthorized = false }) => {
 								alt='Avatar of the user'
 							/>
 						</div>
-						<button
-							className={styles.btnLogout}
-							onClick={() => push('/logout')}
-						>
+						<button className={styles.btnLogout} onClick={logoutHandler}>
 							Выйти
 						</button>
 					</div>

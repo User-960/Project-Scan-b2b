@@ -1,11 +1,15 @@
 import cn from 'clsx'
+import Cookies from 'js-cookie'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Dispatch, FC, SetStateAction } from 'react'
 
+import { useAuth } from '@/components/hooks/useAuth'
+
 import { menu } from '../menu.data'
 
 import styles from './Burger.module.scss'
+import { ENUSER } from '@/config/app.constants'
 
 interface IMenuProps {
 	isShow: boolean
@@ -13,6 +17,13 @@ interface IMenuProps {
 
 const Menu: FC<IMenuProps> = ({ isShow }) => {
 	const { push } = useRouter()
+	const { isAuth, setIsAuth } = useAuth()
+
+	const logoutHandler = () => {
+		Cookies.remove(ENUSER.TOKEN)
+		setIsAuth(false)
+		push('/auth')
+	}
 
 	return (
 		<>
@@ -24,19 +35,34 @@ const Menu: FC<IMenuProps> = ({ isShow }) => {
 							<Link href={`${item.link}`}>{item.title}</Link>
 						</li>
 					))}
-					<li>
-						<button
-							className={styles.registration}
-							onClick={() => push('/registration')}
-						>
-							Зарегистрироваться
-						</button>
-					</li>
-					<li>
-						<button className={styles.btnLogin} onClick={() => push('/login')}>
-							Войти
-						</button>
-					</li>
+					{!isAuth ? (
+						<>
+							<li>
+								<button
+									className={styles.registration}
+									onClick={() => push('/auth')}
+								>
+									Зарегистрироваться
+								</button>
+							</li>
+							<li>
+								<button
+									className={styles.btnLogin}
+									onClick={() => push('/auth')}
+								>
+									Войти
+								</button>
+							</li>
+						</>
+					) : (
+						<>
+							<li>
+								<button className={styles.btnLogin} onClick={logoutHandler}>
+									Выйти
+								</button>
+							</li>
+						</>
+					)}
 				</ul>
 			</nav>
 		</>
