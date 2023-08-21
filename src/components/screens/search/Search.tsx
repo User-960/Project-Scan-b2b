@@ -9,6 +9,7 @@ import { IMeta } from '@/components/seo/meta.interface'
 import documentsImage from '../../../../public/images/documents.svg'
 
 import styles from './Search.module.scss'
+import SearchForm from './searchForm/SearchForm'
 
 const ferryFont = localFont({
 	src: '../../../assets/fonts/ferry_black.otf',
@@ -38,6 +39,10 @@ const Search: FC = () => {
 					src={documentsImage}
 					alt='Main image'
 				/>
+			</section>
+
+			<section>
+				<SearchForm />
 			</section>
 		</Layout>
 	)
