@@ -1,0 +1,42 @@
+@import 'src/assets/styles/variables';
+
+.sectionSearch {
+	display: flex;
+	margin-bottom: 50px;
+	.sectionImage {
+		margin: 50px 0px 0px 60px;
+		/* max-width: 560px;
+		max-height: 520px;
+
+		width: 100%;
+		height: 100%;
+
+		min-width: 247px;
+		min-height: 227px; */
+	}
+	.info {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		& > .title {
+			max-width: 820px;
+			min-width: 230px;
+			color: $black;
+			font-size: 40px;
+			font-weight: 900;
+			line-height: normal;
+			letter-spacing: 0.6px;
+			margin-bottom: 25px;
+		}
+
+		& > .description {
+			max-width: 534px;
+			color: $black;
+			font-size: 20px;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: 0.2px;
+			margin-bottom: 70px;
+		}
+	}
+}

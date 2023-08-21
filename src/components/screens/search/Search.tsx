@@ -1,9 +1,19 @@
+import cn from 'clsx'
+import localFont from 'next/font/local'
+import Image from 'next/image'
 import { FC } from 'react'
 
 import Layout from '@/components/layout/Layout'
 import { IMeta } from '@/components/seo/meta.interface'
 
+import documentsImage from '../../../../public/images/documents.svg'
+
 import styles from './Search.module.scss'
+
+const ferryFont = localFont({
+	src: '../../../assets/fonts/ferry_black.otf',
+	display: 'swap'
+})
 
 const Search: FC = () => {
 	const meta: IMeta = {
@@ -13,7 +23,22 @@ const Search: FC = () => {
 
 	return (
 		<Layout meta={meta}>
-			<div>Search</div>
+			<section className={styles.sectionSearch}>
+				<div className={styles.info}>
+					<h1 className={cn(ferryFont.className, styles.title)}>
+						Найдите необходимые данные в пару кликов.
+					</h1>
+					<h4 className={styles.description}>
+						Задайте параметры поиска. Чем больше заполните, тем точнее поиск
+					</h4>
+				</div>
+
+				<Image
+					className={styles.sectionImage}
+					src={documentsImage}
+					alt='Main image'
+				/>
+			</section>
 		</Layout>
 	)
 }
