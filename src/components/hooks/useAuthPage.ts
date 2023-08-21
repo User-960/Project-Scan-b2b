@@ -31,7 +31,7 @@ export const useAuthPage = () => {
 				if (typeof data !== 'string') {
 					setIsAuth(true)
 					reset()
-					// push('/')
+					push('/')
 				} else {
 					setErrorText(data)
 				}
@@ -39,11 +39,11 @@ export const useAuthPage = () => {
 		}
 	)
 
-	// useEffect(() => {
-	// 	if (isAuth) {
-	// 		push('/')
-	// 	}
-	// }, [isAuth])
+	useEffect(() => {
+		if (isAuth) {
+			push('/')
+		}
+	}, [isAuth])
 
 	const onSubmit: SubmitHandler<IAuthFields> = async data => {
 		await mutateAsync(data)

@@ -2,8 +2,12 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
+import { useAuth } from '@/components/hooks/useAuth'
+
 import avatar from '../../../../../public/images/profile.png'
 import styles from '../Header.module.scss'
+
+import Statistics from './Statistics'
 
 interface IAccount {
 	isAuthorized: boolean
@@ -11,15 +15,13 @@ interface IAccount {
 
 const Account: FC<IAccount> = ({ isAuthorized = false }) => {
 	const { push } = useRouter()
+	const { isAuth } = useAuth()
 
 	return (
 		<>
-			{!isAuthorized ? (
+			{!isAuth ? (
 				<div className={styles.enter}>
-					<button
-						className={styles.registration}
-						onClick={() => push('/auth')}
-					>
+					<button className={styles.registration} onClick={() => push('/auth')}>
 						Зарегистрироваться
 					</button>
 					|
@@ -29,14 +31,7 @@ const Account: FC<IAccount> = ({ isAuthorized = false }) => {
 				</div>
 			) : (
 				<div className={styles.account}>
-					<div className={styles.info}>
-						<div className={styles.used}>
-							Использовано компаний <span>34</span>
-						</div>
-						<div className={styles.limit}>
-							Лимит по компаниям <span>100</span>
-						</div>
-					</div>
+					<Statistics />
 
 					<div className={styles.profile}>
 						<div className={styles.profileInfo}>

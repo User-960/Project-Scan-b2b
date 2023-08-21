@@ -100,7 +100,7 @@
 	width: 100%;
 }
 
-.info {
+.statistics {
 	padding: 10px 8px;
 	width: 180px;
 	height: 65px;
@@ -175,14 +175,31 @@
 @media (max-width: $tablet) {
 	.header {
 		justify-content: space-between;
+		padding: 20px 30px;
 		.mobileMenu {
-			display: block;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			max-width: 300px;
+			width: 100%;
+			margin-left: 15px;
 		}
 	}
 
 	.header {
 		.desktopMenu {
 			display: none;
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	.header {
+		padding: 20px 10px;
+		.mobileMenu {
+			.statistics {
+				margin-right: 15px;
+			}
 		}
 	}
 }

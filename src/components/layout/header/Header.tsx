@@ -4,6 +4,7 @@ import { FC } from 'react'
 
 import styles from './Header.module.scss'
 import Account from './account/Account'
+import Statistics from './account/Statistics'
 import Burger from './burger/Burger'
 import { menu } from './menu.data'
 
@@ -15,6 +16,7 @@ const Header: FC = () => {
 			<div className={styles.logo} onClick={() => push('/')}></div>
 
 			<div className={styles.mobileMenu}>
+				<Statistics />
 				<Burger />
 			</div>
 
