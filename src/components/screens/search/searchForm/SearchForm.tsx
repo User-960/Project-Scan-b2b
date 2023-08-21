@@ -18,27 +18,13 @@ const SearchForm: FC = () => {
 					<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 						<AuthField
 							id='login'
-							label='Логин или номер телефона:'
+							label='ИНН компании*'
 							type='text'
-							placeholder=''
+							placeholder='10 цифр'
 							error={errors?.login?.message}
 							name='login'
 							register={register}
-							required={'*Заполните поле логина!'}
-						/>
-
-						<AuthField
-							id='password'
-							label='Пароль:'
-							type='password'
-							placeholder=''
-							error={errorText}
-							name='password'
-							register={register}
-							required={'*Заполните поле пароля!'}
-							// pattern={
-							// 	/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{4,}/g
-							// }
+							required={'*Заполните поле ИНН!'}
 						/>
 
 						<Button
