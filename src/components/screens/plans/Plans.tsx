@@ -5,6 +5,8 @@ import { FC } from 'react'
 import Button from '@/components/ui/button/Button'
 import { GlobalSvgSelector } from '@/components/ui/svg-selector/GlobalSvgSelector'
 
+import { useAuth } from '@/components/hooks/useAuth'
+
 import styles from './Plans.module.scss'
 import { plans } from './plans.data'
 
@@ -14,6 +16,8 @@ const ferryFont = localFont({
 })
 
 const Plans: FC = () => {
+	const { isAuth } = useAuth()
+
 	return (
 		<section className={styles.sectionPlans}>
 			<h2 className={cn(ferryFont.className, styles.title)}>наши тарифы</h2>
@@ -35,7 +39,9 @@ const Plans: FC = () => {
 							<GlobalSvgSelector id={plan.img} />
 						</div>
 						<div className={styles.planInfo}>
-							<div className={styles.planInfoBadge}>Текущий тариф</div>
+							{isAuth && plan.title === 'Beginner' ? (
+								<div className={styles.planInfoBadge}>Текущий тариф</div>
+							) : null}
 
 							<div className={styles.planPrice}>
 								<p className={styles.planPriceFull}>
@@ -60,6 +66,9 @@ const Plans: FC = () => {
 										</li>
 									))}
 								</ul>
+							</div>
+
+							{!isAuth || (isAuth && plan.title !== 'Beginner') ? (
 								<Button
 									size='medium'
 									state='btnAvailable'
@@ -67,15 +76,15 @@ const Plans: FC = () => {
 								>
 									Подробнее
 								</Button>
-
-								{/* <Button
+							) : (
+								<Button
 									size='medium'
 									state='btnBlock'
 									clickHandler={() => console.log('1')}
 								>
 									Перейти в личный кабинет
-								</Button> */}
-							</div>
+								</Button>
+							)}
 						</div>
 					</li>
 				))}

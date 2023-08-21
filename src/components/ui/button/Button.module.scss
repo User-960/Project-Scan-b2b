@@ -3,12 +3,9 @@
 .button {
 	border: none;
 	outline: none;
-	padding: 14px 60px;
+	padding: 10px 30px;
 	border-radius: 5px;
 
-	color: $white;
-	font-family: Inter;
-	font-size: 22px;
 	font-weight: 500;
 	line-height: normal;
 	letter-spacing: 0.22px;
@@ -18,7 +15,7 @@
 	transition: background-color 0.15s ease;
 	@media (max-width: $mobile) {
 		font-size: 18px;
-		padding: 14px 30px;
+		padding: 7px 20px;
 	}
 }
 
@@ -34,14 +31,18 @@
 
 .btnAvailable {
 	background-color: $blue;
+	color: $white;
+	font-size: 22px;
 	&:hover {
 		background-color: rgba($accent, 0.7);
 	}
 }
 
 .btnBlock {
+	color: $black;
 	background-color: #d2d2d2;
 	cursor: not-allowed;
+	font-size: 18px;
 }
 
 /* .large {
