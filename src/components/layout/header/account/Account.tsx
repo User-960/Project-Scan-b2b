@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
@@ -14,6 +15,10 @@ import { ENUSER } from '@/config/app.constants'
 interface IAccount {
 	isAuthorized: boolean
 }
+
+const DynamicStatistics = dynamic(() => import('./Statistics'), {
+	ssr: false
+})
 
 const Account: FC<IAccount> = ({ isAuthorized = false }) => {
 	const { push } = useRouter()
@@ -39,7 +44,7 @@ const Account: FC<IAccount> = ({ isAuthorized = false }) => {
 				</div>
 			) : (
 				<div className={styles.account}>
-					<Statistics />
+					<DynamicStatistics />
 
 					<div className={styles.profile}>
 						<div className={styles.profileInfo}>

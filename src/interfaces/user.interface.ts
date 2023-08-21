@@ -6,6 +6,15 @@ export interface IUser {
 	password: string
 }
 
+export interface IEventFiltersInfo {
+	usedCompanyCount: number
+	companyLimit: number
+}
+
+export interface EventFiltersInfo {
+	eventFiltersInfo: IEventFiltersInfo
+}
+
 export interface IUserResponse {
 	accessToken: string
 	expire: string
