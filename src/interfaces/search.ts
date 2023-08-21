@@ -41,7 +41,7 @@ export interface ITargetSearchEntity {
 	inBusinessNews: boolean | null
 	sparkId: number | null
 	entityId: number | null
-	inn: string | number
+	inn: string
 	maxFullness: boolean
 }
 

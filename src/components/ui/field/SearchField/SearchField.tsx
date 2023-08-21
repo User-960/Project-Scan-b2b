@@ -1,0 +1,48 @@
+import { FC } from 'react'
+import { Message, Path, UseFormRegister, ValidationRule } from 'react-hook-form'
+
+import styles from '../Field.module.scss'
+
+import { IAuthFields, ISearchFields } from '@/interfaces/form.interface'
+
+interface ISearchFieldProps {
+	id: string
+	label: string
+	placeholder: string
+	type: string
+	register: UseFormRegister<ISearchFields>
+	name: Path<ISearchFields>
+	required: Message | ValidationRule<boolean>
+	pattern?: ValidationRule<RegExp>
+	error?: string
+}
+
+const SearchField: FC<ISearchFieldProps> = ({
+	id,
+	label,
+	register,
+	name,
+	required,
+	placeholder,
+	type,
+	error,
+	pattern
+}) => {
+	return (
+		<div className={styles.fieldWrapper}>
+			<label htmlFor={id} className={styles.label}>
+				{label}
+			</label>
+			<input
+				id={id}
+				placeholder={placeholder}
+				type={type}
+				{...register(name, { required, pattern })}
+				className={styles.input}
+			/>
+			{error && <div className='error'>{error}</div>}
+		</div>
+	)
+}
+
+export default SearchField

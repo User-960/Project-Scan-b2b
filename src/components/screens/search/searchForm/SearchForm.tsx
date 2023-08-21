@@ -1,41 +1,50 @@
 import { FC } from 'react'
 
 import Button from '@/components/ui/button/Button'
-import AuthField from '@/components/ui/field/AuthField/AuthField'
+import SearchField from '@/components/ui/field/SearchField/SearchField'
 import Loader from '@/components/ui/loader/Loader'
+
+import { useNewWorkoutPage } from '@/components/hooks/useObjectSearch'
 
 import styles from './SearchForm.module.scss'
 
 const SearchForm: FC = () => {
+	const {
+		register,
+		handleSubmit,
+		control,
+		errors,
+		errorState,
+		isLoading,
+		isSuccess,
+		onSubmit
+	} = useNewWorkoutPage()
+
 	return (
 		<>
 			<div className={styles.wrapper}>
-				{/* {isLoading ? (
+				{isLoading ? (
 					<div className={styles.loader}>
 						<Loader />
 					</div>
 				) : (
 					<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-						<AuthField
-							id='login'
+						<SearchField
+							id='inn'
 							label='ИНН компании*'
 							type='text'
 							placeholder='10 цифр'
-							error={errors?.login?.message}
-							name='login'
+							error={errors?.inn?.message}
+							name='inn'
 							register={register}
 							required={'*Заполните поле ИНН!'}
 						/>
 
-						<Button
-							size='medium'
-							state='btnAvailable'
-							clickHandler={() => setType(authType)}
-						>
-							{authType === 'login' ? 'Войти' : 'Зарегистрироваться'}
+						<Button size='medium' state='btnAvailable'>
+							Поиск
 						</Button>
 					</form>
-				)} */}
+				)}
 			</div>
 		</>
 	)

@@ -35,7 +35,17 @@ const testRes: ISearchResponse = {
 }
 
 class ObjectSearch {
-	async main(inn: string, password: string, type: string) {
+	async search(
+		inn: string,
+		startDate: string,
+		endDate: string,
+		limit: number,
+		tonality: string,
+		onlyWithRiskFactors: boolean,
+		onlyMainRole: boolean,
+		maxFullness: boolean,
+		inBusinessNews: boolean | null
+	) {
 		const postData: ISearch = {
 			issueDateInterval: {
 				startDate: '2019-01-01T00:00:00+03:00',
@@ -48,7 +58,7 @@ class ObjectSearch {
 							type: 'company',
 							sparkId: null,
 							entityId: null,
-							inn: 7710137066,
+							inn: inn,
 							maxFullness: true,
 							inBusinessNews: null
 						}
