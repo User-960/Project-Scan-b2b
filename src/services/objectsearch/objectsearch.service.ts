@@ -64,7 +64,7 @@ class ObjectSearch {
 						}
 					],
 					onlyMainRole: true,
-					tonality: 'any',
+					tonality: tonality,
 					onlyWithRiskFactors: false
 				}
 			},

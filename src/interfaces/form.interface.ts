@@ -14,3 +14,9 @@ export interface ISearchFields {
 	maxFullness: boolean
 	inBusinessNews: boolean | null
 }
+
+export interface ITonalityOption {
+	id: number
+	value: string
+	label: string
+}

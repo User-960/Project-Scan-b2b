@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import Button from '@/components/ui/button/Button'
 import SearchField from '@/components/ui/field/SearchField/SearchField'
+import SelectTonality from '@/components/ui/field/SearchField/SelectTonality'
 import Loader from '@/components/ui/loader/Loader'
 
 import { useNewWorkoutPage } from '@/components/hooks/useObjectSearch'
@@ -39,6 +40,8 @@ const SearchForm: FC = () => {
 							register={register}
 							required={'*Заполните поле ИНН!'}
 						/>
+
+						<SelectTonality control={control} />
 
 						<Button size='medium' state='btnAvailable'>
 							Поиск
