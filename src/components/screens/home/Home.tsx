@@ -45,7 +45,7 @@ const Home: FC = () => {
 						<Button
 							size={'medium'}
 							state='btnAvailable'
-							clickHandler={() => push('/getdata')}
+							clickHandler={() => push('/search')}
 						>
 							Запросить данные
 						</Button>
