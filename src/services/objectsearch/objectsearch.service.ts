@@ -80,7 +80,7 @@ class ObjectSearch {
 				excludeDigests: true
 			},
 			similarMode: 'duplicates',
-			limit: 1000,
+			limit: limit,
 			sortType: 'sourceInfluence',
 			sortDirectionType: 'desc',
 			intervalType: 'month',

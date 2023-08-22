@@ -54,7 +54,7 @@ const SearchForm: FC = () => {
 							min={'1'}
 							max={'1000'}
 							placeholder='От 1 до 1000'
-							error={errors?.inn?.message}
+							error={errors?.limit?.message}
 							name='limit'
 							register={register}
 							required={'*Заполните поле количество документов в выдаче!'}
