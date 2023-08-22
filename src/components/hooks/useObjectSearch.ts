@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { ISearchFields } from '@/interfaces/form.interface'
 import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
-export const useNewWorkoutPage = () => {
+export const useObjectSearch = () => {
 	const [errorState, setErrorState] = useState<string>('')
 
 	const { isLoading, isSuccess, mutateAsync } = useMutation(

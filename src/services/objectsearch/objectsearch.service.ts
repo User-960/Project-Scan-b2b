@@ -87,6 +87,7 @@ class ObjectSearch {
 			histogramTypes: ['totalDocuments', 'riskFactors']
 		}
 
+		console.log(startDate, endDate)
 		try {
 			const { data } = await $axios.post<ISearchResponse>(
 				`${HISTOGRAMS}`,

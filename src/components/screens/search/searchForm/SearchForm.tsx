@@ -1,11 +1,12 @@
 import { FC } from 'react'
 
 import Button from '@/components/ui/button/Button'
+import DatePickerField from '@/components/ui/field/SearchField/DatePickerField'
 import SearchField from '@/components/ui/field/SearchField/SearchField'
 import SelectTonality from '@/components/ui/field/SearchField/SelectTonality'
 import Loader from '@/components/ui/loader/Loader'
 
-import { useNewWorkoutPage } from '@/components/hooks/useObjectSearch'
+import { useObjectSearch } from '@/components/hooks/useObjectSearch'
 
 import styles from './SearchForm.module.scss'
 
@@ -19,7 +20,7 @@ const SearchForm: FC = () => {
 		isLoading,
 		isSuccess,
 		onSubmit
-	} = useNewWorkoutPage()
+	} = useObjectSearch()
 
 	return (
 		<>
@@ -58,6 +59,20 @@ const SearchForm: FC = () => {
 							name='limit'
 							register={register}
 							required={'*Заполните поле количество документов в выдаче!'}
+						/>
+
+						<DatePickerField
+							control={control}
+							name='startDate'
+							placeholder='Дата начала'
+							required={'*Укажите дату начала!'}
+						/>
+
+						<DatePickerField
+							control={control}
+							name='endDate'
+							placeholder='Дата конца'
+							required={'*Укажите дату конца!'}
 						/>
 
 						<Button size='medium' state='btnAvailable'>

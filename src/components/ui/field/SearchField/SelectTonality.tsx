@@ -38,7 +38,7 @@ const SelectTonality: FC<ISelectTonalityProps> = ({ control, id, label }) => {
 			name='tonality'
 			control={control}
 			defaultValue={options[0].value}
-			rules={{ required: 'Exercise is required!' }}
+			rules={{ required: 'Поле тональности необязательно' }}
 			render={({ field: { value, onChange }, fieldState: { error } }) => (
 				<div className={styles.fieldWrapper}>
 					<label htmlFor={id} className={styles.label}>
