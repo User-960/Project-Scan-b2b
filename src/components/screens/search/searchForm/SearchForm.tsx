@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import Button from '@/components/ui/button/Button'
+import CheckboxField from '@/components/ui/field/SearchField/CheckboxField'
 import DatePickerField from '@/components/ui/field/SearchField/DatePickerField'
 import SearchField from '@/components/ui/field/SearchField/SearchField'
 import SelectTonality from '@/components/ui/field/SearchField/SelectTonality'
@@ -78,6 +79,17 @@ const SearchForm: FC = () => {
 									required={'*Укажите дату конца!'}
 								/>
 							</div>
+						</div>
+
+						<div className={styles.wrapperDatePicker}>
+							<CheckboxField
+								id='maxFullness'
+								label='Признак максимальной полноты'
+								type='checkbox'
+								error={errors?.maxFullness?.message}
+								name='maxFullness'
+								register={register}
+							/>
 						</div>
 
 						<Button size='medium' state='btnAvailable'>

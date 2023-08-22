@@ -1,6 +1,6 @@
-import { DatePicker, DatePickerProps } from 'antd'
+import { DatePicker } from 'antd'
 import dayjs from 'dayjs'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import {
 	Control,
 	Controller,

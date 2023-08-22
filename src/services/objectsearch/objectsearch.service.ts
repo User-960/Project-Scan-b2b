@@ -59,7 +59,7 @@ class ObjectSearch {
 							sparkId: null,
 							entityId: null,
 							inn: inn,
-							maxFullness: true,
+							maxFullness: maxFullness,
 							inBusinessNews: null
 						}
 					],
