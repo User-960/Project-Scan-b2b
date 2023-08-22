@@ -9,6 +9,8 @@ interface ISearchFieldProps {
 	label: string
 	placeholder: string
 	type: string
+	min?: string
+	max?: string
 	register: UseFormRegister<ISearchFields>
 	name: Path<ISearchFields>
 	required: Message | ValidationRule<boolean>
@@ -25,7 +27,9 @@ const SearchField: FC<ISearchFieldProps> = ({
 	placeholder,
 	type,
 	error,
-	pattern
+	pattern,
+	min,
+	max
 }) => {
 	return (
 		<div className={styles.fieldWrapper}>
@@ -36,6 +40,8 @@ const SearchField: FC<ISearchFieldProps> = ({
 				id={id}
 				placeholder={placeholder}
 				type={type}
+				min={min}
+				max={max}
 				{...register(name, { required, pattern })}
 				className={styles.input}
 			/>

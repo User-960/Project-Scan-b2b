@@ -47,6 +47,19 @@ const SearchForm: FC = () => {
 							label='Тональность'
 						/>
 
+						<SearchField
+							id='limit'
+							label='Количество документов в выдаче*'
+							type='number'
+							min={'1'}
+							max={'1000'}
+							placeholder='От 1 до 1000'
+							error={errors?.inn?.message}
+							name='limit'
+							register={register}
+							required={'*Заполните поле количество документов в выдаче!'}
+						/>
+
 						<Button size='medium' state='btnAvailable'>
 							Поиск
 						</Button>
