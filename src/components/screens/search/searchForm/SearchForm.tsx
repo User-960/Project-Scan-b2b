@@ -61,19 +61,24 @@ const SearchForm: FC = () => {
 							required={'*Заполните поле количество документов в выдаче!'}
 						/>
 
-						<DatePickerField
-							control={control}
-							name='startDate'
-							placeholder='Дата начала'
-							required={'*Укажите дату начала!'}
-						/>
+						<div className={styles.wrapperDatePicker}>
+							<div className={styles.label}>Диапазон поиска*</div>
+							<div className={styles.fieldsDatePicker}>
+								<DatePickerField
+									control={control}
+									name='startDate'
+									placeholder='Дата начала'
+									required={'*Укажите дату начала!'}
+								/>
 
-						<DatePickerField
-							control={control}
-							name='endDate'
-							placeholder='Дата конца'
-							required={'*Укажите дату конца!'}
-						/>
+								<DatePickerField
+									control={control}
+									name='endDate'
+									placeholder='Дата конца'
+									required={'*Укажите дату конца!'}
+								/>
+							</div>
+						</div>
 
 						<Button size='medium' state='btnAvailable'>
 							Поиск

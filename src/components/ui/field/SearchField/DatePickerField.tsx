@@ -9,7 +9,7 @@ import {
 	ValidationRule
 } from 'react-hook-form'
 
-import styles from './SearchField.module.scss'
+import styles from './DatePickerField.module.scss'
 import { ISearchFields } from '@/interfaces/form.interface'
 
 interface IDatePickerFieldProps {
@@ -26,33 +26,32 @@ const DatePickerField: FC<IDatePickerFieldProps> = ({
 	required
 }) => {
 	return (
-		<div>
-			<Controller
-				name={name === 'startDate' ? 'startDate' : 'endDate'}
-				control={control}
-				rules={{
-					required: required
-				}}
-				render={({
-					field: { value, onChange, onBlur, ref },
-					fieldState: { error }
-				}) => (
-					<div className={styles.fieldWrapper}>
-						<DatePicker
-							ref={ref}
-							placeholder={placeholder}
-							status={error ? 'error' : undefined}
-							onBlur={onBlur}
-							value={value ? dayjs(value) : null}
-							onChange={date => {
-								onChange(date ? date.valueOf() : null)
-							}}
-						/>
-						{error && <div className='error'>{error.message}</div>}
-					</div>
-				)}
-			/>
-		</div>
+		<Controller
+			name={name === 'startDate' ? 'startDate' : 'endDate'}
+			control={control}
+			rules={{
+				required: required
+			}}
+			render={({
+				field: { value, onChange, onBlur, ref },
+				fieldState: { error }
+			}) => (
+				<div className={styles.fieldWrapper}>
+					<DatePicker
+						ref={ref}
+						className={styles.datePicker}
+						placeholder={placeholder}
+						status={error ? 'error' : undefined}
+						onBlur={onBlur}
+						value={value ? dayjs(value) : null}
+						onChange={date => {
+							onChange(date ? date.valueOf() : null)
+						}}
+					/>
+					{error && <div className='error'>{error.message}</div>}
+				</div>
+			)}
+		/>
 	)
 }
 

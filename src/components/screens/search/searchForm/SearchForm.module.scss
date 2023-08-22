@@ -47,18 +47,42 @@
 			color: $accent;
 		}
 	}
+
+	.wrapperDatePicker {
+		.fieldsDatePicker {
+			max-width: 372px;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+		.fieldsDatePicker {
+			max-width: 372px;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.label {
+			color: $black;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: 0.54px;
+			margin-bottom: 20px;
+		}
+	}
 }
 
-/* @media (max-width: 1000px) {
-	.wrapper {
-		position: absolute;
-		top: 350px;
-	}
-} */
+// /* @media (max-width: 1000px) {
+// 	.wrapper {
+// 		position: absolute;
+// 		top: 350px;
+// 	}
+// } */
 
-/* @media (max-width: $mobile) {
-	.wrapper {
-		max-width: 320px;
-		height: 580px;
-	}
-} */
+// /* @media (max-width: $mobile) {
+// 	.wrapper {
+// 		max-width: 320px;
+// 		height: 580px;
+// 	}
+// } */

@@ -1,8 +1,7 @@
 import { FC } from 'react'
 import { Message, Path, UseFormRegister, ValidationRule } from 'react-hook-form'
 
-import styles from '../Field.module.scss'
-
+import styles from './Auth.module.scss'
 import { IAuthFields } from '@/interfaces/form.interface'
 
 interface IAuthFieldProps {

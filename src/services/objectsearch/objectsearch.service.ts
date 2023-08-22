@@ -1,5 +1,3 @@
-import moment from 'moment'
-
 import { $axios } from '@/api/api'
 import { ISearch, ISearchResponse } from '@/interfaces/search'
 

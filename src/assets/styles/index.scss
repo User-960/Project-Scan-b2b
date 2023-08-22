@@ -102,7 +102,7 @@ input[type='number'] {
 
 .error {
 	color: #8d2b3d;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	margin: 10px 0px;
 }
 
@@ -195,5 +195,11 @@ input[type='number'] {
 
 	&__input {
 		color: $white !important;
+	}
+}
+
+@media (max-width: $mobile) {
+	.error {
+		font-size: 0.7rem;
 	}
 }
