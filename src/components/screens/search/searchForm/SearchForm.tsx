@@ -41,7 +41,11 @@ const SearchForm: FC = () => {
 							required={'*Заполните поле ИНН!'}
 						/>
 
-						<SelectTonality control={control} />
+						<SelectTonality
+							control={control}
+							id='tonality'
+							label='Тональность'
+						/>
 
 						<Button size='medium' state='btnAvailable'>
 							Поиск

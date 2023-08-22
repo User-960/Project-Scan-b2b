@@ -105,3 +105,95 @@ input[type='number'] {
 	font-size: 1rem;
 	margin: 10px 0px;
 }
+
+.select2-selection {
+	&__control {
+		cursor: pointer !important;
+		max-width: 242px;
+		width: 100%;
+		min-height: 43px !important;
+		border-radius: 5px !important;
+		border: 1px solid #c7c7c7 !important;
+		background-color: $white !important;
+		box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+
+		color: $black;
+		font-family: Inter;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: 0.42px;
+		&--is-focused {
+			border-color: transparent !important;
+			box-shadow: 0 0 0 1px rgba($accent, 0.3) !important;
+		}
+	}
+
+	&__value-container,
+	&__value-container--has-value {
+		padding: 10px 20px !important;
+	}
+
+	&__menu {
+		max-width: 242px;
+		width: 100%;
+		background-color: $white !important;
+		border-radius: 5px !important;
+
+		&-list {
+			padding: 0 !important;
+			border-radius: 5px !important;
+
+			color: $black;
+			font-family: Inter;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: 0.42px;
+		}
+
+		&-notice {
+			color: $grey !important;
+		}
+	}
+
+	&__option {
+		cursor: pointer !important;
+		padding: 10px 20px !important;
+		&--is-focused {
+			background-color: darken($grey, 3%) !important;
+		}
+		&--is-selected {
+			background-color: darken($grey, 4%) !important;
+		}
+	}
+
+	&__indicator,
+	&__indicator:hover {
+		color: transparent !important;
+		background-image: url('../../../public/images/rectangle.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	&__indicator-separator {
+		display: none;
+	}
+
+	&__placeholder {
+		color: $black;
+		font-family: Inter;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: 0.42px;
+	}
+
+	&__single-value {
+		color: $black !important;
+	}
+
+	&__input {
+		color: $white !important;
+	}
+}

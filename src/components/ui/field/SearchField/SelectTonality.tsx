@@ -2,13 +2,16 @@ import { FC } from 'react'
 import { Control, Controller } from 'react-hook-form'
 import ReactSelect, { Props } from 'react-select'
 
+import styles from './SearchField.module.scss'
 import { ISearchFields, ITonalityOption } from '@/interfaces/form.interface'
 
 interface ISelectTonalityProps extends Props<any> {
 	control: Control<ISearchFields, any>
+	id: string
+	label: string
 }
 
-const SelectTonality: FC<ISelectTonalityProps> = ({ control }) => {
+const SelectTonality: FC<ISelectTonalityProps> = ({ control, id, label }) => {
 	const options: ITonalityOption[] = [
 		{
 			id: 1,
@@ -34,14 +37,17 @@ const SelectTonality: FC<ISelectTonalityProps> = ({ control }) => {
 		<Controller
 			name='tonality'
 			control={control}
+			defaultValue={options[0].value}
 			rules={{ required: 'Exercise is required!' }}
 			render={({ field: { value, onChange }, fieldState: { error } }) => (
-				<div>
+				<div className={styles.fieldWrapper}>
+					<label htmlFor={id} className={styles.label}>
+						{label}
+					</label>
 					<ReactSelect
 						classNamePrefix='select2-selection'
-						placeholder='Tonality'
-						options={options}
 						value={getValue(value)}
+						options={options}
 						onChange={newValue => onChange((newValue as ITonalityOption).value)}
 					/>
 					{error && <div className='error'>{error.message}</div>}
