@@ -7,6 +7,7 @@ import Layout from '@/components/layout/Layout'
 import { IMeta } from '@/components/seo/meta.interface'
 
 import documentsImage from '../../../../public/images/documents.svg'
+import formSearchImg from '../../../../public/images/formSearchImg.svg'
 
 import styles from './Search.module.scss'
 import SearchForm from './searchForm/SearchForm'
@@ -41,8 +42,13 @@ const Search: FC = () => {
 				/>
 			</section>
 
-			<section>
+			<section className={styles.sectionForm}>
 				<SearchForm />
+				<Image
+					className={styles.sectionFormImage}
+					src={formSearchImg}
+					alt='Form image'
+				/>
 			</section>
 		</Layout>
 	)

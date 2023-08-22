@@ -3,9 +3,7 @@
 .wrapper {
 	position: relative;
 	max-width: 872px;
-	width: 100%;
 	min-height: 523px;
-	padding: 25px 25px 30px 25px;
 
 	display: flex;
 	flex-direction: column;
@@ -24,12 +22,39 @@
 
 	.form {
 		display: flex;
+		justify-content: space-between;
+		padding: 30px 32px;
+
+		max-width: 872px;
+		width: 100%;
 
 		.fields {
 			display: flex;
 			flex-direction: column;
 			align-content: center;
 			justify-content: center;
+			margin-right: 11px;
+		}
+
+		.checkboxes {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+			.btnWrapper {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				.warningText {
+					color: #949494;
+					font-size: 14px;
+					font-weight: 400;
+					line-height: normal;
+					letter-spacing: 0.42px;
+					margin-top: 10px;
+					margin-right: 45px;
+				}
+			}
 		}
 	}
 

@@ -173,9 +173,15 @@ const SearchForm: FC = () => {
 									register={register}
 								/> */}
 							</ul>
-							<Button size='medium' state='btnAvailable'>
-								Поиск
-							</Button>
+
+							<div className={styles.btnWrapper}>
+								<Button size='small' state='btnAvailable'>
+									Поиск
+								</Button>
+								<div className={styles.warningText}>
+									* Обязательные к заполнению поля
+								</div>
+							</div>
 						</div>
 					</form>
 				)}

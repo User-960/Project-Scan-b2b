@@ -17,14 +17,12 @@ const Button: FC<IButtonProps> = ({
 	children
 }) => {
 	return (
-		<div className={styles.wrapper}>
-			<button
-				className={cn(styles.button, styles[size], styles[state])}
-				onClick={clickHandler}
-			>
-				{children}
-			</button>
-		</div>
+		<button
+			className={cn(styles.button, styles[size], styles[state])}
+			onClick={clickHandler}
+		>
+			{children}
+		</button>
 	)
 }
 
