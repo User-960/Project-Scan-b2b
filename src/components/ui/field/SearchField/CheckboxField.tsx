@@ -8,7 +8,6 @@ import { ISearchFields } from '@/interfaces/form.interface'
 interface ISearchFieldProps {
 	id: string
 	label: string
-	type: string
 	register: UseFormRegister<ISearchFields>
 	name: Path<ISearchFields>
 	required?: Message | ValidationRule<boolean>
@@ -22,19 +21,22 @@ const CheckboxField: FC<ISearchFieldProps> = ({
 	register,
 	name,
 	required,
-	type,
 	error,
 	pattern
 }) => {
 	return (
-		<div className={styles.fieldWrapper}>
+		<li className={styles.fieldWrapper}>
 			<label htmlFor={id} className='checkbox style-b'>
-				<input id={id} type={type} {...register(name, { required, pattern })} />
+				<input
+					id={id}
+					type='checkbox'
+					{...register(name, { required, pattern })}
+				/>
 				<div className='checkbox__checkmark'></div>
 				<div className='checkbox__body'>{label}</div>
 			</label>
 			{error && <div className='error'>{error}</div>}
-		</div>
+		</li>
 	)
 }
 

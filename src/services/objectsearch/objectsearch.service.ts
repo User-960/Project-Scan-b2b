@@ -60,12 +60,12 @@ class ObjectSearch {
 							entityId: null,
 							inn: inn,
 							maxFullness: maxFullness,
-							inBusinessNews: null
+							inBusinessNews: inBusinessNews
 						}
 					],
-					onlyMainRole: true,
+					onlyMainRole: onlyMainRole,
 					tonality: tonality,
-					onlyWithRiskFactors: false
+					onlyWithRiskFactors: onlyWithRiskFactors
 				}
 			},
 			searchArea: {
