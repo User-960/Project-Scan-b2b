@@ -1,4 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
+import moment from 'moment'
 import { useMemo, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
@@ -58,8 +59,8 @@ export const useObjectSearch = () => {
 	const onSubmit: SubmitHandler<ISearchFields> = async data => {
 		await mutateAsync({
 			inn: data.inn,
-			startDate: data.startDate,
-			endDate: data.endDate,
+			startDate: moment(data.startDate).format(),
+			endDate: moment(data.endDate).format(),
 			limit: data.limit,
 			tonality: data.tonality,
 			onlyWithRiskFactors: data.onlyWithRiskFactors,

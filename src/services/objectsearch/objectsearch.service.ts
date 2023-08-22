@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 import { $axios } from '@/api/api'
 import { ISearch, ISearchResponse } from '@/interfaces/search'
 
@@ -48,8 +50,8 @@ class ObjectSearch {
 	) {
 		const postData: ISearch = {
 			issueDateInterval: {
-				startDate: '2019-01-01T00:00:00+03:00',
-				endDate: '2022-08-31T23:59:59+03:00'
+				startDate: startDate,
+				endDate: endDate
 			},
 			searchContext: {
 				targetSearchEntitiesContext: {
@@ -87,7 +89,6 @@ class ObjectSearch {
 			histogramTypes: ['totalDocuments', 'riskFactors']
 		}
 
-		console.log(startDate, endDate)
 		try {
 			const { data } = await $axios.post<ISearchResponse>(
 				`${HISTOGRAMS}`,
