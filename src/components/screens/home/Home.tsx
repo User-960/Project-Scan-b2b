@@ -42,13 +42,15 @@ const Home: FC = () => {
 							Комплексный анализ публикаций, получение данных в формате PDF на
 							электронную почту.
 						</h4>
-						<Button
-							size={'medium'}
-							state='btnAvailable'
-							clickHandler={() => push('/search')}
-						>
-							Запросить данные
-						</Button>
+						<div className={styles.btnWrapper}>
+							<Button
+								size={'medium'}
+								state='btnAvailable'
+								clickHandler={() => push('/search')}
+							>
+								Запросить данные
+							</Button>
+						</div>
 					</div>
 					<Image
 						className={styles.mainImage}

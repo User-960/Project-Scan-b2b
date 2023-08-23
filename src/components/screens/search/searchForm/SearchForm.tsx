@@ -175,7 +175,7 @@ const SearchForm: FC = () => {
 							</ul>
 
 							<div className={styles.btnWrapper}>
-								<Button size='small' state='btnAvailable'>
+								<Button size='medium' state='btnAvailable'>
 									Поиск
 								</Button>
 								<div className={styles.warningText}>
