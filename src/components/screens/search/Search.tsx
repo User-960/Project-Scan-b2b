@@ -1,13 +1,16 @@
 import cn from 'clsx'
 import localFont from 'next/font/local'
 import Image from 'next/image'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
+
+import { useObject } from '@/components/hooks/useObject'
 
 import Layout from '@/components/layout/Layout'
 import { IMeta } from '@/components/seo/meta.interface'
 
 import documentsImage from '../../../../public/images/documents.svg'
 import formSearchImg from '../../../../public/images/formSearchImg.svg'
+import SearchResult from '../search-result/SearchResult'
 
 import styles from './Search.module.scss'
 import SearchForm from './searchForm/SearchForm'
@@ -23,33 +26,41 @@ const Search: FC = () => {
 		description: 'Find company'
 	}
 
+	const { histogramsData } = useObject()
+
 	return (
 		<Layout meta={meta}>
-			<section className={styles.sectionSearch}>
-				<div className={styles.info}>
-					<h1 className={cn(ferryFont.className, styles.title)}>
-						Найдите необходимые данные в пару кликов.
-					</h1>
-					<h4 className={styles.description}>
-						Задайте параметры поиска. Чем больше заполните, тем точнее поиск
-					</h4>
-				</div>
+			{!histogramsData ? (
+				<>
+					<section className={styles.sectionSearch}>
+						<div className={styles.info}>
+							<h1 className={cn(ferryFont.className, styles.title)}>
+								Найдите необходимые данные в пару кликов.
+							</h1>
+							<h4 className={styles.description}>
+								Задайте параметры поиска. Чем больше заполните, тем точнее поиск
+							</h4>
+						</div>
 
-				<Image
-					className={styles.sectionImage}
-					src={documentsImage}
-					alt='Main image'
-				/>
-			</section>
+						<Image
+							className={styles.sectionImage}
+							src={documentsImage}
+							alt='Main image'
+						/>
+					</section>
 
-			<section className={styles.sectionForm}>
-				<SearchForm />
-				<Image
-					className={styles.sectionFormImage}
-					src={formSearchImg}
-					alt='Form image'
-				/>
-			</section>
+					<section className={styles.sectionForm}>
+						<SearchForm />
+						<Image
+							className={styles.sectionFormImage}
+							src={formSearchImg}
+							alt='Form image'
+						/>
+					</section>
+				</>
+			) : (
+				<SearchResult />
+			)}
 		</Layout>
 	)
 }

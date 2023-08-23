@@ -4,12 +4,14 @@ import { useRouter } from 'next/router'
 import { useMemo, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { useObject } from './useObject'
 import { ISearchFields } from '@/interfaces/form.interface'
 import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
 export const useObjectSearch = () => {
 	const [errorState, setErrorState] = useState<string>('')
 	const { push } = useRouter()
+	const { histogramsData, setHistogramsData } = useObject()
 
 	const { isLoading, isSuccess, mutateAsync } = useMutation(
 		['search object'],
@@ -37,9 +39,9 @@ export const useObjectSearch = () => {
 			),
 		{
 			onSuccess: data => {
-				console.log(data)
 				reset()
-				push('/result')
+				// push('/result')
+				setHistogramsData(data)
 			},
 			onError: (error: Error) => {
 				if (error) {

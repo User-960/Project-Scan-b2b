@@ -2,6 +2,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
 
+import ObjectSearchProvider from '@/components/providers/ObjectSearchProvider'
+
 import '@/assets/styles/index.scss'
 import { TypeComponentAuthFields } from '@/interfaces/page.interface'
 
@@ -26,7 +28,9 @@ export default function App({ Component, pageProps }: TypeApp) {
 	return (
 		<DynamicAuthProvider Component={Component}>
 			<QueryClientProvider client={queryClient}>
-				<Component {...pageProps} />
+				<ObjectSearchProvider>
+					<Component {...pageProps} />
+				</ObjectSearchProvider>
 			</QueryClientProvider>
 		</DynamicAuthProvider>
 	)

@@ -1,7 +1,10 @@
 import cn from 'clsx'
+import dynamic from 'next/dynamic'
 import localFont from 'next/font/local'
 import Image from 'next/image'
 import { FC } from 'react'
+
+import { useObjectSearch } from '@/components/hooks/useObjectSearch'
 
 import Layout from '@/components/layout/Layout'
 import { IMeta } from '@/components/seo/meta.interface'
@@ -9,20 +12,30 @@ import { IMeta } from '@/components/seo/meta.interface'
 import resultSearchImage from '../../../../public/images/resultSearchImg.svg'
 
 import styles from './SearchResult.module.scss'
+import ResultCarousel from './result-carousel/ResultCarousel'
 
 const ferryFont = localFont({
 	src: '../../../assets/fonts/ferry_black.otf',
 	display: 'swap'
 })
 
-const SearchResult: FC = () => {
-	const meta: IMeta = {
-		title: 'Результат поиска',
-		description: 'Search result'
+const DynamicResultCarousel = dynamic(
+	() => import('./result-carousel/ResultCarousel'),
+	{
+		ssr: false
 	}
+)
+
+const SearchResult: FC = () => {
+	// const meta: IMeta = {
+	// 	title: 'Результат поиска',
+	// 	description: 'Search result'
+	// }
+
+	const { isLoading } = useObjectSearch()
 
 	return (
-		<Layout meta={meta}>
+		<>
 			<section className={styles.sectionResultSearch}>
 				<div className={styles.info}>
 					<h1 className={cn(ferryFont.className, styles.title)}>
@@ -39,7 +52,12 @@ const SearchResult: FC = () => {
 					alt='Main image'
 				/>
 			</section>
-		</Layout>
+
+			<section>
+				{/* <DynamicResultCarousel data={resultData} /> */}
+				<ResultCarousel />
+			</section>
+		</>
 	)
 }
 
