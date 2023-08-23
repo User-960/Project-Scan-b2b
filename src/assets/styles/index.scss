@@ -271,3 +271,17 @@ input[type='number'] {
 		font-size: 0.7rem;
 	}
 }
+
+@media (max-width: 600px) {
+	.select2-selection {
+		&__control {
+			max-width: 100%;
+			width: 100%;
+		}
+
+		&__menu {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+}

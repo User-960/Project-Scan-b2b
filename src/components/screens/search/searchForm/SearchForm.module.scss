@@ -44,7 +44,9 @@
 			.btnWrapper {
 				display: flex;
 				flex-direction: column;
-				align-items: flex-end;
+				align-self: flex-end;
+				max-width: 305px;
+				width: 100%;
 				.warningText {
 					color: #949494;
 					font-size: 14px;
@@ -58,29 +60,7 @@
 		}
 	}
 
-	.changePassword {
-		color: $blue;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: normal;
-		letter-spacing: 0.28px;
-		text-decoration-line: underline;
-		text-align: center;
-		margin-bottom: 30px;
-		transition: color 0.15 ease-in-out;
-
-		&:hover {
-			color: $accent;
-		}
-	}
-
 	.wrapperDatePicker {
-		.fieldsDatePicker {
-			max-width: 372px;
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
-		}
 		.fieldsDatePicker {
 			max-width: 372px;
 			width: 100%;
@@ -99,16 +79,50 @@
 	}
 }
 
-// /* @media (max-width: 1000px) {
-// 	.wrapper {
-// 		position: absolute;
-// 		top: 350px;
-// 	}
-// } */
+@media (max-width: 1300px) {
+	.wrapper {
+		.wrapperDatePicker {
+			.fieldsDatePicker {
+				flex-direction: column;
+			}
+		}
+	}
+}
 
-// /* @media (max-width: $mobile) {
-// 	.wrapper {
-// 		max-width: 320px;
-// 		height: 580px;
-// 	}
-// } */
+@media (max-width: 600px) {
+	.wrapper {
+		.form {
+			flex-direction: column;
+			.fields {
+				margin-right: 0px;
+			}
+			.checkboxes {
+				.wrapperDatePicker {
+					display: none;
+				}
+				.btnWrapper {
+					margin-top: 40px;
+					max-width: 100%;
+					width: 100%;
+					.warningText {
+						margin-right: 0px;
+					}
+				}
+			}
+		}
+
+		.wrapperDatePicker {
+			.fieldsDatePicker {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	.wrapper {
+		.form {
+			padding: 30px 20px;
+		}
+	}
+}

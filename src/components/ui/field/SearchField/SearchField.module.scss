@@ -42,3 +42,12 @@
 		margin-bottom: 20px;
 	}
 }
+
+@media (max-width: 600px) {
+	.fieldWrapper {
+		.input {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+}

@@ -12,3 +12,25 @@
 		}
 	}
 }
+
+@media (max-width: 1300px) {
+	.fieldWrapper {
+		.datePicker {
+			&:nth-child(1) {
+				margin-right: 0px;
+				margin-bottom: 15px;
+			}
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	.fieldWrapper {
+		max-width: 100%;
+		width: 100%;
+
+		.datePicker {
+			width: 100%;
+		}
+	}
+}
