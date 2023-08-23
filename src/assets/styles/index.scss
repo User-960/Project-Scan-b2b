@@ -266,6 +266,49 @@ input[type='number'] {
 	transition: background-color 0.25s ease;
 }
 
+.carouselHistograms {
+	max-width: 1120px;
+	margin-left: 125px;
+	height: 158px;
+	padding: 20px 0px;
+	border-radius: 10px;
+	border: 2px solid #029491 !important;
+}
+
+.carouselHistograms .slick-slide {
+	width: 135px;
+	/* &::after {
+		width: 2px;
+		height: 124px;
+		opacity: 0.4;
+		background: #949494;
+	} */
+}
+
+.carouselHistograms .slick-next {
+	right: -45px;
+	width: 39px;
+	height: 39px;
+	background-image: url('../../../public/images/arrowRightHistogram.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	&:hover {
+		background-image: url('../../../public/images/arrowRightHistogram.png');
+	}
+}
+
+.carouselHistograms .slick-prev {
+	left: -170px;
+	width: 39px;
+	height: 39px;
+	background-image: url('../../../public/images/arrowLeftHistogram.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	&:hover {
+		background-image: url('../../../public/images/arrowLeftHistogram.png');
+	}
+}
+
 @media (max-width: $mobile) {
 	.error {
 		font-size: 0.7rem;

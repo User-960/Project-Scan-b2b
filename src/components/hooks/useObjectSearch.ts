@@ -39,9 +39,13 @@ export const useObjectSearch = () => {
 			),
 		{
 			onSuccess: data => {
-				reset()
-				// push('/result')
-				setHistogramsData(data)
+				if (data && data.data.length !== 0) {
+					reset()
+					// push('/result')
+					setHistogramsData(data)
+				} else {
+					setErrorState('Data is empty')
+				}
 			},
 			onError: (error: Error) => {
 				if (error) {

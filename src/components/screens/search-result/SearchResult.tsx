@@ -4,11 +4,6 @@ import localFont from 'next/font/local'
 import Image from 'next/image'
 import { FC } from 'react'
 
-import { useObjectSearch } from '@/components/hooks/useObjectSearch'
-
-import Layout from '@/components/layout/Layout'
-import { IMeta } from '@/components/seo/meta.interface'
-
 import resultSearchImage from '../../../../public/images/resultSearchImg.svg'
 
 import styles from './SearchResult.module.scss'
@@ -31,8 +26,6 @@ const SearchResult: FC = () => {
 	// 	title: 'Результат поиска',
 	// 	description: 'Search result'
 	// }
-
-	const { isLoading } = useObjectSearch()
 
 	return (
 		<>
