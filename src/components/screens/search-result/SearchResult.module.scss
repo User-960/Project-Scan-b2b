@@ -1,0 +1,42 @@
+@import 'src/assets/styles/variables';
+
+.sectionResultSearch {
+	display: flex;
+	margin-bottom: 50px;
+	.sectionImage {
+		margin-left: 10%;
+		max-width: 553px;
+		max-height: 369px;
+
+		width: 100%;
+		height: 100%;
+
+		min-width: 350px;
+		min-height: 234px;
+	}
+	.info {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		& > .title {
+			margin-top: 55px;
+			max-width: 530px;
+			min-width: 230px;
+			color: $black;
+			font-size: 40px;
+			font-weight: 900;
+			line-height: normal;
+			letter-spacing: 2px;
+			margin-bottom: 36px;
+		}
+
+		& > .description {
+			max-width: 450px;
+			color: $black;
+			font-size: 20px;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: 0.4px;
+		}
+	}
+}
