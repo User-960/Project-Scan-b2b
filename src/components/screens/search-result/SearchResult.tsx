@@ -1,5 +1,4 @@
 import cn from 'clsx'
-import dynamic from 'next/dynamic'
 import localFont from 'next/font/local'
 import Image from 'next/image'
 import { FC } from 'react'
@@ -14,19 +13,7 @@ const ferryFont = localFont({
 	display: 'swap'
 })
 
-const DynamicResultCarousel = dynamic(
-	() => import('./result-carousel/ResultCarousel'),
-	{
-		ssr: false
-	}
-)
-
 const SearchResult: FC = () => {
-	// const meta: IMeta = {
-	// 	title: 'Результат поиска',
-	// 	description: 'Search result'
-	// }
-
 	return (
 		<>
 			<section className={styles.sectionResultSearch}>
@@ -46,9 +33,17 @@ const SearchResult: FC = () => {
 				/>
 			</section>
 
-			<section>
-				{/* <DynamicResultCarousel data={resultData} /> */}
+			<section className={styles.sectionCarousel}>
+				<h5 className={cn(ferryFont.className, styles.carouselTitle)}>
+					Общая сводка
+				</h5>
 				<ResultCarousel />
+			</section>
+
+			<section className={styles.sectionCarousel}>
+				<h5 className={cn(ferryFont.className, styles.carouselTitle)}>
+					Список документов
+				</h5>
 			</section>
 		</>
 	)

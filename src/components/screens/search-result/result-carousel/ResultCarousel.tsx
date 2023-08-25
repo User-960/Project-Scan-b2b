@@ -26,8 +26,6 @@ const ResultCarousel: FC = () => {
 		console.log(currentSlide)
 	}
 
-	console.log(bubbleSort(filterHistogramsData(histogramsData)))
-
 	const settings = {
 		arrows: true,
 		dots: false,
@@ -39,6 +37,12 @@ const ResultCarousel: FC = () => {
 	return (
 		<>
 			<div className={styles.wrapperCarousel}>
+				<p className={styles.carouselQuantity}>
+					{`Найдено ${
+						histogramsData ? filterHistogramsData(histogramsData).length : 0
+					}
+					вариантов`}
+				</p>
 				<div className={styles.carouselTable}>
 					<div className={styles.carouselRow}>Период</div>
 					<div className={styles.carouselRow}>Всего</div>
