@@ -6,7 +6,7 @@ import styles from './Button.module.scss'
 interface IButtonProps {
 	clickHandler?: any
 	size: string
-	state: string
+	state?: string
 	children?: ReactNode
 }
 

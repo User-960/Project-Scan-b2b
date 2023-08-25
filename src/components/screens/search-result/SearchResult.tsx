@@ -6,6 +6,7 @@ import { FC } from 'react'
 import resultSearchImage from '../../../../public/images/resultSearchImg.svg'
 
 import styles from './SearchResult.module.scss'
+import CardDocument from './card-document/CardDocument'
 import ResultCarousel from './result-carousel/ResultCarousel'
 
 const ferryFont = localFont({
@@ -41,9 +42,10 @@ const SearchResult: FC = () => {
 			</section>
 
 			<section className={styles.sectionCarousel}>
-				<h5 className={cn(ferryFont.className, styles.carouselTitle)}>
+				<h5 className={cn(ferryFont.className, styles.carouselTitleCards)}>
 					Список документов
 				</h5>
+				<CardDocument />
 			</section>
 		</>
 	)

@@ -1,0 +1,123 @@
+@import 'src/assets/styles/variables';
+
+.wrapperCard {
+	max-width: 641px;
+	min-height: 694px;
+	width: 100%;
+	border-radius: 10px;
+	background: $white;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+	padding: 20px 30px 30px 30px;
+	margin: 10px;
+	.serviceInfo {
+		display: flex;
+	}
+	.date,
+	.words,
+	.source {
+		color: #949494;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: 0.32px;
+	}
+	.date {
+		margin-right: 14px;
+		margin-bottom: 20px;
+	}
+	.words {
+		margin-left: 14px;
+	}
+	.source {
+		text-decoration-line: underline;
+	}
+	.title {
+		max-width: 546px;
+		color: $black;
+		font-size: 26px;
+		font-weight: 500;
+		line-height: normal;
+		letter-spacing: 0.52px;
+		margin-bottom: 20px;
+	}
+	.textInfo {
+		margin-bottom: 30px;
+		.text {
+			max-width: 581px;
+			width: 100%;
+			color: $black;
+			font-family: Inter;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: 0.32px;
+			opacity: 0.5;
+		}
+	}
+	.cardBadge {
+		padding: 3px 10px;
+		width: 134px;
+		height: 24px;
+		border-radius: 10px;
+		background-color: $yellow;
+
+		color: $black;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: 0.14px;
+		text-align: center;
+		margin-bottom: 14px;
+	}
+	.cardImage {
+		max-width: 581px;
+		max-height: 158px;
+		width: 100%;
+		height: 100%;
+		margin-bottom: 20px;
+	}
+	.serviceBtn {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		.btnWrapper {
+			max-width: 223px;
+			max-height: 46.539px;
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.wrapperCard {
+		.date,
+		.words,
+		.source {
+			font-size: 14px;
+			letter-spacing: 0.14px;
+		}
+	}
+}
+
+@media (max-width: 680px) {
+	.wrapperCard {
+		padding: 20px;
+	}
+}
+
+@media (max-width: $mobile) {
+	.wrapperCard {
+		.textInfo {
+			.text {
+				font-size: 12px;
+				letter-spacing: 0.12px;
+			}
+		}
+		.date,
+		.words,
+		.source {
+			font-size: 14px;
+			letter-spacing: 0.14px;
+		}
+	}
+}
