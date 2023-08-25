@@ -11,7 +11,7 @@ import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 export const useObjectSearch = () => {
 	const [errorState, setErrorState] = useState<string>('')
 	const { push } = useRouter()
-	const { histogramsData, setHistogramsData } = useObject()
+	const { setHistogramsData, setEmptyHistogramsData } = useObject()
 
 	const { isLoading, isSuccess, mutateAsync } = useMutation(
 		['search object'],
@@ -44,7 +44,7 @@ export const useObjectSearch = () => {
 					// push('/result')
 					setHistogramsData(data)
 				} else {
-					setErrorState('Data is empty')
+					setEmptyHistogramsData('По введенному ИНН нет данных')
 				}
 			},
 			onError: (error: Error) => {

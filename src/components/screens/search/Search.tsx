@@ -3,6 +3,8 @@ import localFont from 'next/font/local'
 import Image from 'next/image'
 import { FC, useEffect } from 'react'
 
+import Alert from '@/components/ui/alert/Alert'
+
 import { useObject } from '@/components/hooks/useObject'
 
 import Layout from '@/components/layout/Layout'
@@ -26,7 +28,15 @@ const Search: FC = () => {
 		description: 'Find company'
 	}
 
-	const { histogramsData } = useObject()
+	const { histogramsData, emptyHistogramsData, setEmptyHistogramsData } =
+		useObject()
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setEmptyHistogramsData(null)
+		}, 4000)
+		return () => clearTimeout(timer)
+	}, [emptyHistogramsData])
 
 	return (
 		<Layout meta={meta}>
@@ -57,6 +67,14 @@ const Search: FC = () => {
 							alt='Form image'
 						/>
 					</section>
+
+					{emptyHistogramsData ? (
+						<Alert
+							type={'error'}
+							text={emptyHistogramsData}
+							status={'checked'}
+						/>
+					) : null}
 				</>
 			) : (
 				<SearchResult />
