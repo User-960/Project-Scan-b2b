@@ -3,6 +3,7 @@
 .wrapperCarousel {
 	max-width: 1220px;
 	margin: 0 auto;
+	position: relative;
 	.carouselQuantity {
 		color: #949494;
 		font-size: 18px;
@@ -51,6 +52,50 @@
 			font-weight: 400;
 			line-height: normal;
 			letter-spacing: 0.36px;
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.wrapperCarousel {
+	}
+}
+
+@media (max-width: $mobile) {
+	.wrapperCarousel {
+		.carouselTable {
+			position: absolute;
+			z-index: 50;
+
+			padding: 23px 40px 23px 30px;
+			height: 75px;
+			width: 100%;
+			border-radius: 10px 10px 0px 0px;
+
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			.carouselRow {
+				letter-spacing: 0.18px;
+			}
+		}
+		.carouselItem {
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 80px 56px 20px 30px;
+
+			border-left: none;
+			border-right: none;
+			.carouselDate {
+				font-size: 16px;
+				letter-spacing: 0.16px;
+			}
+			.carouselAll {
+				// margin-left: 85px;
+				// margin-right: 116px;
+				margin-left: 20%;
+				margin-right: 30%;
+			}
 		}
 	}
 }

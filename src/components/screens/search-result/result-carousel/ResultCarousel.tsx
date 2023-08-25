@@ -31,7 +31,23 @@ const ResultCarousel: FC = () => {
 		dots: false,
 		slidesToShow: bubbleSort(filterHistogramsData(histogramsData)).length,
 		slidesToScroll: 1,
-		className: 'carouselHistograms'
+		className: 'carouselHistograms',
+		responsive: [
+			{
+				breakpoint: 880,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 688,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}
+		]
 	}
 
 	return (

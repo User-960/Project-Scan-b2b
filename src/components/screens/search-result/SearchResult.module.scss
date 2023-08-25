@@ -46,16 +46,53 @@
 	.carouselTitle {
 		margin-bottom: 20px;
 	}
-	.carouselTitle,
-	.carouselTitleCards {
-		color: #000;
-		font-size: 30px;
-		font-weight: 900;
-		line-height: normal;
-		letter-spacing: 0.6px;
-	}
+}
+
+.carouselTitle,
+.carouselTitleCards {
+	color: #000;
+	font-size: 30px;
+	font-weight: 900;
+	line-height: normal;
+	letter-spacing: 0.6px;
 }
 
 .carouselTitleCards {
 	margin-bottom: 48px;
+}
+
+.sectionCards {
+	.listCards {
+		margin-bottom: 40px;
+	}
+	.btnWrapper {
+		max-width: 305px;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: $tablet) {
+	.carouselTitle,
+	.carouselTitleCards {
+		font-size: 28px;
+		letter-spacing: 0.28px;
+	}
+	.sectionResultSearch {
+		flex-direction: column;
+		.sectionImage {
+			margin-left: 0px;
+		}
+		.info {
+			margin-bottom: 30px;
+			& > .title {
+				font-size: 26px;
+				letter-spacing: 0.28px;
+			}
+
+			& > .description {
+				font-size: 18px;
+				letter-spacing: 0.28px;
+			}
+		}
+	}
 }

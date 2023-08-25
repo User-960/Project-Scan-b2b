@@ -3,6 +3,8 @@ import localFont from 'next/font/local'
 import Image from 'next/image'
 import { FC } from 'react'
 
+import Button from '@/components/ui/button/Button'
+
 import resultSearchImage from '../../../../public/images/resultSearchImg.svg'
 
 import styles from './SearchResult.module.scss'
@@ -41,11 +43,22 @@ const SearchResult: FC = () => {
 				<ResultCarousel />
 			</section>
 
-			<section className={styles.sectionCarousel}>
+			<section className={styles.sectionCards}>
 				<h5 className={cn(ferryFont.className, styles.carouselTitleCards)}>
 					Список документов
 				</h5>
-				<CardDocument />
+				<ul className={styles.listCards}>
+					<CardDocument />
+				</ul>
+				<div className={styles.btnWrapper}>
+					<Button
+						size={'medium'}
+						state='btnAvailable'
+						clickHandler={() => console.log('1')}
+					>
+						Запросить данные
+					</Button>
+				</div>
 			</section>
 		</>
 	)
