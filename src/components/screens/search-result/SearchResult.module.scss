@@ -96,3 +96,9 @@
 		}
 	}
 }
+
+@media (max-width: $mobile) {
+	.sectionCarousel {
+		padding: 0 10px;
+	}
+}

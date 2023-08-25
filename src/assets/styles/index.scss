@@ -297,11 +297,15 @@ input[type='number'] {
 		background-image: url('../../../public/images/arrowRightHistogram.png');
 		opacity: 1;
 	}
-	&::focus {
+	&:focus {
 		background-image: url('../../../public/images/arrowRightHistogram.png');
 		opacity: 1;
 	}
-	&::active {
+	&::target {
+		background-image: url('../../../public/images/arrowRightHistogram.png');
+		opacity: 1;
+	}
+	&:active {
 		background-image: url('../../../public/images/arrowRightHistogram.png');
 		opacity: 1;
 	}
@@ -319,11 +323,15 @@ input[type='number'] {
 		background-image: url('../../../public/images/arrowLeftHistogram.png');
 		opacity: 1;
 	}
-	&::focus {
+	&:focus {
 		background-image: url('../../../public/images/arrowLeftHistogram.png');
 		opacity: 1;
 	}
-	&::active {
+	&:active {
+		background-image: url('../../../public/images/arrowLeftHistogram.png');
+		opacity: 1;
+	}
+	&:target {
 		background-image: url('../../../public/images/arrowLeftHistogram.png');
 		opacity: 1;
 	}
@@ -354,9 +362,9 @@ input[type='number'] {
 		margin-left: 0px;
 	}
 	.carouselHistograms .slick-next {
-		right: -35px;
+		right: -36px;
 	}
 	.carouselHistograms .slick-prev {
-		left: -160px;
+		left: -38px;
 	}
 }
