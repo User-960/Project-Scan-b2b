@@ -9,11 +9,7 @@ export const useScanDocs = () => {
 	const [errorState, setErrorState] = useState<string>('')
 	const { setEmptyHistogramsData, idsItems } = useObject()
 
-	const {
-		isLoading: isLoadingDocs,
-		isSuccess,
-		mutateAsync
-	} = useMutation(
+	const { isLoading, isSuccess, mutateAsync } = useMutation(
 		['scan docs'],
 		({ ids }: IScanDocs) => ObjectSearch.scanDocs(ids),
 		{
@@ -40,8 +36,8 @@ export const useScanDocs = () => {
 		() => ({
 			errorState,
 			isSuccess,
-			isLoadingDocs
+			isLoading
 		}),
-		[isLoadingDocs, isSuccess]
+		[isLoading, isSuccess]
 	)
 }

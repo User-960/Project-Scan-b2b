@@ -42,9 +42,9 @@ const ObjectSearchProvider: FC<PropsWithChildren> = ({ children }) => {
 	)
 	const [idsItems, setIdsItems] = useState<string[] | null>(null)
 
-	console.log(formData)
-	console.log(histogramsData)
-	console.log(idsItems)
+	// console.log(formData)
+	// console.log(histogramsData)
+	// console.log(idsItems)
 
 	return (
 		<ObjectSearchContext.Provider

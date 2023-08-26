@@ -1,13 +1,17 @@
 import cn from 'clsx'
 import localFont from 'next/font/local'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import Button from '@/components/ui/button/Button'
 
+import { useObject } from '@/components/hooks/useObject'
 import { useScanDocs } from '@/components/hooks/useScanDocs'
 
 import styles from '../SearchResult.module.scss'
 import CardDocument from '../card-document/CardDocument'
+
+import { IScanDoc, IScanDocsResponse } from '@/interfaces/search'
+import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
 const ferryFont = localFont({
 	src: '../../../../assets/fonts/ferry_black.otf',
@@ -15,7 +19,27 @@ const ferryFont = localFont({
 })
 
 const CardList: FC = () => {
-	// const { isLoadingDocs } = useScanDocs()
+	// const { isLoading } = useScanDocs()
+	const { idsItems } = useObject()
+	const [docs, setDocs] = useState<IScanDoc[] | null>(null)
+
+	useEffect(() => {
+		if (idsItems) {
+			const data = ObjectSearch.scanDocs(idsItems)
+				.then((result: IScanDocsResponse[]) => setDocs(filterDocs(result)))
+				.catch(error => console.log(error))
+		}
+	}, [])
+
+	const filterDocs = (docs: IScanDocsResponse[]) => {
+		let newArray: any = []
+		for (let i = 0; i < docs.length; i++) {
+			newArray.push(docs[i].ok)
+		}
+		return newArray
+	}
+
+	console.log(docs)
 
 	return (
 		<section className={styles.sectionCards}>
@@ -23,10 +47,18 @@ const CardList: FC = () => {
 				Список документов
 			</h5>
 
-			<ul className={styles.listCards}>
-				<CardDocument />
-				<CardDocument />
-			</ul>
+			{!docs ? (
+				<div>Loading...</div>
+			) : (
+				<ul className={styles.listCards}>
+					{docs.map(document => (
+						<>
+							<p>{document.language}</p>
+							<CardDocument />
+						</>
+					))}
+				</ul>
+			)}
 
 			<div className={styles.btnWrapper}>
 				<Button

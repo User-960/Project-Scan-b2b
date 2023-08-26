@@ -81,7 +81,7 @@ export interface IScanDocs {
 
 export interface IScanDocsResponse {
 	ok: IScanDoc[]
-	fail: IScanDocFail
+	fail?: IScanDocFail
 }
 
 export interface IScanDocFail {
