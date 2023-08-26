@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import moment from 'moment'
 import { useMemo, useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { useObject } from './useObject'
 import { ISearchFields } from '@/interfaces/form.interface'
@@ -8,10 +9,10 @@ import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
 export const useObjectSearch = () => {
 	const [errorState, setErrorState] = useState<string>('')
-	const { formData, setFormData, setEmptyHistogramsData } = useObject()
+	const { setFormData, setHistogramsData, setEmptyHistogramsData } = useObject()
 
 	const { isLoading, isSuccess, mutateAsync } = useMutation(
-		['search object'],
+		['search object histograms'],
 		({
 			inn,
 			startDate,
@@ -23,7 +24,7 @@ export const useObjectSearch = () => {
 			maxFullness,
 			inBusinessNews
 		}: ISearchFields) =>
-			ObjectSearch.search(
+			ObjectSearch.searchHistograms(
 				inn,
 				startDate,
 				endDate,
@@ -36,10 +37,10 @@ export const useObjectSearch = () => {
 			),
 		{
 			onSuccess: data => {
-				if (data) {
-					console.log(data)
+				if (data && data.data.length !== 0) {
+					reset()
 					// push('/result')
-					// setHistogramsData(data)
+					setHistogramsData(data)
 				} else {
 					setEmptyHistogramsData('По введенному ИНН нет данных')
 				}
@@ -52,28 +53,42 @@ export const useObjectSearch = () => {
 		}
 	)
 
-	if (formData) {
-		mutateAsync({
-			inn: formData.inn,
-			startDate: moment(formData.startDate).format(),
-			endDate: moment(formData.endDate).format(),
-			limit: formData.limit,
-			tonality: formData.tonality,
-			onlyWithRiskFactors: formData.onlyWithRiskFactors,
-			onlyMainRole: formData.onlyMainRole,
-			maxFullness: formData.maxFullness,
-			inBusinessNews: formData.inBusinessNews
-		})
+	const {
+		register,
+		handleSubmit,
+		control,
+		formState: { errors },
+		reset
+	} = useForm<ISearchFields>({
+		mode: 'onChange'
+	})
 
-		setFormData(null)
+	const onSubmit: SubmitHandler<ISearchFields> = async data => {
+		setFormData(data)
+		await mutateAsync({
+			inn: data.inn,
+			startDate: moment(data.startDate).format(),
+			endDate: moment(data.endDate).format(),
+			limit: data.limit,
+			tonality: data.tonality,
+			onlyWithRiskFactors: data.onlyWithRiskFactors,
+			onlyMainRole: data.onlyMainRole,
+			maxFullness: data.maxFullness,
+			inBusinessNews: data.inBusinessNews
+		})
 	}
 
 	return useMemo(
 		() => ({
+			register,
+			handleSubmit,
+			control,
+			errors,
 			errorState,
 			isSuccess,
-			isLoading
+			isLoading,
+			onSubmit
 		}),
-		[isLoading, isSuccess]
+		[errors, isLoading, isSuccess]
 	)
 }

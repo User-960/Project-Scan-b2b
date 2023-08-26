@@ -7,7 +7,7 @@ import SearchField from '@/components/ui/field/SearchField/SearchField'
 import SelectTonality from '@/components/ui/field/SearchField/SelectTonality'
 import Loader from '@/components/ui/loader/Loader'
 
-import { useObjectSearch } from '@/components/hooks/useObjectSearch'
+import { useObjectSearch } from '@/components/hooks/useSearchHistograms'
 
 import styles from './SearchForm.module.scss'
 

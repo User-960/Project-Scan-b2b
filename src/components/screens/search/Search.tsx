@@ -1,4 +1,5 @@
 import cn from 'clsx'
+import dynamic from 'next/dynamic'
 import localFont from 'next/font/local'
 import Image from 'next/image'
 import { FC, useEffect } from 'react'

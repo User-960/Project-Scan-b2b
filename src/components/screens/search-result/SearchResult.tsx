@@ -5,11 +5,15 @@ import { FC } from 'react'
 
 import Button from '@/components/ui/button/Button'
 
+import { useObject } from '@/components/hooks/useObject'
+import { useObjectSearch } from '@/components/hooks/useObjectSearch'
+
 import resultSearchImage from '../../../../public/images/resultSearchImg.svg'
 
 import styles from './SearchResult.module.scss'
 import CardDocument from './card-document/CardDocument'
 import ResultCarousel from './result-carousel/ResultCarousel'
+import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
 const ferryFont = localFont({
 	src: '../../../assets/fonts/ferry_black.otf',
@@ -17,6 +21,8 @@ const ferryFont = localFont({
 })
 
 const SearchResult: FC = () => {
+	const { isLoading } = useObjectSearch()
+
 	return (
 		<>
 			<section className={styles.sectionResultSearch}>
@@ -47,6 +53,7 @@ const SearchResult: FC = () => {
 				<h5 className={cn(ferryFont.className, styles.carouselTitleCards)}>
 					Список документов
 				</h5>
+
 				<ul className={styles.listCards}>
 					<CardDocument />
 					<CardDocument />

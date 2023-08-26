@@ -58,3 +58,19 @@ export interface ISearchContext {
 	locationsFilter?: any
 	searchEntitiesFilter?: any
 }
+
+export interface ISearchResultList {
+	items: ISearchResultItem[]
+	mappings?: ISearchResultMapping[]
+}
+
+export interface ISearchResultItem {
+	encodedId: string
+	influence: number
+	similarCount: number
+}
+
+export interface ISearchResultMapping {
+	inn: number
+	entityIds: number[]
+}

@@ -7,9 +7,12 @@ import {
 } from 'react'
 import { createContext } from 'react'
 
+import { ISearchFields } from '@/interfaces/form.interface'
 import { TypeHistograms } from '@/interfaces/objectsearch.interface'
 
 type TypeContext = {
+	formData: ISearchFields | null
+	setFormData: Dispatch<SetStateAction<ISearchFields | null>>
 	histogramsData: TypeHistograms
 	setHistogramsData: Dispatch<SetStateAction<TypeHistograms>>
 	emptyHistogramsData: string | null
@@ -17,6 +20,8 @@ type TypeContext = {
 }
 
 export const ObjectSearchContext = createContext<TypeContext>({
+	formData: null,
+	setFormData: () => {},
 	histogramsData: null,
 	setHistogramsData: () => {},
 	emptyHistogramsData: null,
@@ -24,6 +29,7 @@ export const ObjectSearchContext = createContext<TypeContext>({
 })
 
 const ObjectSearchProvider: FC<PropsWithChildren> = ({ children }) => {
+	const [formData, setFormData] = useState<ISearchFields | null>(null)
 	const [histogramsData, setHistogramsData] = useState<TypeHistograms>(null)
 	const [emptyHistogramsData, setEmptyHistogramsData] = useState<string | null>(
 		null
@@ -32,6 +38,8 @@ const ObjectSearchProvider: FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<ObjectSearchContext.Provider
 			value={{
+				formData,
+				setFormData,
 				histogramsData,
 				setHistogramsData,
 				emptyHistogramsData,

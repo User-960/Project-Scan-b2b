@@ -1,41 +1,15 @@
 import { $axios } from '@/api/api'
-import { ISearch, ISearchResponse } from '@/interfaces/search'
+import {
+	ISearch,
+	ISearchResponse,
+	ISearchResultList
+} from '@/interfaces/search'
 
 const HISTOGRAMS = '/v1/objectsearch/histograms'
-
-const testRes: ISearchResponse = {
-	data: [
-		{
-			data: [
-				{
-					date: '2020-11-01T03:00:00+03:00',
-					value: 8
-				},
-				{
-					date: '2020-06-01T03:00:00+03:00',
-					value: 6
-				}
-			],
-			histogramType: 'totalDocuments'
-		},
-		{
-			data: [
-				{
-					date: '2020-11-01T03:00:00+03:00',
-					value: 0
-				},
-				{
-					date: '2020-06-01T03:00:00+03:00',
-					value: 1
-				}
-			],
-			histogramType: 'riskFactors'
-		}
-	]
-}
+const OBJECTSEARCH = '/v1/objectsearch'
 
 class ObjectSearch {
-	async search(
+	async searchHistograms(
 		inn: string,
 		startDate: string,
 		endDate: string,
@@ -90,6 +64,70 @@ class ObjectSearch {
 		try {
 			const { data } = await $axios.post<ISearchResponse>(
 				`${HISTOGRAMS}`,
+				postData
+			)
+
+			return data
+		} catch (error: any) {
+			return error.response.data.message
+		}
+	}
+
+	async search(
+		inn: string,
+		startDate: string,
+		endDate: string,
+		limit: number,
+		tonality: string,
+		onlyWithRiskFactors: boolean,
+		onlyMainRole: boolean,
+		maxFullness: boolean,
+		inBusinessNews: boolean | null
+	) {
+		const postData: ISearch = {
+			issueDateInterval: {
+				startDate: startDate,
+				endDate: endDate
+			},
+			searchContext: {
+				targetSearchEntitiesContext: {
+					targetSearchEntities: [
+						{
+							type: 'company',
+							sparkId: null,
+							entityId: null,
+							inn: inn,
+							maxFullness: maxFullness,
+							inBusinessNews: inBusinessNews
+						}
+					],
+					onlyMainRole: onlyMainRole,
+					tonality: tonality,
+					onlyWithRiskFactors: onlyWithRiskFactors
+				}
+			},
+			searchArea: {
+				includedSources: [],
+				excludedSources: [],
+				includedSourceGroups: [],
+				excludedSourceGroups: []
+			},
+			attributeFilters: {
+				excludeTechNews: true,
+				excludeAnnouncements: true,
+				excludeDigests: true
+			},
+			similarMode: 'duplicates',
+			limit: limit,
+			sortType: 'sourceInfluence',
+			sortDirectionType: 'desc',
+			intervalType: 'month',
+			histogramTypes: ['totalDocuments', 'riskFactors']
+		}
+
+		try {
+			const { data } = await $axios.post<ISearchResultList>(
+				`${OBJECTSEARCH}`,
 				postData
 			)
 
