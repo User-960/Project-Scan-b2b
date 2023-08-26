@@ -1,5 +1,6 @@
 import { $axios } from '@/api/api'
 import {
+	IScanDocsResponse,
 	ISearch,
 	ISearchResponse,
 	ISearchResultItemsResponse
@@ -7,6 +8,7 @@ import {
 
 const HISTOGRAMS = '/v1/objectsearch/histograms'
 const OBJECTSEARCH = '/v1/objectsearch'
+const DOCUMENTS = '/v1/documents'
 
 class ObjectSearch {
 	async searchHistograms(
@@ -73,7 +75,7 @@ class ObjectSearch {
 		}
 	}
 
-	async search(
+	async searchDocs(
 		inn: string,
 		startDate: string,
 		endDate: string,
@@ -128,6 +130,23 @@ class ObjectSearch {
 		try {
 			const { data } = await $axios.post<ISearchResultItemsResponse>(
 				`${OBJECTSEARCH}`,
+				postData
+			)
+
+			return data
+		} catch (error: any) {
+			return error.response.data.message
+		}
+	}
+
+	async scanDocs(ids: string[]) {
+		const postData = {
+			ids: ids
+		}
+
+		try {
+			const { data } = await $axios.post<IScanDocsResponse[]>(
+				`${DOCUMENTS}`,
 				postData
 			)
 

@@ -1,13 +1,14 @@
 import cn from 'clsx'
 import localFont from 'next/font/local'
 import Image from 'next/image'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 
 import Alert from '@/components/ui/alert/Alert'
 import Button from '@/components/ui/button/Button'
 
 import { useObject } from '@/components/hooks/useObject'
 import { useObjectSearch } from '@/components/hooks/useObjectSearch'
+import { useScanDocs } from '@/components/hooks/useScanDocs'
 
 import resultSearchImage from '../../../../public/images/resultSearchImg.svg'
 
@@ -23,6 +24,8 @@ const ferryFont = localFont({
 const SearchResult: FC = () => {
 	const { isLoading } = useObjectSearch()
 	const { emptyHistogramsData } = useObject()
+
+	const { isLoadingDocs } = useScanDocs()
 
 	return (
 		<>

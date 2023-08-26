@@ -7,12 +7,8 @@ import Loader from '@/components/ui/loader/Loader'
 
 import { useObject } from '@/components/hooks/useObject'
 
-import {
-	bubbleSort,
-	filterHistogramsData
-} from '@/components/algorithms/bubbleSort'
-
 import styles from './ResultCarousel.module.scss'
+import { bubbleSort, filterHistogramsData } from '@/algorithms/bubbleSort'
 
 interface IDayHistogram {
 	id: number

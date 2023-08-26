@@ -7,7 +7,7 @@ import { useObject } from './useObject'
 import { ISearchFields } from '@/interfaces/form.interface'
 import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
-export const useObjectSearch = () => {
+export const useSearchHistograms = () => {
 	const [errorState, setErrorState] = useState<string>('')
 	const { setFormData, setHistogramsData, setEmptyHistogramsData } = useObject()
 

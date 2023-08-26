@@ -75,16 +75,16 @@ export interface ISearchResultMapping {
 	entityIds: number[]
 }
 
-export interface ISearchDocs {
+export interface IScanDocs {
 	ids: string[]
 }
 
-export interface ISearchDocsResponse {
+export interface IScanDocsResponse {
 	ok: IScanDoc[]
-	fail: ISearchDocsFail
+	fail: IScanDocFail
 }
 
-export interface ISearchDocsFail {
+export interface IScanDocFail {
 	errorCode: any
 	errorMessage: string
 }
