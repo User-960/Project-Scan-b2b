@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import Image from 'next/image'
 import { FC } from 'react'
 
+import Alert from '@/components/ui/alert/Alert'
 import Button from '@/components/ui/button/Button'
 
 import { useObject } from '@/components/hooks/useObject'
@@ -13,7 +14,6 @@ import resultSearchImage from '../../../../public/images/resultSearchImg.svg'
 import styles from './SearchResult.module.scss'
 import CardDocument from './card-document/CardDocument'
 import ResultCarousel from './result-carousel/ResultCarousel'
-import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
 const ferryFont = localFont({
 	src: '../../../assets/fonts/ferry_black.otf',
@@ -22,6 +22,7 @@ const ferryFont = localFont({
 
 const SearchResult: FC = () => {
 	const { isLoading } = useObjectSearch()
+	const { emptyHistogramsData } = useObject()
 
 	return (
 		<>
@@ -48,6 +49,10 @@ const SearchResult: FC = () => {
 				</h5>
 				<ResultCarousel />
 			</section>
+
+			{emptyHistogramsData ? (
+				<Alert type={'error'} text={emptyHistogramsData} status={'checked'} />
+			) : null}
 
 			<section className={styles.sectionCards}>
 				<h5 className={cn(ferryFont.className, styles.carouselTitleCards)}>

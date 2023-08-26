@@ -41,7 +41,7 @@ export const useObjectSearch = () => {
 					// push('/result')
 					// setHistogramsData(data)
 				} else {
-					setEmptyHistogramsData('По введенному ИНН нет данных')
+					setEmptyHistogramsData('Документы не найдены')
 				}
 			},
 			onError: (error: Error) => {
@@ -64,7 +64,6 @@ export const useObjectSearch = () => {
 			maxFullness: formData.maxFullness,
 			inBusinessNews: formData.inBusinessNews
 		})
-
 		setFormData(null)
 	}
 
