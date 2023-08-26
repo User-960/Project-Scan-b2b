@@ -39,7 +39,6 @@ export const useObjectSearch = () => {
 			onSuccess: data => {
 				if (data && data.data.length !== 0) {
 					reset()
-					// push('/result')
 					setHistogramsData(data)
 				} else {
 					setEmptyHistogramsData('По введенному ИНН нет данных')

@@ -8,7 +8,8 @@ import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
 export const useObjectSearch = () => {
 	const [errorState, setErrorState] = useState<string>('')
-	const { formData, setFormData, setEmptyHistogramsData } = useObject()
+	const { formData, setFormData, setEmptyHistogramsData, setResultItems } =
+		useObject()
 
 	const { isLoading, isSuccess, mutateAsync } = useMutation(
 		['search object'],
@@ -37,9 +38,7 @@ export const useObjectSearch = () => {
 		{
 			onSuccess: data => {
 				if (data) {
-					console.log(data)
-					// push('/result')
-					// setHistogramsData(data)
+					setResultItems(data)
 				} else {
 					setEmptyHistogramsData('Документы не найдены')
 				}

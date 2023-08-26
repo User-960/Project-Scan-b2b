@@ -59,7 +59,7 @@ export interface ISearchContext {
 	searchEntitiesFilter?: any
 }
 
-export interface ISearchResultResponse {
+export interface ISearchResultItemsResponse {
 	items: ISearchResultItem[]
 	mappings?: ISearchResultMapping[]
 }
