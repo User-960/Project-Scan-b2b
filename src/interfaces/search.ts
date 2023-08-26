@@ -59,7 +59,7 @@ export interface ISearchContext {
 	searchEntitiesFilter?: any
 }
 
-export interface ISearchResultList {
+export interface ISearchResultResponse {
 	items: ISearchResultItem[]
 	mappings?: ISearchResultMapping[]
 }
@@ -73,4 +73,64 @@ export interface ISearchResultItem {
 export interface ISearchResultMapping {
 	inn: number
 	entityIds: number[]
+}
+
+export interface ISearchDocs {
+	ids: string[]
+}
+
+export interface ISearchDocsResponse {
+	ok: IScanDoc[]
+	fail: ISearchDocsFail
+}
+
+export interface ISearchDocsFail {
+	errorCode: any
+	errorMessage: string
+}
+
+export interface IScanDoc {
+	schemaVersion: string
+	id: string
+	version: number
+	issueDate: string
+	url: string
+	author: IScanDocAuthor
+	source: IScanDocSource
+	dedupClusterId: string
+	title: IScanDocTitle
+	content: IScanDocContent
+	entities?: any
+	attributes: IScanDocAttributes
+	language: string | 'Russian' | 'other' | 'unknown'
+}
+
+export interface IScanDocTitle {
+	text: string
+	markup: string
+}
+
+export interface IScanDocAuthor {
+	name: string
+}
+
+export interface IScanDocContent {
+	markup: string
+}
+
+export interface IScanDocSource {
+	id: number
+	name: string
+	categoryId: number
+	levelId: number
+	groupId: number
+}
+
+export interface IScanDocAttributes {
+	isTechNews: boolean
+	isAnnouncement: boolean
+	isDigest: boolean
+	wordCount: number
+	influence?: number
+	coverage?: any
 }

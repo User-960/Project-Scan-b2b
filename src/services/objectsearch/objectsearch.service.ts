@@ -2,7 +2,7 @@ import { $axios } from '@/api/api'
 import {
 	ISearch,
 	ISearchResponse,
-	ISearchResultList
+	ISearchResultResponse
 } from '@/interfaces/search'
 
 const HISTOGRAMS = '/v1/objectsearch/histograms'
@@ -126,7 +126,7 @@ class ObjectSearch {
 		}
 
 		try {
-			const { data } = await $axios.post<ISearchResultList>(
+			const { data } = await $axios.post<ISearchResultResponse>(
 				`${OBJECTSEARCH}`,
 				postData
 			)
