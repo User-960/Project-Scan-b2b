@@ -19,8 +19,8 @@ type TypeContext = {
 	setHistogramsData: Dispatch<SetStateAction<TypeHistograms>>
 	emptyHistogramsData: string | null
 	setEmptyHistogramsData: Dispatch<SetStateAction<string | null>>
-	resultItems: ISearchResultItemsResponse | null
-	setResultItems: Dispatch<SetStateAction<ISearchResultItemsResponse | null>>
+	idsItems: string[] | null
+	setIdsItems: Dispatch<SetStateAction<string[] | null>>
 }
 
 export const ObjectSearchContext = createContext<TypeContext>({
@@ -30,8 +30,8 @@ export const ObjectSearchContext = createContext<TypeContext>({
 	setHistogramsData: () => {},
 	emptyHistogramsData: null,
 	setEmptyHistogramsData: () => {},
-	resultItems: null,
-	setResultItems: () => {}
+	idsItems: null,
+	setIdsItems: () => {}
 })
 
 const ObjectSearchProvider: FC<PropsWithChildren> = ({ children }) => {
@@ -40,8 +40,7 @@ const ObjectSearchProvider: FC<PropsWithChildren> = ({ children }) => {
 	const [emptyHistogramsData, setEmptyHistogramsData] = useState<string | null>(
 		null
 	)
-	const [resultItems, setResultItems] =
-		useState<ISearchResultItemsResponse | null>(null)
+	const [idsItems, setIdsItems] = useState<string[] | null>(null)
 
 	return (
 		<ObjectSearchContext.Provider
@@ -52,8 +51,8 @@ const ObjectSearchProvider: FC<PropsWithChildren> = ({ children }) => {
 				setHistogramsData,
 				emptyHistogramsData,
 				setEmptyHistogramsData,
-				resultItems,
-				setResultItems
+				idsItems,
+				setIdsItems
 			}}
 		>
 			{children}

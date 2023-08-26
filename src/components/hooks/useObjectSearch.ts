@@ -3,12 +3,13 @@ import moment from 'moment'
 import { useMemo, useState } from 'react'
 
 import { useObject } from './useObject'
+import { docsSortData } from '@/helpers/docsSortData'
 import { ISearchFields } from '@/interfaces/form.interface'
 import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
 export const useObjectSearch = () => {
 	const [errorState, setErrorState] = useState<string>('')
-	const { formData, setFormData, setEmptyHistogramsData, setResultItems } =
+	const { formData, setFormData, setEmptyHistogramsData, setIdsItems } =
 		useObject()
 
 	const { isLoading, isSuccess, mutateAsync } = useMutation(
@@ -38,7 +39,7 @@ export const useObjectSearch = () => {
 		{
 			onSuccess: data => {
 				if (data) {
-					setResultItems(data)
+					setIdsItems(docsSortData(data))
 				} else {
 					setEmptyHistogramsData('Документы не найдены')
 				}
