@@ -63,7 +63,6 @@ export const useSearchHistograms = () => {
 	})
 
 	const onSubmit: SubmitHandler<ISearchFields> = async data => {
-		setFormData(data)
 		await mutateAsync({
 			inn: data.inn,
 			startDate: moment(data.startDate).format(),
@@ -75,6 +74,7 @@ export const useSearchHistograms = () => {
 			maxFullness: data.maxFullness,
 			inBusinessNews: data.inBusinessNews
 		})
+		setFormData(data)
 	}
 
 	return useMemo(

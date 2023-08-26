@@ -8,7 +8,6 @@ import Button from '@/components/ui/button/Button'
 
 import { useObject } from '@/components/hooks/useObject'
 import { useObjectSearch } from '@/components/hooks/useObjectSearch'
-import { useScanDocs } from '@/components/hooks/useScanDocs'
 
 import resultSearchImage from '../../../../public/images/resultSearchImg.svg'
 
@@ -22,10 +21,10 @@ const ferryFont = localFont({
 })
 
 const SearchResult: FC = () => {
-	const { isLoading } = useObjectSearch()
 	const { emptyHistogramsData } = useObject()
+	const { isLoading } = useObjectSearch()
 
-	const { isLoadingDocs } = useScanDocs()
+	// const { isLoadingDocs } = useScanDocs()
 
 	return (
 		<>
@@ -66,6 +65,7 @@ const SearchResult: FC = () => {
 					<CardDocument />
 					<CardDocument />
 				</ul>
+
 				<div className={styles.btnWrapper}>
 					<Button
 						size={'medium'}
