@@ -49,6 +49,7 @@ const SearchResult: FC = () => {
 				</h5>
 				<ul className={styles.listCards}>
 					<CardDocument />
+					<CardDocument />
 				</ul>
 				<div className={styles.btnWrapper}>
 					<Button

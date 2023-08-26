@@ -3,6 +3,8 @@ import moment from 'moment'
 import 'moment/locale/ru'
 import { FC } from 'react'
 
+import Loader from '@/components/ui/loader/Loader'
+
 import { useObject } from '@/components/hooks/useObject'
 
 import {
@@ -21,10 +23,6 @@ interface IDayHistogram {
 
 const ResultCarousel: FC = () => {
 	const { histogramsData } = useObject()
-
-	const onChange = (currentSlide: number) => {
-		console.log(currentSlide)
-	}
 
 	const settings = {
 		arrows: true,
@@ -64,21 +62,27 @@ const ResultCarousel: FC = () => {
 					<div className={styles.carouselRow}>Всего</div>
 					<div className={styles.carouselRow}>Риски</div>
 				</div>
-				<Carousel afterChange={onChange} {...settings}>
-					{bubbleSort(filterHistogramsData(histogramsData)).map(
-						(item: IDayHistogram) => (
-							<div key={item.id} className={styles.carouselItem}>
-								<p className={styles.carouselDate}>
-									{moment(item.date).format('L')}
-								</p>
+				{!histogramsData ? (
+					<div className={styles.loader}>
+						<Loader />
+					</div>
+				) : (
+					<Carousel {...settings}>
+						{bubbleSort(filterHistogramsData(histogramsData)).map(
+							(item: IDayHistogram) => (
+								<div key={item.id} className={styles.carouselItem}>
+									<p className={styles.carouselDate}>
+										{moment(item.date).format('L')}
+									</p>
 
-								<p className={styles.carouselAll}>{item.totalDocs}</p>
+									<p className={styles.carouselAll}>{item.totalDocs}</p>
 
-								<p className={styles.carouselRisks}>{item.riskFact}</p>
-							</div>
-						)
-					)}
-				</Carousel>
+									<p className={styles.carouselRisks}>{item.riskFact}</p>
+								</div>
+							)
+						)}
+					</Carousel>
+				)}
 			</div>
 		</>
 	)

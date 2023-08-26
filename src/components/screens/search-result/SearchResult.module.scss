@@ -57,13 +57,13 @@
 	letter-spacing: 0.6px;
 }
 
-.carouselTitleCards {
-	margin-bottom: 48px;
-}
-
 .sectionCards {
+	.carouselTitleCards {
+		margin-bottom: 48px;
+	}
 	.listCards {
 		margin-bottom: 40px;
+		display: flex;
 	}
 	.btnWrapper {
 		max-width: 305px;
@@ -93,6 +93,12 @@
 				font-size: 18px;
 				letter-spacing: 0.28px;
 			}
+		}
+	}
+
+	.sectionCards {
+		.listCards {
+			flex-direction: column;
 		}
 	}
 }
