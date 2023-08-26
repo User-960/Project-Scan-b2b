@@ -1,10 +1,10 @@
 import cn from 'clsx'
 import localFont from 'next/font/local'
 import Image from 'next/image'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 
 import Alert from '@/components/ui/alert/Alert'
-import Button from '@/components/ui/button/Button'
+import Loader from '@/components/ui/loader/Loader'
 
 import { useObject } from '@/components/hooks/useObject'
 import { useObjectSearch } from '@/components/hooks/useObjectSearch'
@@ -12,7 +12,7 @@ import { useObjectSearch } from '@/components/hooks/useObjectSearch'
 import resultSearchImage from '../../../../public/images/resultSearchImg.svg'
 
 import styles from './SearchResult.module.scss'
-import CardDocument from './card-document/CardDocument'
+import CardList from './card-list/CardList'
 import ResultCarousel from './result-carousel/ResultCarousel'
 
 const ferryFont = localFont({
@@ -56,26 +56,13 @@ const SearchResult: FC = () => {
 				<Alert type={'error'} text={emptyHistogramsData} status={'checked'} />
 			) : null}
 
-			<section className={styles.sectionCards}>
-				<h5 className={cn(ferryFont.className, styles.carouselTitleCards)}>
-					Список документов
-				</h5>
-
-				<ul className={styles.listCards}>
-					<CardDocument />
-					<CardDocument />
-				</ul>
-
-				<div className={styles.btnWrapper}>
-					<Button
-						size={'medium'}
-						state='btnAvailable'
-						clickHandler={() => console.log('1')}
-					>
-						Запросить данные
-					</Button>
+			{isLoading ? (
+				<div className={styles.loader}>
+					<Loader />
 				</div>
-			</section>
+			) : (
+				<CardList />
+			)}
 		</>
 	)
 }
