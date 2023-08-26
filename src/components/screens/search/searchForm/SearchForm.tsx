@@ -80,6 +80,7 @@ const SearchForm: FC = () => {
 								name='inn'
 								register={register}
 								required={'*Заполните поле ИНН!'}
+								pattern={/^(([0-9]{12})|([0-9]{10}))?$/}
 							/>
 
 							<SelectTonality

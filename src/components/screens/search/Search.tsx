@@ -77,7 +77,12 @@ const Search: FC = () => {
 					) : null}
 				</>
 			) : (
-				<SearchResult />
+				<>
+					{histogramsData ? (
+						<Alert type={'success'} text={'Успешно'} status={'checked'} />
+					) : null}
+					<SearchResult />
+				</>
 			)}
 		</Layout>
 	)

@@ -65,6 +65,11 @@
 		background-color: #f75940;
 		color: $white;
 	}
+
+	&.success {
+		background-color: #00b16a;
+		color: $white;
+	}
 }
 
 @keyframes fadeOut {

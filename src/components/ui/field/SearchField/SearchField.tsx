@@ -16,6 +16,8 @@ interface ISearchFieldProps {
 	required: Message | ValidationRule<boolean>
 	pattern?: ValidationRule<RegExp>
 	error?: string
+	maxLengthRule?: any
+	minLength?: any
 }
 
 const SearchField: FC<ISearchFieldProps> = ({
@@ -29,7 +31,9 @@ const SearchField: FC<ISearchFieldProps> = ({
 	error,
 	pattern,
 	min,
-	max
+	max,
+	maxLengthRule,
+	minLength
 }) => {
 	return (
 		<div className={styles.fieldWrapper}>
@@ -42,7 +46,10 @@ const SearchField: FC<ISearchFieldProps> = ({
 				type={type}
 				min={min}
 				max={max}
-				{...register(name, { required, pattern })}
+				{...register(name, {
+					required,
+					pattern
+				})}
 				className={styles.input}
 			/>
 			{error && <div className='error'>{error}</div>}
