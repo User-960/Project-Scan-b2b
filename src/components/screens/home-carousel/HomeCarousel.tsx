@@ -2,8 +2,8 @@ import cn from 'clsx'
 import localFont from 'next/font/local'
 import { FC } from 'react'
 
-import styles from './Carousel.module.scss'
-import CarouselSlider from './CarouselSlider/CarouselSlider'
+import styles from './HomeCarousel.module.scss'
+import CarouselSlider from './HomeCarouselSlider/HomeCarouselSlider'
 
 const ferryFont = localFont({
 	src: '../../../assets/fonts/ferry_black.otf',

@@ -31,6 +31,7 @@ export const useAuthPage = () => {
 				if (typeof data !== 'string') {
 					setIsAuth(true)
 					reset()
+					location.reload()
 					push('/')
 				} else {
 					setErrorText(data)

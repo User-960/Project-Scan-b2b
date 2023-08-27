@@ -29,7 +29,6 @@
 		"react-dom": "18.2.0",
 		"react-hook-form": "^7.45.4",
 		"react-select": "^5.7.4",
-		"react-xml-parser": "^1.1.8",
 		"sass": "^1.66.0",
 		"typescript": "5.1.6",
 		"xml2js": "^0.6.2"

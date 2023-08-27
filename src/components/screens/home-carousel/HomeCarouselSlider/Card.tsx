@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { FC } from 'react'
 
-import styles from '../Carousel.module.scss'
+import styles from '../HomeCarousel.module.scss'
 
 interface ICardProps {
 	img: string

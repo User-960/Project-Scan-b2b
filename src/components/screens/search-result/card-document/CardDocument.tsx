@@ -13,12 +13,27 @@ import styles from './CardDocument.module.scss'
 import { IScanDoc } from '@/interfaces/search'
 
 const parseString = require('xml2js').parseString
-interface ICarddocProps {
+interface ICardDocumentProps {
 	doc: IScanDoc
 }
 
-const Carddoc: FC<ICarddocProps> = ({ doc }) => {
+const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 	const { push } = useRouter()
+
+	const formatXMlText = (strXML: string): any => {
+		let test: string = ''
+		const subString = '<br><img src='
+		const subImage = `<br><img src="https://dummyimage.com/480x240">`
+		if (strXML) {
+			parseString(strXML, function (err: any, result: any) {
+				test = result.scandoc
+				console.log(test)
+				// test ? test : (test = `${subImage}`)
+			})
+		}
+	}
+
+	formatXMlText(doc.content.markup)
 
 	const formatXMlImage = (strXML: string): any => {
 		let test: string = ''
@@ -80,4 +95,4 @@ const Carddoc: FC<ICarddocProps> = ({ doc }) => {
 	)
 }
 
-export default Carddoc
+export default CardDocument
