@@ -1,10 +1,9 @@
 @import 'src/assets/styles/variables';
 
 .sectionCarousel {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-bottom: 60px;
+	max-width: 1220px;
+	margin: 0 auto;
+	position: relative;
 
 	.title {
 		max-width: 640px;
@@ -20,8 +19,9 @@
 .carouselSlider {
 	position: relative;
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
+	height: 350px;
 	.card {
 		padding: 20px 50px 60px 20px;
 		max-width: 400px;

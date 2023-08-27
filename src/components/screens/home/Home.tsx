@@ -15,6 +15,7 @@ import mainImage from '../../../../public/images/main.png'
 import sectionImage from '../../../../public/images/sectionImage.svg'
 import Carousel from '../home-carousel/HomeCarousel'
 import Plans from '../plans/Plans'
+import ResultCarousel from '../search-result/result-carousel/ResultCarousel'
 
 import styles from './Home.module.scss'
 
@@ -61,7 +62,12 @@ const Home: FC = () => {
 					/>
 				</section>
 
-				<Carousel />
+				<section className={styles.sectionCarousel}>
+					<h5 className={cn(ferryFont.className, styles.carouselTitle)}>
+						Общая сводка
+					</h5>
+					<Carousel />
+				</section>
 
 				<section className={styles.sectionImage}>
 					<Image src={sectionImage} alt='Section image' />

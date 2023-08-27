@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import { FC } from 'react'
 
 import styles from './HomeCarousel.module.scss'
-import CarouselSlider from './HomeCarouselSlider/HomeCarouselSlider'
+import HomeCarouselSlider from './HomeCarouselSlider/HomeCarouselSlider'
 
 const ferryFont = localFont({
 	src: '../../../assets/fonts/ferry_black.otf',
@@ -17,7 +17,7 @@ const Carousel: FC = () => {
 				Почему именно мы
 			</h2>
 
-			<CarouselSlider />
+			<HomeCarouselSlider />
 		</section>
 	)
 }
