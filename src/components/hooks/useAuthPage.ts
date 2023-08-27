@@ -9,9 +9,8 @@ import AuthService from '@/services/auth.service'
 
 export const useAuthPage = () => {
 	const [type, setType] = useState('login')
-	const [errorText, setErrorText] = useState<string>('')
 	const { push } = useRouter()
-	const { isAuth, setIsAuth } = useAuth()
+	const { isAuth, setIsAuth, setWrongLogin } = useAuth()
 
 	const {
 		register,
@@ -34,7 +33,7 @@ export const useAuthPage = () => {
 					location.reload()
 					push('/')
 				} else {
-					setErrorText(data)
+					setWrongLogin(data)
 				}
 			}
 		}
@@ -57,8 +56,7 @@ export const useAuthPage = () => {
 			handleSubmit,
 			errors,
 			isLoading,
-			onSubmit,
-			errorText
+			onSubmit
 		}),
 		[errors, isLoading]
 	)

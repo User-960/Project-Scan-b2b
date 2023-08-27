@@ -1,7 +1,11 @@
 import cn from 'clsx'
 import localFont from 'next/font/local'
 import Image from 'next/image'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
+
+import Alert from '@/components/ui/alert/Alert'
+
+import { useAuth } from '@/components/hooks/useAuth'
 
 import Layout from '@/components/layout/Layout'
 import { IMeta } from '@/components/seo/meta.interface'
@@ -20,6 +24,15 @@ const Auth: FC = () => {
 		description: 'Enter to account'
 	}
 
+	const { wrongLogin, setWrongLogin } = useAuth()
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setWrongLogin(null)
+		}, 4000)
+		return () => clearTimeout(timer)
+	}, [wrongLogin])
+
 	return (
 		<Layout meta={meta}>
 			<div className={styles.authWrapper}>
@@ -35,6 +48,10 @@ const Auth: FC = () => {
 						alt='Enter image'
 					/>
 				</section>
+
+				{wrongLogin ? (
+					<Alert type={'error'} text={wrongLogin} status={'checked'} />
+				) : null}
 
 				<Form />
 			</div>

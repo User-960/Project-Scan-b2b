@@ -8,6 +8,7 @@ import Loader from '@/components/ui/loader/Loader'
 import { GlobalSvgSelector } from '@/components/ui/svg-selector/GlobalSvgSelector'
 import { SocialSvgSelector } from '@/components/ui/svg-selector/SocialSvgSelector'
 
+import { useAuth } from '@/components/hooks/useAuth'
 import { useAuthPage } from '@/components/hooks/useAuthPage'
 
 import styles from './Form.module.scss'
@@ -15,15 +16,10 @@ import styles from './Form.module.scss'
 const Form: FC = () => {
 	const [authType, setAuthType] = useState<'login' | 'register'>('login')
 
-	const {
-		setType,
-		register,
-		handleSubmit,
-		errors,
-		isLoading,
-		onSubmit,
-		errorText
-	} = useAuthPage()
+	const { setType, register, handleSubmit, errors, isLoading, onSubmit } =
+		useAuthPage()
+
+	const { wrongLogin } = useAuth()
 
 	return (
 		<>
@@ -73,7 +69,7 @@ const Form: FC = () => {
 							label='Пароль:'
 							type='password'
 							placeholder=''
-							error={errorText}
+							error={wrongLogin ? wrongLogin : undefined}
 							name='password'
 							register={register}
 							required={'*Заполните поле пароля!'}

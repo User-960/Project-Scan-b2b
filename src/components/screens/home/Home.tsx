@@ -29,14 +29,6 @@ const Home: FC = () => {
 		description: 'Check business correctly'
 	}
 
-	// const { isAuth } = useAuth()
-
-	// useEffect(() => {
-	// 	if (isAuth) {
-	// 		location.reload()
-	// 	}
-	// }, [isAuth])
-
 	const { push } = useRouter()
 
 	return (

@@ -19,13 +19,17 @@ type TypeContext = {
 	setUser: Dispatch<SetStateAction<TypeUser>>
 	isAuth: boolean
 	setIsAuth: Dispatch<SetStateAction<boolean>>
+	wrongLogin: string | null
+	setWrongLogin: Dispatch<SetStateAction<string | null>>
 }
 
 export const AuthContext = createContext<TypeContext>({
 	user: null,
 	setUser: () => {},
 	isAuth: false,
-	setIsAuth: () => {}
+	setIsAuth: () => {},
+	wrongLogin: null,
+	setWrongLogin: () => {}
 })
 
 const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
@@ -34,11 +38,14 @@ const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 }) => {
 	const [user, setUser] = useState<TypeUser>(null)
 	const [isAuth, setIsAuth] = useState<boolean>(!!Cookies.get(ENUSER.TOKEN))
+	const [wrongLogin, setWrongLogin] = useState<string | null>(null)
 
 	if (isOnlyUser && !isAuth) return <NotFound />
 
 	return (
-		<AuthContext.Provider value={{ user, setUser, isAuth, setIsAuth }}>
+		<AuthContext.Provider
+			value={{ user, setUser, isAuth, setIsAuth, wrongLogin, setWrongLogin }}
+		>
 			{children}
 		</AuthContext.Provider>
 	)
