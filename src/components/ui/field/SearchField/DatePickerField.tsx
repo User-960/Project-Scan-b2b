@@ -1,4 +1,5 @@
 import { DatePicker } from 'antd'
+import { RangePickerProps } from 'antd/es/date-picker'
 import dayjs from 'dayjs'
 import { FC } from 'react'
 import {
@@ -25,6 +26,10 @@ const DatePickerField: FC<IDatePickerFieldProps> = ({
 	placeholder,
 	required
 }) => {
+	const disabledDate: RangePickerProps['disabledDate'] = current => {
+		return current && current > dayjs().endOf('day')
+	}
+
 	return (
 		<Controller
 			name={name === 'startDate' ? 'startDate' : 'endDate'}
@@ -39,6 +44,7 @@ const DatePickerField: FC<IDatePickerFieldProps> = ({
 				<div className={styles.fieldWrapper}>
 					<DatePicker
 						ref={ref}
+						disabledDate={disabledDate}
 						className={styles.datePicker}
 						placeholder={placeholder}
 						status={error ? 'error' : undefined}
