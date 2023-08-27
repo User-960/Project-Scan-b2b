@@ -2,11 +2,7 @@ import { Carousel } from 'antd'
 import Image from 'next/image'
 import nextArrow from 'public/images/arrowLeftHistogram.png'
 import { FC } from 'react'
-import { IoIosArrowForward } from 'react-icons/io'
-
-import styles from '../HomeCarousel.module.scss'
-
-import Card from './Card'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 const data = [
 	{
@@ -30,7 +26,7 @@ const data = [
 const SampleNextArrow = (props: any) => {
 	const { className, style, onClick } = props
 	return (
-		<div
+		<IoIosArrowForward
 			className={className}
 			style={{ ...style, display: 'block', background: 'red' }}
 			onClick={onClick}
@@ -41,7 +37,7 @@ const SampleNextArrow = (props: any) => {
 const SamplePrevArrow = (props: any) => {
 	const { className, style, onClick } = props
 	return (
-		<div
+		<IoIosArrowBack
 			className={className}
 			style={{ ...style, display: 'block', background: 'green' }}
 			onClick={onClick}
