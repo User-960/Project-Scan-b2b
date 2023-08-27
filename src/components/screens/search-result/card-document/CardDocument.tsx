@@ -2,6 +2,7 @@ import moment from 'moment'
 import 'moment/locale/ru'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { FC, ReactNode, useEffect } from 'react'
 
 import Button from '@/components/ui/button/Button'
@@ -17,9 +18,9 @@ interface ICarddocProps {
 }
 
 const Carddoc: FC<ICarddocProps> = ({ doc }) => {
-	// <br><img src="https://storage.scan-interfax.ru/images/1%3A0JBlNdCB0LvQv9CL0ZgqGNC80YLQoy%2FCtdCf0JTigJ0BWw9IeeKAmtGRLF0o0IRG0JLQmOKAmQEfGlsf0LnRktC50ZQUYdCtWeKAlG9M0J%2FRldCt0IJH0Io1EtCefFDQtzljOdKQ0JnQu2co4oCeYylD0LEZ0ZrQkyVvHsK2TMKnMsKpBNCSSzjQgtC2OG5yBdCC"><br><img src="https://storage.scan-interfax.ru/images/1%3A0JBlNdCB0LvQv9CL0ZgqGNC80YLQoy%2FCtdCf0JTigJ0BWw9IeeKAmtGRLF0o0IRG0JLQmOKAmQEfGlsf0LnRktC50ZQUYdCtWeKAlG9qC9GS0YTigJokGHnQrTRuPCYV0LDCt9Cv0YXQrzvRjNCp0LnCpww1GNGETW7Qgy5FAyfihKLRjNCl0KzCmHhz0JjQlNCf0LHigJo7"><br><img src="https://storage.scan-interfax.ru/images/1%3A0JBlNdCB0LvQv9CL0ZgqGNC80YLQoy%2FCtdCf0JTigJ0BWw9IeeKAmtGRLF0o0IRG0JLQmOKAmQEfGlsf0LnRktC50ZQUYdCtWeKAlG%2FCuwXRgeKAotGVcz9i0KNz0JjRmtCD0L7Qvn0T0J3QgdGK0IJlUjVRKOKAlEDRnkZvJOKAmAfQmdGG0LXQsdGZwqtAf8K3adCK0L9lYQ%3D%3D">
+	const { push } = useRouter()
 
-	const formatXMl = (strXML: string): any => {
+	const formatXMlImage = (strXML: string): any => {
 		let test: string = ''
 		const subString = '<br><img src='
 		const subImage = `<br><img src="https://dummyimage.com/480x240">`
@@ -31,7 +32,7 @@ const Carddoc: FC<ICarddocProps> = ({ doc }) => {
 			})
 		}
 
-		return test.length < 300
+		return test.length < 360
 			? test.split(subString).join().split('>').join().slice(2, -2)
 			: (test = `${subImage}`)
 					.split(subString)
@@ -53,10 +54,10 @@ const Carddoc: FC<ICarddocProps> = ({ doc }) => {
 			<div className={styles.cardBadge}>Технические новости</div>
 			<Image
 				className={styles.cardImage}
-				src={formatXMl(doc.content.markup)}
+				src={formatXMlImage(doc.content.markup)}
 				alt='Card Image'
-				width={581}
-				height={158}
+				width={550}
+				height={290}
 				priority={true}
 			/>
 			<div className={styles.textInfo}>
@@ -69,7 +70,7 @@ const Carddoc: FC<ICarddocProps> = ({ doc }) => {
 			</div>
 			<div className={styles.serviceBtn}>
 				<div className={styles.btnWrapper}>
-					<Button size={'small'} clickHandler={() => console.log('1')}>
+					<Button size={'small'} clickHandler={() => push(doc.url)}>
 						Читать в источнике
 					</Button>
 				</div>

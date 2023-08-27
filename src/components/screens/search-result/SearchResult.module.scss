@@ -69,10 +69,20 @@
 	.listCards {
 		margin-bottom: 40px;
 		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
 	}
 	.btnWrapper {
 		max-width: 305px;
 		margin: 0 auto;
+	}
+}
+
+@media (max-width: 1150px) {
+	.sectionCards {
+		.listCards {
+			flex-direction: column;
+		}
 	}
 }
 
