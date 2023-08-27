@@ -1,34 +1,48 @@
 import { Carousel } from 'antd'
 import Image from 'next/image'
-import nextArrow from 'public/images/arrowLeftHistogram.png'
 import { FC } from 'react'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
-const data = [
+import styles from '../HomeCarousel.module.scss'
+
+const dataHomeCarousel = [
 	{
+		id: 1,
 		img: '/images/time.jpg',
 		text: 'Высокая и оперативная скорость обработки заявки'
 	},
 	{
+		id: 2,
 		img: '/images/search.jpg',
 		text: 'Огромная комплексная база данных, обеспечивающая объективный ответ на запрос'
 	},
 	{
+		id: 3,
 		img: '/images/shield.jpg',
 		text: 'Защита конфеденциальных сведений, не подлежащих разглашению по федеральному законодательству'
 	},
 	{
+		id: 4,
+		img: '/images/time.jpg',
+		text: 'Высокая и оперативная скорость обработки заявки'
+	},
+	{
+		id: 5,
+		img: '/images/search.jpg',
+		text: 'Огромная комплексная база данных, обеспечивающая объективный ответ на запрос'
+	},
+	{
+		id: 6,
 		img: '/images/shield.jpg',
 		text: 'Защита конфеденциальных сведений, не подлежащих разглашению по федеральному законодательству'
 	}
 ]
 
 const SampleNextArrow = (props: any) => {
-	const { className, style, onClick } = props
+	const { style, onClick } = props
 	return (
-		<IoIosArrowForward
-			className={className}
-			style={{ ...style, display: 'block', background: 'red' }}
+		<div
+			className={styles.slickArrowRight}
+			style={{ ...style, width: '50px', height: '50px' }}
 			onClick={onClick}
 		/>
 	)
@@ -37,9 +51,9 @@ const SampleNextArrow = (props: any) => {
 const SamplePrevArrow = (props: any) => {
 	const { className, style, onClick } = props
 	return (
-		<IoIosArrowBack
-			className={className}
-			style={{ ...style, display: 'block', background: 'green' }}
+		<div
+			className={styles.slickArrowLeft}
+			style={{ ...style, width: '50px', height: '50px' }}
 			onClick={onClick}
 		/>
 	)
@@ -51,19 +65,19 @@ const CarouselSlider: FC = () => {
 		dots: false,
 		slidesToShow: 3,
 		slidesToScroll: 1,
-		className: 'carouselSlider',
+		className: `${styles.carouselSlider}`,
 		nextArrow: <SampleNextArrow />,
 		prevArrow: <SamplePrevArrow />,
 		responsive: [
 			{
-				breakpoint: 880,
+				breakpoint: 980,
 				settings: {
 					slidesToShow: 2,
 					slidesToScroll: 1
 				}
 			},
 			{
-				breakpoint: 480,
+				breakpoint: 600,
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1
@@ -73,7 +87,7 @@ const CarouselSlider: FC = () => {
 	}
 
 	const contentStyle: React.CSSProperties = {
-		padding: '22px 20px 30px 20px',
+		padding: '18px 18px 10px 18px',
 		maxWidth: '400px',
 		minHeight: '225px',
 		borderRadius: '10px',
@@ -81,14 +95,14 @@ const CarouselSlider: FC = () => {
 		boxShadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.2)',
 		marginTop: '15px',
 		marginBottom: '15px',
-		marginLeft: '15px',
-		marginRight: '15px'
+		marginLeft: '20px',
+		marginRight: '20px'
 	}
 
 	const contentStyleText: React.CSSProperties = {
 		marginTop: '12px',
 		maxWidth: '313px',
-		minHeight: '90px',
+		minHeight: '110px',
 		color: '#000',
 		fontSize: '18px',
 		fontWeight: '400',
@@ -97,37 +111,17 @@ const CarouselSlider: FC = () => {
 	}
 
 	return (
-		// <Carousel>
-		// 	{data.map((el, idx) => (
-		// 		<Card key={idx} img={el.img} text={el.text} />
-		// 	))}
-		// </Carousel>
-
 		<Carousel {...settings}>
-			<div>
-				<div style={contentStyle}>
-					<Image src={data[0].img} alt='time' width={64} height={64} />
-					<p style={contentStyleText}>{data[0].text}</p>
-				</div>
-			</div>
-			<div>
-				<div style={contentStyle}>
-					<Image src={data[1].img} alt='time' width={64} height={64} />
-					<p style={contentStyleText}>{data[1].text}</p>
-				</div>
-			</div>
-			<div>
-				<div style={contentStyle}>
-					<Image src={data[2].img} alt='time' width={64} height={64} />
-					<p style={contentStyleText}>{data[2].text}</p>
-				</div>
-			</div>
-			<div>
-				<div style={contentStyle}>
-					<Image src={data[3].img} alt='time' width={64} height={64} />
-					<p style={contentStyleText}>{data[3].text}</p>
-				</div>
-			</div>
+			{dataHomeCarousel.map(el => (
+				<>
+					<div>
+						<div style={contentStyle}>
+							<Image src={el.img} alt='time' width={64} height={64} />
+							<p style={contentStyleText}>{el.text}</p>
+						</div>
+					</div>
+				</>
+			))}
 		</Carousel>
 	)
 }

@@ -13,7 +13,8 @@ import { IMeta } from '@/components/seo/meta.interface'
 
 import mainImage from '../../../../public/images/main.png'
 import sectionImage from '../../../../public/images/sectionImage.svg'
-import Carousel from '../home-carousel/HomeCarousel'
+import stylesSlider from '../home-carousel/HomeCarousel.module.scss'
+import HomeCarouselSlider from '../home-carousel/HomeCarouselSlider/HomeCarouselSlider'
 import Plans from '../plans/Plans'
 import ResultCarousel from '../search-result/result-carousel/ResultCarousel'
 
@@ -63,10 +64,11 @@ const Home: FC = () => {
 				</section>
 
 				<section className={styles.sectionCarousel}>
-					<h5 className={cn(ferryFont.className, styles.carouselTitle)}>
-						Общая сводка
-					</h5>
-					<Carousel />
+					<h2 className={cn(ferryFont.className, stylesSlider.title)}>
+						Почему именно мы
+					</h2>
+
+					<HomeCarouselSlider />
 				</section>
 
 				<section className={styles.sectionImage}>
