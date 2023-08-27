@@ -10,7 +10,7 @@ import Button from '@/components/ui/button/Button'
 import mainImage from '../../../.././../public/images/main.png'
 
 import styles from './CardDocument.module.scss'
-import { IScanDoc } from '@/interfaces/search'
+import { IScanDoc } from '@/interfaces/objectsearch.interface'
 
 const parseString = require('xml2js').parseString
 interface ICardDocumentProps {

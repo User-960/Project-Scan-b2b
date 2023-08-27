@@ -10,7 +10,10 @@ import { useScanDocs } from '@/components/hooks/useScanDocs'
 import styles from '../SearchResult.module.scss'
 import CardDocument from '../card-document/CardDocument'
 
-import { IScanDoc, IScanDocsResponse } from '@/interfaces/search'
+import {
+	IScanDoc,
+	IScanDocsResponse
+} from '@/interfaces/objectsearch.interface'
 import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
 const ferryFont = localFont({

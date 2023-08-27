@@ -3,14 +3,12 @@ import {
 	FC,
 	PropsWithChildren,
 	SetStateAction,
-	useEffect,
 	useState
 } from 'react'
 import { createContext } from 'react'
 
 import { ISearchFields } from '@/interfaces/form.interface'
 import { TypeHistograms } from '@/interfaces/objectsearch.interface'
-import { ISearchResultItemsResponse } from '@/interfaces/search'
 
 type TypeContext = {
 	formData: ISearchFields | null

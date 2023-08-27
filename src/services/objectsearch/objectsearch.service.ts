@@ -4,7 +4,7 @@ import {
 	ISearch,
 	ISearchResponse,
 	ISearchResultItemsResponse
-} from '@/interfaces/search'
+} from '@/interfaces/objectsearch.interface'
 
 const HISTOGRAMS = '/v1/objectsearch/histograms'
 const OBJECTSEARCH = '/v1/objectsearch'

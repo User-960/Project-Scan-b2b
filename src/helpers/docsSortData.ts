@@ -1,4 +1,4 @@
-import { ISearchResultItemsResponse } from '@/interfaces/search'
+import { ISearchResultItemsResponse } from '@/interfaces/objectsearch.interface'
 
 export const docsSortData = (data: ISearchResultItemsResponse) => {
 	let ids: string[] = []

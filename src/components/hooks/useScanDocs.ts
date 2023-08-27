@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useMemo, useState } from 'react'
 
 import { useObject } from './useObject'
-import { IScanDocs } from '@/interfaces/search'
+import { IScanDocs } from '@/interfaces/objectsearch.interface'
 import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
 export const useScanDocs = () => {
