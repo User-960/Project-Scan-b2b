@@ -52,10 +52,7 @@ const CardList: FC = () => {
 			) : (
 				<ul className={styles.listCards}>
 					{docs.map(document => (
-						<>
-							<p>{document.language}</p>
-							<CardDocument />
-						</>
+						<CardDocument key={document.id} doc={document} />
 					))}
 				</ul>
 			)}
