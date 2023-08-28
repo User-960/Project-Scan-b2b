@@ -96,7 +96,9 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 				{doc.attributes.isAnnouncement && (
 					<div className={styles.cardBadge}>Объявление</div>
 				)}
-				{<div className={styles.cardBadge}>Дайджест</div>}
+				{doc.attributes.isDigest && (
+					<div className={styles.cardBadge}>Дайджест</div>
+				)}
 			</div>
 			<Image
 				className={styles.cardImage}

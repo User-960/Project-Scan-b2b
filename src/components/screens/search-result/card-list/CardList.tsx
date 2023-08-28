@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import { FC, useEffect, useState } from 'react'
 
 import Button from '@/components/ui/button/Button'
+import Loader from '@/components/ui/loader/Loader'
 
 import { useObject } from '@/components/hooks/useObject'
 import { useScanDocs } from '@/components/hooks/useScanDocs'
@@ -42,23 +43,17 @@ const CardList: FC = () => {
 		return newArray
 	}
 
-	console.log(docs)
-
 	return (
 		<section className={styles.sectionCards}>
 			<h5 className={cn(ferryFont.className, styles.carouselTitleCards)}>
 				Список документов
 			</h5>
 
-			{!docs ? (
-				<div>Loading...</div>
-			) : (
-				<ul className={styles.listCards}>
-					{docs.map(document => (
-						<CardDocument key={document.id} doc={document} />
-					))}
-				</ul>
-			)}
+			<ul className={styles.listCards}>
+				{docs?.map(document => (
+					<CardDocument key={document.id} doc={document} />
+				))}
+			</ul>
 
 			<div className={styles.btnWrapper}>
 				<Button

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 
 import Button from '@/components/ui/button/Button'
 import CheckboxField from '@/components/ui/field/SearchField/CheckboxField'
@@ -11,55 +11,9 @@ import { useSearchHistograms } from '@/components/hooks/useSearchHistograms'
 
 import styles from './SearchForm.module.scss'
 
-// const dataCheckbox = [
-// 	{
-// 		id: 'maxFullness',
-// 		label: 'Признак максимальной полноты',
-// 		name: 'maxFullness'
-// 	},
-// 	{
-// 		id: 'inBusinessNews',
-// 		label: 'Упоминания в бизнес-контексте',
-// 		name: 'inBusinessNews'
-// 	},
-// 	{
-// 		id: 'onlyMainRole',
-// 		label: 'Главная роль в публикации',
-// 		name: 'onlyMainRole'
-// 	},
-// 	{
-// 		id: 'onlyWithRiskFactors',
-// 		label: 'Публикации только с риск-факторами',
-// 		name: 'onlyWithRiskFactors'
-// 	},
-// 	{
-// 		id: 'maxFullness',
-// 		label: 'Включать технические новости рынков',
-// 		name: 'maxFullness'
-// 	},
-// 	{
-// 		id: 'maxFullness',
-// 		label: 'Включать анонсы и календари',
-// 		name: 'maxFullness'
-// 	},
-// 	{
-// 		id: 'maxFullness',
-// 		label: 'Включать сводки новостей',
-// 		name: 'maxFullness'
-// 	}
-// ]
-
 const SearchForm: FC = () => {
-	const {
-		register,
-		handleSubmit,
-		control,
-		errors,
-		errorState,
-		isLoading,
-		isSuccess,
-		onSubmit
-	} = useSearchHistograms()
+	const { register, handleSubmit, control, errors, isLoading, onSubmit } =
+		useSearchHistograms()
 
 	return (
 		<>
@@ -152,27 +106,27 @@ const SearchForm: FC = () => {
 									name='onlyWithRiskFactors'
 									register={register}
 								/>
-								{/* <CheckboxField
-									id='test1'
+								<CheckboxField
+									id='excludeTechNews'
 									label='Включать технические новости рынков'
-									error={errors?.maxFullness?.message}
-									name='maxFullness'
+									error={errors?.excludeTechNews?.message}
+									name='excludeTechNews'
 									register={register}
 								/>
 								<CheckboxField
-									id='test2'
+									id='excludeAnnouncements'
 									label='Включать анонсы и календари'
-									error={errors?.maxFullness?.message}
-									name='maxFullness'
+									error={errors?.excludeAnnouncements?.message}
+									name='excludeAnnouncements'
 									register={register}
 								/>
 								<CheckboxField
-									id='test3'
+									id='excludeDigests'
 									label='Включать сводки новостей'
-									error={errors?.maxFullness?.message}
-									name='maxFullness'
+									error={errors?.excludeDigests?.message}
+									name='excludeDigests'
 									register={register}
-								/> */}
+								/>
 							</ul>
 
 							<div className={styles.btnWrapper}>

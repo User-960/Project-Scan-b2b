@@ -23,10 +23,20 @@ const ResultCarousel: FC = () => {
 	const settings = {
 		arrows: true,
 		dots: false,
-		slidesToShow: bubbleSort(filterHistogramsData(histogramsData)).length,
+		slidesToShow:
+			bubbleSort(filterHistogramsData(histogramsData)).length > 8
+				? 8
+				: bubbleSort(filterHistogramsData(histogramsData)).length,
 		slidesToScroll: 1,
 		className: 'carouselHistograms',
 		responsive: [
+			{
+				breakpoint: 1280,
+				settings: {
+					slidesToShow: 4,
+					slidesToScroll: 1
+				}
+			},
 			{
 				breakpoint: 880,
 				settings: {

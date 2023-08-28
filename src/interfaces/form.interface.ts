@@ -13,6 +13,9 @@ export interface ISearchFields {
 	onlyMainRole: boolean
 	maxFullness: boolean
 	inBusinessNews: boolean | null
+	excludeTechNews: boolean
+	excludeAnnouncements: boolean
+	excludeDigests: boolean
 }
 
 export interface ITonalityOption {

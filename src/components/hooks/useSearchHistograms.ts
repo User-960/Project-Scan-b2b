@@ -22,7 +22,10 @@ export const useSearchHistograms = () => {
 			onlyWithRiskFactors,
 			onlyMainRole,
 			maxFullness,
-			inBusinessNews
+			inBusinessNews,
+			excludeTechNews,
+			excludeAnnouncements,
+			excludeDigests
 		}: ISearchFields) =>
 			ObjectSearch.searchHistograms(
 				inn,
@@ -33,7 +36,10 @@ export const useSearchHistograms = () => {
 				onlyWithRiskFactors,
 				onlyMainRole,
 				maxFullness,
-				inBusinessNews
+				inBusinessNews,
+				excludeTechNews,
+				excludeAnnouncements,
+				excludeDigests
 			),
 		{
 			onSuccess: data => {
@@ -72,7 +78,10 @@ export const useSearchHistograms = () => {
 			onlyWithRiskFactors: data.onlyWithRiskFactors,
 			onlyMainRole: data.onlyMainRole,
 			maxFullness: data.maxFullness,
-			inBusinessNews: data.inBusinessNews
+			inBusinessNews: data.inBusinessNews,
+			excludeTechNews: data.excludeTechNews,
+			excludeAnnouncements: data.excludeAnnouncements,
+			excludeDigests: data.excludeDigests
 		})
 		setFormData(data)
 	}

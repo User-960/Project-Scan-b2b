@@ -20,7 +20,10 @@ class ObjectSearch {
 		onlyWithRiskFactors: boolean,
 		onlyMainRole: boolean,
 		maxFullness: boolean,
-		inBusinessNews: boolean | null
+		inBusinessNews: boolean | null,
+		excludeTechNews: boolean,
+		excludeAnnouncements: boolean,
+		excludeDigests: boolean
 	) {
 		const postData: ISearch = {
 			issueDateInterval: {
@@ -51,9 +54,9 @@ class ObjectSearch {
 				excludedSourceGroups: []
 			},
 			attributeFilters: {
-				excludeTechNews: true,
-				excludeAnnouncements: true,
-				excludeDigests: true
+				excludeTechNews: excludeTechNews,
+				excludeAnnouncements: excludeAnnouncements,
+				excludeDigests: excludeDigests
 			},
 			similarMode: 'duplicates',
 			limit: limit,
