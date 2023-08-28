@@ -60,11 +60,12 @@ const Home: FC = () => {
 						className={styles.mainImage}
 						src={mainImage}
 						alt='Main image'
+						draggable={false}
 					/>
 				</section>
 
 				<section className={styles.sectionCarousel}>
-					<h2 className={cn(ferryFont.className, stylesSlider.title)}>
+					<h2 className={cn(ferryFont.className, stylesSlider.titleCarousel)}>
 						Почему именно мы
 					</h2>
 
@@ -72,7 +73,7 @@ const Home: FC = () => {
 				</section>
 
 				<section className={styles.sectionImage}>
-					<Image src={sectionImage} alt='Section image' />
+					<Image src={sectionImage} alt='Section image' draggable={false} />
 				</section>
 
 				<Plans />

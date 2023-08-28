@@ -1,6 +1,6 @@
 import { Carousel } from 'antd'
 import Image from 'next/image'
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 
 import styles from '../HomeCarousel.module.scss'
 
@@ -113,14 +113,14 @@ const CarouselSlider: FC = () => {
 	return (
 		<Carousel {...settings}>
 			{dataHomeCarousel.map(el => (
-				<>
+				<Fragment key={el.id}>
 					<div>
 						<div style={contentStyle}>
 							<Image src={el.img} alt='time' width={64} height={64} />
 							<p style={contentStyleText}>{el.text}</p>
 						</div>
 					</div>
-				</>
+				</Fragment>
 			))}
 		</Carousel>
 	)

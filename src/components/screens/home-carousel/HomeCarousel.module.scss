@@ -16,6 +16,15 @@
 	}
 }
 
+.titleCarousel {
+	color: $black;
+	font-size: 45px;
+	font-weight: 900;
+	line-height: normal;
+	letter-spacing: 0.45px;
+	margin-bottom: 70px;
+}
+
 .carouselSlider {
 	position: relative;
 	display: flex;
@@ -28,7 +37,7 @@
 .slickArrowLeft {
 	position: absolute;
 	top: 110px;
-	left: -30px;
+	left: -25px;
 	background-image: url('../../../../public/images/arrowLeftHistogram.png');
 	background-repeat: no-repeat;
 	cursor: pointer;
@@ -37,7 +46,7 @@
 .slickArrowRight {
 	position: absolute;
 	top: 110px;
-	right: -30px;
+	right: -25px;
 	background-image: url('../../../../public/images/arrowRightHistogram.png');
 	background-repeat: no-repeat;
 	cursor: pointer;
