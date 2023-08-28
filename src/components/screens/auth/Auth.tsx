@@ -46,6 +46,7 @@ const Auth: FC = () => {
 						width={321}
 						height={342}
 						alt='Enter image'
+						draggable={false}
 					/>
 				</section>
 

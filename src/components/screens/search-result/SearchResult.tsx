@@ -45,6 +45,7 @@ const SearchResult: FC = () => {
 					className={styles.sectionImage}
 					src={resultSearchImage}
 					alt='Main image'
+					draggable={false}
 				/>
 			</section>
 

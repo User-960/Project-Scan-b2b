@@ -54,6 +54,7 @@ const Account: FC<IAccount> = ({ isAuthorized = false }) => {
 								width={32}
 								height={32}
 								alt='Avatar of the user'
+								draggable={false}
 							/>
 						</div>
 						<button className={styles.btnLogout} onClick={logoutHandler}>

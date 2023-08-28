@@ -105,6 +105,7 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 				width={550}
 				height={270}
 				priority={true}
+				draggable={false}
 			/>
 			<div className={styles.textInfo}>
 				{/* <p id='textArticle' className={styles.text}>

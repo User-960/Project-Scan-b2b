@@ -9,6 +9,7 @@ const Loader: FC = () => {
 			width={120}
 			height={30}
 			priority={true}
+			draggable={false}
 		/>
 	)
 }
