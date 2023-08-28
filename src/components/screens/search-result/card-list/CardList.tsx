@@ -23,9 +23,19 @@ const ferryFont = localFont({
 })
 
 const CardList: FC = () => {
-	// const { isLoading } = useScanDocs()
 	const { idsItems } = useObject()
 	const [docs, setDocs] = useState<IScanDoc[] | null>(null)
+
+	// Pagination
+	const [currentPage] = useState<number>(1)
+	const [docsPerPage, setDocsPerPage] = useState<number>(2)
+
+	const lastDocIndex = currentPage * docsPerPage
+	const firstDocIndex = lastDocIndex - docsPerPage
+	const currentDocs = docs?.slice(firstDocIndex, lastDocIndex)
+
+	const nextDocs = () => setDocsPerPage(prev => prev + 2)
+	// ----
 
 	useEffect(() => {
 		if (idsItems) {
@@ -50,18 +60,14 @@ const CardList: FC = () => {
 			</h5>
 
 			<ul className={styles.listCards}>
-				{docs?.map(document => (
+				{currentDocs?.map(document => (
 					<CardDocument key={document.id} doc={document} />
 				))}
 			</ul>
 
 			<div className={styles.btnWrapper}>
-				<Button
-					size={'medium'}
-					state='btnAvailable'
-					clickHandler={() => console.log('1')}
-				>
-					Запросить данные
+				<Button size={'medium'} state='btnAvailable' clickHandler={nextDocs}>
+					Показать больше
 				</Button>
 			</div>
 		</section>
