@@ -57,37 +57,40 @@ const ResultCarousel: FC = () => {
 	return (
 		<>
 			<div className={styles.wrapperCarousel}>
-				<p className={styles.carouselQuantity}>
-					{`Найдено ${
-						histogramsData ? filterHistogramsData(histogramsData).length : 0
-					}
-					вариантов`}
-				</p>
-				<div className={styles.carouselTable}>
-					<div className={styles.carouselRow}>Период</div>
-					<div className={styles.carouselRow}>Всего</div>
-					<div className={styles.carouselRow}>Риски</div>
-				</div>
 				{!histogramsData ? (
 					<div className={styles.loader}>
-						<Loader />
+						<Loader loader='dots' />
 					</div>
 				) : (
-					<Carousel {...settings}>
-						{bubbleSort(filterHistogramsData(histogramsData)).map(
-							(item: IDayHistogram) => (
-								<div key={item.id} className={styles.carouselItem}>
-									<p className={styles.carouselDate}>
-										{moment(item.date).format('L')}
-									</p>
+					<>
+						<p className={styles.carouselQuantity}>
+							{`Найдено ${
+								histogramsData ? filterHistogramsData(histogramsData).length : 0
+							}
+					вариантов`}
+						</p>
+						<div className={styles.carouselTable}>
+							<div className={styles.carouselRow}>Период</div>
+							<div className={styles.carouselRow}>Всего</div>
+							<div className={styles.carouselRow}>Риски</div>
+						</div>
 
-									<p className={styles.carouselAll}>{item.totalDocs}</p>
+						<Carousel {...settings}>
+							{bubbleSort(filterHistogramsData(histogramsData)).map(
+								(item: IDayHistogram) => (
+									<div key={item.id} className={styles.carouselItem}>
+										<p className={styles.carouselDate}>
+											{moment(item.date).format('L')}
+										</p>
 
-									<p className={styles.carouselRisks}>{item.riskFact}</p>
-								</div>
-							)
-						)}
-					</Carousel>
+										<p className={styles.carouselAll}>{item.totalDocs}</p>
+
+										<p className={styles.carouselRisks}>{item.riskFact}</p>
+									</div>
+								)
+							)}
+						</Carousel>
+					</>
 				)}
 			</div>
 		</>

@@ -1,10 +1,14 @@
 import Image from 'next/image'
 import { FC } from 'react'
 
-const Loader: FC = () => {
+interface ILoaderProps {
+	loader: string
+}
+
+const Loader: FC<ILoaderProps> = ({ loader }) => {
 	return (
 		<Image
-			src={'/images/three-dots.svg'}
+			src={loader === 'dots' ? '/images/three-dots.svg' : '/images/spinner.svg'}
 			alt='loader'
 			width={120}
 			height={30}

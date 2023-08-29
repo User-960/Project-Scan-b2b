@@ -4,6 +4,17 @@
 	max-width: 1220px;
 	margin: 0 auto;
 	position: relative;
+
+	.loader {
+		text-align: center;
+		margin: auto;
+
+		& > img {
+			width: 12%;
+			height: 12%;
+		}
+	}
+
 	.carouselQuantity {
 		color: #949494;
 		font-size: 18px;

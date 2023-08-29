@@ -20,7 +20,7 @@ const SearchForm: FC = () => {
 			<div className={styles.wrapper}>
 				{isLoading ? (
 					<div className={styles.loader}>
-						<Loader />
+						<Loader loader='spinner' />
 					</div>
 				) : (
 					<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

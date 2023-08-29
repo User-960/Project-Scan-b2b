@@ -13,7 +13,7 @@ const Statistics: FC = () => {
 		<div className={styles.statistics}>
 			{isLoading ? (
 				<div className={styles.loader}>
-					<Loader />
+					<Loader loader='spinner' />
 				</div>
 			) : (
 				<>

@@ -62,7 +62,7 @@ const SearchResult: FC = () => {
 
 			{isLoading ? (
 				<div className={styles.loader}>
-					<Loader />
+					<Loader loader='dots' />
 				</div>
 			) : (
 				<CardList />

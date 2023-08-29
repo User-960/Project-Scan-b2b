@@ -3,10 +3,8 @@ import localFont from 'next/font/local'
 import { FC, useEffect, useState } from 'react'
 
 import Button from '@/components/ui/button/Button'
-import Loader from '@/components/ui/loader/Loader'
 
 import { useObject } from '@/components/hooks/useObject'
-import { useScanDocs } from '@/components/hooks/useScanDocs'
 
 import styles from '../SearchResult.module.scss'
 import CardDocument from '../card-document/CardDocument'
