@@ -8,6 +8,7 @@ import { FC, ReactNode, useEffect } from 'react'
 import Button from '@/components/ui/button/Button'
 
 import styles from './CardDocument.module.scss'
+import { IMarkupData } from '@/interfaces/markup.interface'
 import { IScanDoc } from '@/interfaces/objectsearch.interface'
 
 const parseString = require('xml2js').parseString
@@ -16,45 +17,63 @@ interface ICardDocumentProps {
 }
 
 const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
-	const { push } = useRouter()
+	const parser = new DOMParser()
 
-	// const formatXMlText = (strXML: string): any => {
-	// 	let test: any
-	// 	let newText
+	// Рабочий вариант !!!!!!!
+	// const formatXMlText = (strXML: string): string => {
+	// 	let formatText: string = ''
+	// 	let filteredText: string[] = []
+
 	// 	if (strXML) {
-	// 		parseString(strXML, function (err: any, result: any) {
-	// 			test = result.scandoc.sentence
-	// 			for (let i = 0; i < test.length; i++) {
-	// 				let partStr
-	// 				if (typeof test[i] !== 'string') {
-	// 					partStr = test[i].entity
+	// 		parseString(strXML, function (err: any, result: IMarkupData) {
+	// 			console.log(result)
+
+	// 			for (let i = 0; i < result.scandoc.sentence.length; i++) {
+	// 				if (typeof result.scandoc.sentence[i] === 'string') {
+	// 					formatText += result.scandoc.sentence[i]
+	// 				}
+
+	// 				if (result.scandoc.sentence[i]._) {
+	// 					formatText += result.scandoc.sentence[i]._
 	// 				}
 	// 			}
-	// 			console.log(test)
-	// 			// test ? test : (test = `${subImage}`)
+
+	// 			// 	if (result.scandoc.sentence[i].entity) {
+	// 			// 		for (let j = 0; j < result.scandoc.sentence[i].entity.length; j++) {
+	// 			// 			formatText.push(result.scandoc.sentence[i].entity[j]._)
+
+	// 			// 			if (result.scandoc.sentence[i].entity[j].entity) {
+	// 			// 				for (
+	// 			// 					let k = 0;
+	// 			// 					k < result.scandoc.sentence[i].entity[j].entity.length;
+	// 			// 					k++
+	// 			// 				) {
+	// 			// 					formatText.push(
+	// 			// 						result.scandoc.sentence[i].entity[j].entity[k]._
+	// 			// 					)
+	// 			// 				}
+	// 			// 			}
+	// 			// 		}
+	// 			// 	}
+
+	// 			// 	if (result.scandoc.sentence[i].speech) {
+	// 			// 		for (let y = 0; y < result.scandoc.sentence[i].speech.length; y++) {
+	// 			// 			formatText.push(result.scandoc.sentence[i].speech[y]._)
+	// 			// 		}
+	// 			// 	}
+	// 			// }
+
+	// 			// filteredText = formatText.filter((elem: string) => elem !== undefined)
+
+	// 			console.log(formatText)
+	// 			// console.log(filteredText.join(' '))
 	// 		})
 	// 	}
+
+	// 	return filteredText.join(' ')
 	// }
 
-	// const formatXMlText = (strXML: string): any => {
-	// 	let test: any
-	// 	let newText: any
-	// 	if (strXML) {
-	// 		parseString(strXML, function (err: any, result: any) {
-	// 			test = result.scandoc.sentence
-	// 			console.log(test)
-	// 			// test ? test : (test = `${subImage}`)
-	// 		})
-	// 	}
-	// 	const textArticle = document.getElementById('textArticle')
-	// 	for (let i = 0; i < test.length; i++) {
-	// 		// textArticle?.innerHTML(test[i])
-	// 		for (let j = 0; j < test[i].length; j++) {
-	// 			newText.push(test[i][j].join())
-	// 		}
-	// 	}
-	// 	console.log(newText)
-	// }
+	// Рабочий вариант !!!!!!!
 
 	const formatXMlImage = (strXML: string): any => {
 		let test: string = ''
@@ -110,9 +129,7 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 			</div>
 
 			<div className={styles.textInfo}>
-				{/* <p id='textArticle' className={styles.text}>
-					{formatXMlText(doc.content.markup)}
-				</p> */}
+				{/* <p className={styles.text}>{formatXMlText(doc.content.markup)}</p> */}
 				{/* <br /> */}
 				<p className={styles.text}>
 					Принципы SkillFactory: акцент на практике, забота о студентах и
