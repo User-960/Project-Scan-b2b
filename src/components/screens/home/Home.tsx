@@ -2,11 +2,9 @@ import cn from 'clsx'
 import localFont from 'next/font/local'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 
 import Button from '@/components/ui/button/Button'
-
-import { useAuth } from '@/components/hooks/useAuth'
 
 import Layout from '@/components/layout/Layout'
 import { IMeta } from '@/components/seo/meta.interface'
@@ -16,7 +14,6 @@ import sectionImage from '../../../../public/images/sectionImage.svg'
 import stylesSlider from '../home-carousel/HomeCarousel.module.scss'
 import HomeCarouselSlider from '../home-carousel/HomeCarouselSlider/HomeCarouselSlider'
 import Plans from '../plans/Plans'
-import ResultCarousel from '../search-result/result-carousel/ResultCarousel'
 
 import styles from './Home.module.scss'
 

@@ -1,5 +1,4 @@
 import cn from 'clsx'
-// import dynamic from 'next/dynamic'
 import localFont from 'next/font/local'
 import Image from 'next/image'
 import { FC } from 'react'
@@ -20,10 +19,6 @@ const ferryFont = localFont({
 	src: '../../../assets/fonts/ferry_black.otf',
 	display: 'swap'
 })
-
-// const DynamicCardList = dynamic(() => import('./card-list/CardList'), {
-// 	ssr: false
-// })
 
 const SearchResult: FC = () => {
 	const { emptyHistogramsData } = useObject()
