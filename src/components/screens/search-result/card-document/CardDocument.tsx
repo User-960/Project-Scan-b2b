@@ -105,7 +105,7 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 				src={formatXMlImage(doc.content.markup)}
 				alt='Card Image'
 				width={550}
-				height={270}
+				height={300}
 				priority={true}
 				draggable={false}
 			/>
@@ -126,10 +126,7 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 			</div>
 			<div className={styles.serviceBtn}>
 				<div className={styles.btnWrapper}>
-					<Button
-						size={'small'}
-						clickHandler={() => window.open(doc.url, '_ blank')}
-					>
+					<Button size={'small'} clickHandler={() => push(doc.url)}>
 						Читать в источнике
 					</Button>
 				</div>
