@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
 import { FC, Fragment, ReactNode } from 'react'
 
-import stylesFooter from '../footer/Footer.module.scss'
 import Meta from '../seo/Meta'
 import { IMeta } from '../seo/meta.interface'
 
 import styles from './Layout.module.scss'
+import stylesFooter from './footer/Footer.module.scss'
 import Header from './header/Header'
 
 interface ILayoutProps {
