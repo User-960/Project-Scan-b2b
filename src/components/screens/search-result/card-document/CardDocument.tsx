@@ -84,7 +84,7 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 		<div className={styles.wrapperCard}>
 			<div className={styles.serviceInfo}>
 				<p className={styles.date}>{moment(doc.issueDate).format('L')}</p>
-				<Link className={styles.source} href={doc.url}>
+				<Link className={styles.source} href={doc.url} target='_blank'>
 					{doc.source.name}
 				</Link>
 			</div>
@@ -126,7 +126,10 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 			</div>
 			<div className={styles.serviceBtn}>
 				<div className={styles.btnWrapper}>
-					<Button size={'small'} clickHandler={() => push(doc.url)}>
+					<Button
+						size={'small'}
+						clickHandler={() => window.open(doc.url, '_ blank')}
+					>
 						Читать в источнике
 					</Button>
 				</div>

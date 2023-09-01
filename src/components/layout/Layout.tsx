@@ -4,7 +4,7 @@ import Meta from '../seo/Meta'
 import { IMeta } from '../seo/meta.interface'
 
 import styles from './Layout.module.scss'
-// import Footer from './footer/Footer'
+import Footer from './footer/Footer'
 import Header from './header/Header'
 
 interface ILayoutProps {
@@ -22,7 +22,7 @@ const Layout: FC<ILayoutProps> = ({ backLink = '/', children, meta }) => {
 					<main className={styles.contentWrapper}>
 						{children && <Fragment>{children}</Fragment>}
 					</main>
-					{/* <Footer /> */}
+					<Footer />
 				</div>
 			</Meta>
 		</>
