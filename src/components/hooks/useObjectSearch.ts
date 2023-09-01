@@ -23,7 +23,10 @@ export const useObjectSearch = () => {
 			onlyWithRiskFactors,
 			onlyMainRole,
 			maxFullness,
-			inBusinessNews
+			inBusinessNews,
+			excludeTechNews,
+			excludeAnnouncements,
+			excludeDigests
 		}: ISearchFields) =>
 			ObjectSearch.searchDocs(
 				inn,
@@ -34,7 +37,10 @@ export const useObjectSearch = () => {
 				onlyWithRiskFactors,
 				onlyMainRole,
 				maxFullness,
-				inBusinessNews
+				inBusinessNews,
+				excludeTechNews,
+				excludeAnnouncements,
+				excludeDigests
 			),
 		{
 			onSuccess: data => {
@@ -63,7 +69,10 @@ export const useObjectSearch = () => {
 			onlyWithRiskFactors: formData.onlyWithRiskFactors,
 			onlyMainRole: formData.onlyMainRole,
 			maxFullness: formData.maxFullness,
-			inBusinessNews: formData.inBusinessNews
+			inBusinessNews: formData.inBusinessNews,
+			excludeTechNews: formData.excludeTechNews,
+			excludeAnnouncements: formData.excludeTechNews,
+			excludeDigests: formData.excludeTechNews
 		})
 
 		setFormData(null)

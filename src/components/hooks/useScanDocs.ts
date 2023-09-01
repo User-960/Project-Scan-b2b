@@ -1,43 +1,43 @@
-import { useMutation } from '@tanstack/react-query'
-import { useMemo, useState } from 'react'
+// import { useMutation } from '@tanstack/react-query'
+// import { useMemo, useState } from 'react'
 
-import { useObject } from './useObject'
-import { IScanDocs } from '@/interfaces/objectsearch.interface'
-import ObjectSearch from '@/services/objectsearch/objectsearch.service'
+// import { useObject } from './useObject'
+// import { IScanDocs } from '@/interfaces/objectsearch.interface'
+// import ObjectSearch from '@/services/objectsearch/objectsearch.service'
 
-export const useScanDocs = () => {
-	const [errorState, setErrorState] = useState<string>('')
-	const { setEmptyHistogramsData, idsItems } = useObject()
+// export const useScanDocs = () => {
+// 	const [errorState, setErrorState] = useState<string>('')
+// 	const { setEmptyHistogramsData, idsItems } = useObject()
 
-	const { isLoading, isSuccess, mutateAsync } = useMutation(
-		['scan docs'],
-		({ ids }: IScanDocs) => ObjectSearch.scanDocs(ids),
-		{
-			onSuccess: data => {
-				if (data) {
-					console.log(data)
-				} else {
-					setEmptyHistogramsData('Документы не найдены')
-				}
-			},
-			onError: (error: Error) => {
-				if (error) {
-					setErrorState(error.message)
-				}
-			}
-		}
-	)
+// 	const { isLoading, isSuccess, mutateAsync } = useMutation(
+// 		['scan docs'],
+// 		({ ids }: IScanDocs) => ObjectSearch.scanDocs(ids),
+// 		{
+// 			onSuccess: data => {
+// 				if (data) {
+// 					console.log(data)
+// 				} else {
+// 					setEmptyHistogramsData('Документы не найдены')
+// 				}
+// 			},
+// 			onError: (error: Error) => {
+// 				if (error) {
+// 					setErrorState(error.message)
+// 				}
+// 			}
+// 		}
+// 	)
 
-	if (idsItems) {
-		mutateAsync({ ids: idsItems })
-	}
+// 	if (idsItems) {
+// 		mutateAsync({ ids: idsItems })
+// 	}
 
-	return useMemo(
-		() => ({
-			errorState,
-			isSuccess,
-			isLoading
-		}),
-		[isLoading, isSuccess]
-	)
-}
+// 	return useMemo(
+// 		() => ({
+// 			errorState,
+// 			isSuccess,
+// 			isLoading
+// 		}),
+// 		[isLoading, isSuccess]
+// 	)
+// }
