@@ -46,7 +46,7 @@
 	}
 	.textInfo {
 		margin-bottom: 30px;
-		min-height: 200px;
+		// min-height: 200px;
 		.text {
 			max-width: 581px;
 			width: 100%;
@@ -94,6 +94,7 @@
 		height: 100%;
 		margin-bottom: 20px;
 		border-radius: 10px;
+		background-color: #dbdbdb;
 		& > img {
 			margin: -50px 0 0 0px;
 		}
@@ -115,6 +116,24 @@
 		min-height: 100%;
 	}
 } */
+
+@media (max-width: 1390px) {
+	.wrapperCard {
+		max-width: 500px;
+		.title {
+			min-height: 160px;
+		}
+	}
+}
+
+@media (max-width: 1170px) {
+	.wrapperCard {
+		max-width: 520px;
+		.title {
+			min-height: 100%;
+		}
+	}
+}
 
 @media (max-width: $tablet) {
 	.wrapperCard {

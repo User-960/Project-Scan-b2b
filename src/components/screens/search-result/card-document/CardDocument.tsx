@@ -7,8 +7,6 @@ import { FC, ReactNode, useEffect } from 'react'
 
 import Button from '@/components/ui/button/Button'
 
-import mainImage from '../../../.././../public/images/main.png'
-
 import styles from './CardDocument.module.scss'
 import { IScanDoc } from '@/interfaces/objectsearch.interface'
 
@@ -115,8 +113,7 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 				{/* <p id='textArticle' className={styles.text}>
 					{formatXMlText(doc.content.markup)}
 				</p> */}
-				<p className={styles.text}>{doc.title.text}</p>
-				<br />
+				{/* <br /> */}
 				<p className={styles.text}>
 					Принципы SkillFactory: акцент на практике, забота о студентах и
 					ориентир на трудоустройство. 80% обучения — выполнение упражнений и

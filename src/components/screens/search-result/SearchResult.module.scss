@@ -82,7 +82,15 @@
 	}
 }
 
-@media (max-width: 1370px) {
+@media (max-width: 1390px) {
+	.sectionCards {
+		.listCards {
+			justify-content: center;
+		}
+	}
+}
+
+@media (max-width: 1170px) {
 	.sectionCards {
 		.listCards {
 			flex-direction: column;
@@ -112,12 +120,6 @@
 				font-size: 18px;
 				letter-spacing: 0.28px;
 			}
-		}
-	}
-
-	.sectionCards {
-		.listCards {
-			flex-direction: column;
 		}
 	}
 }
