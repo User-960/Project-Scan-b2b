@@ -5,7 +5,6 @@ import Meta from '../seo/Meta'
 import { IMeta } from '../seo/meta.interface'
 
 import styles from './Layout.module.scss'
-import stylesFooter from './footer/Footer.module.scss'
 import Header from './header/Header'
 
 interface ILayoutProps {
@@ -27,10 +26,10 @@ const Layout: FC<ILayoutProps> = ({ backLink = '/', children, meta }) => {
 						{children && <Fragment>{children}</Fragment>}
 					</main>
 
-					<footer className={stylesFooter.footer}>
-						<div className={stylesFooter.logo} onClick={() => push('/')}></div>
+					<footer className={styles.footer}>
+						<div className={styles.logo} onClick={() => push('/')}></div>
 
-						<div className={stylesFooter.info}>
+						<div className={styles.info}>
 							<p>г. Москва, Цветной б-р, 40</p>
 							<p>+7 495 771 21 11</p>
 							<p>info@skan.ru</p>
