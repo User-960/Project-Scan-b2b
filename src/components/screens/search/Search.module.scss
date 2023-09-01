@@ -3,6 +3,7 @@
 .sectionSearch {
 	display: flex;
 	margin-bottom: 50px;
+	overflow-x: hidden;
 	.sectionImage {
 		margin: 50px 0px 0px 60px;
 		max-width: 400px;
@@ -78,6 +79,12 @@
 	.sectionSearch {
 		.sectionImage {
 			margin: 130px 0px 0px 10px;
+		}
+	}
+
+	.sectionForm {
+		.sectionFormImage {
+			margin: 50px 0px 0px 10%;
 		}
 	}
 }
