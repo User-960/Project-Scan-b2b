@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ['storage.scan-interfax.ru', 'dummyimage.com']
+		domains: ['storage.scan-interfax.ru']
 	},
 	reactStrictMode: true
 }

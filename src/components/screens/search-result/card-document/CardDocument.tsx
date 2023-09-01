@@ -61,7 +61,7 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 	const formatXMlImage = (strXML: string): any => {
 		let test: string = ''
 		const subString = '<br><img src='
-		const subImage = `<br><img src="https://dummyimage.com/480x240">`
+		const subImage = `<br><img src="./images/img-none.svg">`
 		if (strXML) {
 			parseString(strXML, function (err: any, result: any) {
 				test = result.scandoc._
@@ -100,15 +100,17 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 					<div className={styles.cardBadge}>Дайджест</div>
 				)}
 			</div>
-			<Image
-				className={styles.cardImage}
-				src={formatXMlImage(doc.content.markup)}
-				alt='Card Image'
-				width={550}
-				height={300}
-				priority={true}
-				draggable={false}
-			/>
+			<div className={styles.cardImage}>
+				<Image
+					src={formatXMlImage(doc.content.markup)}
+					alt='Card Image'
+					width={540}
+					height={320}
+					priority={true}
+					draggable={false}
+				/>
+			</div>
+
 			<div className={styles.textInfo}>
 				{/* <p id='textArticle' className={styles.text}>
 					{formatXMlText(doc.content.markup)}

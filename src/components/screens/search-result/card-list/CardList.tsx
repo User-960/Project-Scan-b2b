@@ -64,9 +64,13 @@ const CardList: FC = () => {
 			</ul>
 
 			<div className={styles.btnWrapper}>
-				<Button size={'medium'} state='btnAvailable' clickHandler={nextDocs}>
-					Показать больше
-				</Button>
+				{currentDocs?.length === docs?.length ? (
+					<div className={styles.btnText}>Больше нет новостей</div>
+				) : (
+					<Button size={'medium'} state='btnAvailable' clickHandler={nextDocs}>
+						Показать больше
+					</Button>
+				)}
 			</div>
 		</section>
 	)
