@@ -46,9 +46,12 @@
 	}
 }
 
-@media (max-width: 680px) {
+@media (max-width: 800px) {
 	.authWrapper {
 		.sectionTitle {
+			& > img {
+				margin-left: 10%;
+			}
 			.title {
 				font-size: 22px;
 			}

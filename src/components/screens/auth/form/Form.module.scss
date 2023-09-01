@@ -118,9 +118,11 @@
 	}
 }
 
-@media (max-width: 680px) {
+@media (max-width: 800px) {
 	.wrapper {
-		left: 7%;
+		top: 38%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		.lockImg {
 			top: -80px;
 			left: 60px;

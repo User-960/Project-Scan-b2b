@@ -126,7 +126,10 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 			</div>
 			<div className={styles.serviceBtn}>
 				<div className={styles.btnWrapper}>
-					<Button size={'small'} clickHandler={() => push(doc.url)}>
+					<Button
+						size={'small'}
+						clickHandler={() => window.open(doc.url, '_blank')}
+					>
 						Читать в источнике
 					</Button>
 				</div>
