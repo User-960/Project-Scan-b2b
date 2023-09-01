@@ -54,9 +54,9 @@ class ObjectSearch {
 				excludedSourceGroups: []
 			},
 			attributeFilters: {
-				excludeTechNews: excludeTechNews,
-				excludeAnnouncements: excludeAnnouncements,
-				excludeDigests: excludeDigests
+				excludeTechNews: !excludeTechNews,
+				excludeAnnouncements: !excludeAnnouncements,
+				excludeDigests: !excludeDigests
 			},
 			similarMode: 'duplicates',
 			limit: limit,
@@ -121,9 +121,9 @@ class ObjectSearch {
 				excludedSourceGroups: []
 			},
 			attributeFilters: {
-				excludeTechNews: excludeTechNews,
-				excludeAnnouncements: excludeAnnouncements,
-				excludeDigests: excludeDigests
+				excludeTechNews: !excludeTechNews,
+				excludeAnnouncements: !excludeAnnouncements,
+				excludeDigests: !excludeDigests
 			},
 			similarMode: 'duplicates',
 			limit: limit,
