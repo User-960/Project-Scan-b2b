@@ -2,77 +2,19 @@ import moment from 'moment'
 import 'moment/locale/ru'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FC, ReactNode, useEffect } from 'react'
+import { FC } from 'react'
 
 import Button from '@/components/ui/button/Button'
 
 import styles from './CardDocument.module.scss'
-import { IMarkupData } from '@/interfaces/markup.interface'
+import { formatXMlImage, formatXMlText } from '@/helpers/formatXML'
 import { IScanDoc } from '@/interfaces/objectsearch.interface'
 
-const parseString = require('xml2js').parseString
 interface ICardDocumentProps {
 	doc: IScanDoc
 }
 
 const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
-	// Рабочий вариант !!!!!!!
-	const formatXMlText = (strXML: string): any => {
-		let formatText: string = ''
-
-		if (strXML) {
-			parseString(
-				strXML,
-				{
-					trim: true,
-					normalize: true,
-					emptyTag: () => ({}),
-					ignoreAttrs: true
-				},
-				function (err: any, result: any) {
-					console.log(result.scandoc)
-
-					for (let i = 0; i < result.scandoc.sentence.length - 4; i++) {
-						if (typeof result.scandoc.sentence[i] === 'string') {
-							formatText += result.scandoc.sentence[i]
-						}
-
-						if (typeof result.scandoc.sentence[i]._ === 'string') {
-							formatText += result.scandoc.sentence[i]._
-						}
-					}
-				}
-			)
-
-			return formatText.replace(/(<([^>]+)>)/gi, '').replace(/[()]/g, '')
-		}
-	}
-
-	// Рабочий вариант !!!!!!!
-
-	const formatXMlImage = (strXML: string): any => {
-		let test: string = ''
-		const subString = '<br><img src='
-		const subImage = `<br><img src="./images/img-none.svg">`
-		if (strXML) {
-			parseString(strXML, function (err: any, result: any) {
-				test = result.scandoc._
-
-				test ? test : (test = `${subImage}`)
-			})
-		}
-
-		return test.length < 360
-			? test.split(subString).join().split('>').join().slice(2, -2)
-			: (test = `${subImage}`)
-					.split(subString)
-					.join()
-					.split('>')
-					.join()
-					.slice(2, -2)
-	}
-
 	return (
 		<div className={styles.wrapperCard}>
 			<div className={styles.serviceInfo}>
@@ -106,15 +48,6 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 
 			<div className={styles.textInfo}>
 				<p className={styles.text}>{formatXMlText(doc.content.markup)}</p>
-				{/* <br /> */}
-				{/* <p className={styles.text}>
-					Принципы SkillFactory: акцент на практике, забота о студентах и
-					ориентир на трудоустройство. 80% обучения — выполнение упражнений и
-					реальных проектов. Каждого студента поддерживают менторы, 2
-					саппорт-линии и комьюнити курса. А карьерный центр помогает составить
-					резюме, подготовиться к собеседованиям и познакомиться с
-					IT-рекрутерами.
-				</p> */}
 			</div>
 			<div className={styles.serviceBtn}>
 				<div className={styles.btnWrapper}>
