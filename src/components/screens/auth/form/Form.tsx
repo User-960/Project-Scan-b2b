@@ -21,6 +21,12 @@ const Form: FC = () => {
 
 	const { wrongLogin } = useAuth()
 
+	const [login, setLogin] = useState<string>('')
+
+	const onChangeLogin = (e: React.FormEvent<HTMLInputElement>) => {
+		setLogin(e.currentTarget.value)
+	}
+
 	return (
 		<>
 			<div className={styles.wrapper}>
@@ -62,6 +68,8 @@ const Form: FC = () => {
 							name='login'
 							register={register}
 							required={'*Заполните поле логина!'}
+							value={login}
+							onChange={onChangeLogin}
 						/>
 
 						<AuthField
@@ -80,7 +88,7 @@ const Form: FC = () => {
 
 						<Button
 							size='medium'
-							state='btnAvailable'
+							state={login ? 'btnAvailable' : 'btnBlock'}
 							clickHandler={() => setType(authType)}
 						>
 							{authType === 'login' ? 'Войти' : 'Зарегистрироваться'}

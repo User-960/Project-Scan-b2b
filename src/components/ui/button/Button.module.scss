@@ -55,6 +55,13 @@
 	}
 }
 
+.btnChosen {
+	color: $black;
+	background-color: #d2d2d2;
+	cursor: not-allowed;
+	font-size: 18px;
+}
+
 .btnBlock {
 	background-color: rgba(89, 112, 255, 0.5);
 	color: $white;

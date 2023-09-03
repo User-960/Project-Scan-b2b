@@ -79,7 +79,7 @@ const Plans: FC = () => {
 							) : (
 								<Button
 									size='medium'
-									state='btnBlock'
+									state='btnChosen'
 									clickHandler={() => console.log('1')}
 								>
 									Перейти в личный кабинет

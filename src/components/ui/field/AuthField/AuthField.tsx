@@ -14,6 +14,8 @@ interface IAuthFieldProps {
 	required: Message | ValidationRule<boolean>
 	pattern?: ValidationRule<RegExp>
 	error?: string
+	value?: string
+	onChange?: any
 }
 
 const AuthField: FC<IAuthFieldProps> = ({
@@ -25,7 +27,9 @@ const AuthField: FC<IAuthFieldProps> = ({
 	placeholder,
 	type,
 	error,
-	pattern
+	pattern,
+	value,
+	onChange
 }) => {
 	return (
 		<div className={styles.fieldWrapper}>
@@ -38,6 +42,8 @@ const AuthField: FC<IAuthFieldProps> = ({
 				type={type}
 				{...register(name, { required, pattern })}
 				className={styles.input}
+				value={value}
+				onChange={onChange}
 			/>
 			{error && <div className='error'>{error}</div>}
 		</div>
