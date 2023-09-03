@@ -4,38 +4,7 @@ import { FC, Fragment } from 'react'
 
 import styles from '../HomeCarousel.module.scss'
 
-const dataHomeCarousel = [
-	{
-		id: 1,
-		img: '/images/time.jpg',
-		text: 'Высокая и оперативная скорость обработки заявки'
-	},
-	{
-		id: 2,
-		img: '/images/search.jpg',
-		text: 'Огромная комплексная база данных, обеспечивающая объективный ответ на запрос'
-	},
-	{
-		id: 3,
-		img: '/images/shield.jpg',
-		text: 'Защита конфеденциальных сведений, не подлежащих разглашению по федеральному законодательству'
-	},
-	{
-		id: 4,
-		img: '/images/time.jpg',
-		text: 'Высокая и оперативная скорость обработки заявки'
-	},
-	{
-		id: 5,
-		img: '/images/search.jpg',
-		text: 'Огромная комплексная база данных, обеспечивающая объективный ответ на запрос'
-	},
-	{
-		id: 6,
-		img: '/images/shield.jpg',
-		text: 'Защита конфеденциальных сведений, не подлежащих разглашению по федеральному законодательству'
-	}
-]
+import { dataHomeCarousel } from './card-data'
 
 const SampleNextArrow = (props: any) => {
 	const { style, onClick } = props
@@ -49,7 +18,7 @@ const SampleNextArrow = (props: any) => {
 }
 
 const SamplePrevArrow = (props: any) => {
-	const { className, style, onClick } = props
+	const { style, onClick } = props
 	return (
 		<div
 			className={styles.slickArrowLeft}
@@ -87,9 +56,9 @@ const CarouselSlider: FC = () => {
 	}
 
 	const contentStyle: React.CSSProperties = {
-		padding: '18px 18px 10px 18px',
+		padding: '18px 16px 10px 18px',
 		maxWidth: '400px',
-		minHeight: '225px',
+		minHeight: '253px',
 		borderRadius: '10px',
 		backgroundColor: '#fff',
 		boxShadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.2)',
@@ -100,8 +69,9 @@ const CarouselSlider: FC = () => {
 	}
 
 	const contentStyleText: React.CSSProperties = {
-		marginTop: '12px',
+		marginTop: '15px',
 		maxWidth: '313px',
+		width: '100%',
 		minHeight: '110px',
 		color: '#000',
 		fontSize: '18px',

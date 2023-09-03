@@ -47,16 +47,16 @@
 	position: absolute;
 	top: 110px;
 	right: -25px;
-	background-image: url('../../../../public/images/arrowRightHistogram.png');
+	background-image: url('../../../../public/images/arrowLeftHistogram.png');
+	transform: rotate(180deg);
 	background-repeat: no-repeat;
 	cursor: pointer;
 }
 
 @media (max-width: 680px) {
-	.sectionCarousel {
-		.title {
-			font-size: 28px;
-		}
+	.titleCarousel {
+		font-size: 28px;
+		letter-spacing: 0.28px;
 	}
 }
 
