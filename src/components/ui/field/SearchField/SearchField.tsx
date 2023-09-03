@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { Message, Path, UseFormRegister, ValidationRule } from 'react-hook-form'
 
 import styles from './SearchField.module.scss'
@@ -18,6 +18,8 @@ interface ISearchFieldProps {
 	error?: string
 	maxLengthRule?: any
 	minLength?: any
+	value?: string
+	onChange?: any
 }
 
 const SearchField: FC<ISearchFieldProps> = ({
@@ -33,7 +35,9 @@ const SearchField: FC<ISearchFieldProps> = ({
 	min,
 	max,
 	maxLengthRule,
-	minLength
+	minLength,
+	value,
+	onChange
 }) => {
 	return (
 		<div className={styles.fieldWrapper}>
@@ -50,7 +54,9 @@ const SearchField: FC<ISearchFieldProps> = ({
 					required,
 					pattern
 				})}
+				value={value}
 				className={styles.input}
+				onChange={onChange}
 			/>
 			{error && <div className='error'>{error}</div>}
 		</div>

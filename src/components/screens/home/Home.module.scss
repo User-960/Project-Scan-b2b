@@ -59,6 +59,12 @@
 @media (max-width: $tablet) {
 	.sectionMain {
 		flex-direction: column;
+		& > .info {
+			& > .btnWrapper {
+				margin: 0 auto;
+				max-width: 680px;
+			}
+		}
 	}
 
 	.sectionImage {

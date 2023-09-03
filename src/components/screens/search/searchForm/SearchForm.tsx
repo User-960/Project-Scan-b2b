@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react'
+import { FC, Fragment, useState } from 'react'
 
 import Button from '@/components/ui/button/Button'
 import CheckboxField from '@/components/ui/field/SearchField/CheckboxField'
@@ -14,6 +14,12 @@ import styles from './SearchForm.module.scss'
 const SearchForm: FC = () => {
 	const { register, handleSubmit, control, errors, isLoading, onSubmit } =
 		useSearchHistograms()
+
+	const [inn, setInn] = useState<string>('')
+
+	const onChange = (e: React.FormEvent<HTMLInputElement>) => {
+		setInn(e.currentTarget.value)
+	}
 
 	return (
 		<>
@@ -35,6 +41,8 @@ const SearchForm: FC = () => {
 								register={register}
 								required={'*Заполните поле ИНН!'}
 								pattern={/^(([0-9]{12})|([0-9]{10}))?$/}
+								value={inn}
+								onChange={onChange}
 							/>
 
 							<SelectTonality
@@ -130,7 +138,14 @@ const SearchForm: FC = () => {
 							</ul>
 
 							<div className={styles.btnWrapper}>
-								<Button size='medium' state='btnAvailable'>
+								<Button
+									size='medium'
+									state={
+										inn.length === 10 || inn.length === 12
+											? 'btnAvailable'
+											: 'btnBlock'
+									}
+								>
 									Поиск
 								</Button>
 								<div className={styles.warningText}>
