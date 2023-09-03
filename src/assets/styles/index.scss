@@ -277,16 +277,11 @@ input[type='number'] {
 
 .carouselHistograms .slick-slide {
 	width: 135px;
-	/* &::after {
-		width: 2px;
-		height: 124px;
-		opacity: 0.4;
-		background: #949494;
-	} */
 }
 
 .carouselHistograms .slick-next {
 	right: -45px;
+	top: 70px;
 	width: 39px;
 	height: 39px;
 	background-image: url('../../../public/images/arrowLeftHistogram.png');
@@ -318,6 +313,7 @@ input[type='number'] {
 
 .carouselHistograms .slick-prev {
 	left: -170px;
+	top: 70px;
 	width: 39px;
 	height: 39px;
 	background-image: url('../../../public/images/arrowLeftHistogram.png');

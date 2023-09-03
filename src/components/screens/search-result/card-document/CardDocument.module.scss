@@ -46,7 +46,7 @@
 	}
 	.textInfo {
 		margin-bottom: 30px;
-		min-height: 200px;
+		min-height: 245px;
 		.text {
 			max-width: 581px;
 			width: 100%;
@@ -95,6 +95,7 @@
 		margin-bottom: 20px;
 		border-radius: 10px;
 		background-color: #dbdbdb;
+		user-select: none;
 		& > img {
 			margin: -50px 0 0 0px;
 		}
@@ -110,12 +111,6 @@
 		}
 	}
 }
-
-/* @media (max-width: 1370px) {
-	.wrapperCard {
-		min-height: 100%;
-	}
-} */
 
 @media (max-width: 1390px) {
 	.wrapperCard {
@@ -143,6 +138,10 @@
 		.source {
 			font-size: 14px;
 			letter-spacing: 0.14px;
+		}
+
+		.textInfo {
+			min-height: 150px;
 		}
 	}
 }
