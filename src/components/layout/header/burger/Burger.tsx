@@ -11,7 +11,7 @@ const Burger: FC = () => {
 	const { ref, isShow, setIsShow } = useOnClickOutside(false)
 
 	return (
-		<div className={styles.burgerMenu}>
+		<div className={styles.burgerMenu} ref={ref}>
 			<button
 				className={styles.burgerBtn}
 				onClick={() => setIsShow(prev => !prev)}
