@@ -73,6 +73,7 @@ const Plans: FC = () => {
 									size='medium'
 									state='btnAvailable'
 									clickHandler={() => console.log('1')}
+                  ariaLabel='More info'
 								>
 									Подробнее
 								</Button>
@@ -81,6 +82,7 @@ const Plans: FC = () => {
 									size='medium'
 									state='btnChosen'
 									clickHandler={() => console.log('1')}
+                  ariaLabel='Go in profile'
 								>
 									Перейти в личный кабинет
 								</Button>

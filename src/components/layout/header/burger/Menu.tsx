@@ -41,6 +41,7 @@ const Menu: FC<IMenuProps> = ({ isShow }) => {
 								<button
 									className={styles.registration}
 									onClick={() => push('/auth')}
+									aria-label='Registration'
 								>
 									Зарегистрироваться
 								</button>
@@ -49,6 +50,7 @@ const Menu: FC<IMenuProps> = ({ isShow }) => {
 								<button
 									className={styles.btnLogin}
 									onClick={() => push('/auth')}
+									aria-label='Login'
 								>
 									Войти
 								</button>
@@ -57,7 +59,11 @@ const Menu: FC<IMenuProps> = ({ isShow }) => {
 					) : (
 						<>
 							<li>
-								<button className={styles.btnLogin} onClick={logoutHandler}>
+								<button
+									className={styles.btnLogin}
+									onClick={logoutHandler}
+									aria-label='Exit'
+								>
 									Выйти
 								</button>
 							</li>

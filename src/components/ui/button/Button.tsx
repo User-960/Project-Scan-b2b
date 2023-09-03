@@ -8,18 +8,21 @@ interface IButtonProps {
 	size: string
 	state?: string
 	children?: ReactNode
+	ariaLabel?: string
 }
 
 const Button: FC<IButtonProps> = ({
 	clickHandler = null,
 	size = '',
 	state = '',
-	children
+	children,
+	ariaLabel
 }) => {
 	return (
 		<button
 			className={cn(styles.button, styles[size], styles[state])}
 			onClick={clickHandler}
+			aria-label={ariaLabel}
 		>
 			{children}
 		</button>

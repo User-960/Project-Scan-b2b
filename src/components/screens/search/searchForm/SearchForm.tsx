@@ -139,6 +139,7 @@ const SearchForm: FC = () => {
 
 							<div className={styles.btnWrapper}>
 								<Button
+									ariaLabel='Search'
 									size='medium'
 									state={
 										inn.length === 10 || inn.length === 12

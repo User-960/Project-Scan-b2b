@@ -34,11 +34,11 @@ const Account: FC<IAccount> = ({ isAuthorized = false }) => {
 		<>
 			{!isAuth ? (
 				<div className={styles.enter}>
-					<button className={styles.registration} onClick={() => push('/auth')}>
+					<button className={styles.registration} onClick={() => push('/auth')} aria-label='Registration'>
 						Зарегистрироваться
 					</button>
 					|
-					<button className={styles.btnLogin} onClick={() => push('/auth')}>
+					<button className={styles.btnLogin} onClick={() => push('/auth')} aria-label='Login'>
 						Войти
 					</button>
 				</div>

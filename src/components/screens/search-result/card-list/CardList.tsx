@@ -67,7 +67,12 @@ const CardList: FC = () => {
 				{currentDocs?.length === docs?.length ? (
 					<div className={styles.btnText}>Больше нет новостей</div>
 				) : (
-					<Button size={'medium'} state='btnAvailable' clickHandler={nextDocs}>
+					<Button
+						size={'medium'}
+						state='btnAvailable'
+						clickHandler={nextDocs}
+						ariaLabel='More info'
+					>
 						Показать больше
 					</Button>
 				)}

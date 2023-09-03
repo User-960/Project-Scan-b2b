@@ -45,6 +45,7 @@ const Home: FC = () => {
 						</h4>
 						<div className={styles.btnWrapper}>
 							<Button
+								ariaLabel='Search data'
 								size={'medium'}
 								state='btnAvailable'
 								clickHandler={() => push('/search')}

@@ -40,6 +40,7 @@ const Form: FC = () => {
 							[styles.btnLogin]: authType === 'login'
 						})}
 						onClick={() => setAuthType('login')}
+						aria-label='Login'
 					>
 						Войти
 					</button>
@@ -48,6 +49,7 @@ const Form: FC = () => {
 							[styles.btnRegister]: authType === 'register'
 						})}
 						onClick={() => setAuthType('register')}
+						aria-label='Registration'
 					>
 						Зарегистрироваться
 					</button>
@@ -87,6 +89,7 @@ const Form: FC = () => {
 						/>
 
 						<Button
+							ariaLabel='Login or Registration'
 							size='medium'
 							state={login ? 'btnAvailable' : 'btnBlock'}
 							clickHandler={() => setType(authType)}
