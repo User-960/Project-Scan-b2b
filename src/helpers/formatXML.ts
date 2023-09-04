@@ -45,7 +45,7 @@ export const formatXMlImage = (strXML: string): any => {
 	return srcString
 }
 
-export const formatXMlText = (strXML: string): any => {
+export const formatXMlText = (strXML: string): string => {
 	let formatXML: string = ''
 	const parser = new DOMParser()
 	let xmlDoc
@@ -68,7 +68,7 @@ export const formatXMlText = (strXML: string): any => {
 			.replace(/(\d+%)/g, '')
 			.replace(/[0-9]{5}/g, '')
 			.slice(0, 500)
-
-		return (formatXML += '...')
 	}
+
+	return (formatXML += '...')
 }

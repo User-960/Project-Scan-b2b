@@ -290,18 +290,18 @@ input[type='number'] {
 	background-position: center;
 	opacity: 1;
 	&:hover {
-		background-image: url('../../../public/images/arrowLeftHistogram.png');
-		transform: rotate(180deg);
+		background-image: url('../../../public/images/arrowRightHistogram.png');
+		transform: rotate(0deg);
 		opacity: 1;
 	}
 	&:focus {
-		background-image: url('../../../public/images/arrowLeftHistogram.png');
-		transform: rotate(180deg);
+		background-image: url('../../../public/images/arrowRightHistogram.png');
+		transform: rotate(0deg);
 		opacity: 1;
 	}
 	&::target {
-		background-image: url('../../../public/images/arrowLeftHistogram.png');
-		transform: rotate(180deg);
+		background-image: url('../../../public/images/arrowRightHistogram.png');
+		transform: rotate(0deg);
 		opacity: 1;
 	}
 	&:active {
@@ -321,19 +321,23 @@ input[type='number'] {
 	background-position: center;
 	opacity: 1;
 	&:hover {
-		background-image: url('../../../public/images/arrowLeftHistogram.png');
+		background-image: url('../../../public/images/arrowRightHistogram.png');
+		transform: rotate(180deg);
 		opacity: 1;
 	}
 	&:focus {
-		background-image: url('../../../public/images/arrowLeftHistogram.png');
+		background-image: url('../../../public/images/arrowRightHistogram.png');
+		transform: rotate(180deg);
+		opacity: 1;
+	}
+	&:target {
+		background-image: url('../../../public/images/arrowRightHistogram.png');
+		transform: rotate(180deg);
 		opacity: 1;
 	}
 	&:active {
 		background-image: url('../../../public/images/arrowLeftHistogram.png');
-		opacity: 1;
-	}
-	&:target {
-		background-image: url('../../../public/images/arrowLeftHistogram.png');
+		transform: rotate(0deg);
 		opacity: 1;
 	}
 }

@@ -20,7 +20,7 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 			<div className={styles.serviceInfo}>
 				<p className={styles.date}>{moment(doc.issueDate).format('L')}</p>
 				<Link className={styles.source} href={doc.url} target='_blank'>
-					{doc.source.name}
+					{doc.source.name.replace(/\(.+\)/, '')}
 				</Link>
 			</div>
 			<h6 className={styles.title}>{doc.title.text}</h6>
