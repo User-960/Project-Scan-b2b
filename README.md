@@ -10,7 +10,8 @@ The project implemented authentication for users with username and password. All
 
 - Programming languages: HTML, CSS, TypeScript;
 - Preprocessor: SCSS;
-- Libraries: React, Next.js, Ant Design, axios, js-cookie, clsx, react-hook-form, @tanstack/react-query, react-select;
+- Algorithms: Bubble sort algorithm with complexity O(n^2);
+- Libraries: React, Next.js, Ant Design, CSS Modules, axios, js-cookie, clsx, react-hook-form, @tanstack/react-query, react-select, dayjs, xml2js;
 
 ## To clone repository
 
