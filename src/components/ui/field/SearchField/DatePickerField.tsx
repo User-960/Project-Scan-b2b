@@ -43,6 +43,7 @@ const DatePickerField: FC<IDatePickerFieldProps> = ({
 			}) => (
 				<div className={styles.fieldWrapper}>
 					<DatePicker
+						inputReadOnly={true}
 						ref={ref}
 						disabledDate={disabledDate}
 						className={styles.datePicker}
