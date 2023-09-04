@@ -67,7 +67,7 @@ export const formatXMlText = (strXML: string): any => {
 			.replace(/(.?-)/g, '')
 			.replace(/(\d+%)/g, '')
 			.replace(/[0-9]{5}/g, '')
-			.slice(1, 500)
+			.slice(0, 500)
 
 		return (formatXML += '...')
 	}
