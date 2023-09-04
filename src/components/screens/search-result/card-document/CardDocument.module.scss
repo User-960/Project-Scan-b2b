@@ -97,6 +97,8 @@
 		background-color: #dbdbdb;
 		user-select: none;
 		& > img {
+			width: 540px;
+			height: 320px;
 			margin: -50px 0 0 0px;
 		}
 	}
@@ -107,6 +109,7 @@
 		align-items: flex-end;
 		.btnWrapper {
 			max-width: 223px;
+			width: 100%;
 			max-height: 46.539px;
 		}
 	}
@@ -154,6 +157,19 @@
 
 @media (max-width: $mobile) {
 	.wrapperCard {
+		.cardImage {
+			max-width: 580px;
+			max-height: 158px;
+			& > img {
+				width: 540px;
+				height: 280px;
+				margin: -40px 0 0 0px;
+			}
+		}
+		.title {
+			font-size: 19px;
+			letter-spacing: 0.19px;
+		}
 		.textInfo {
 			.text {
 				font-size: 12px;

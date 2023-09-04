@@ -59,7 +59,7 @@ const CardDocument: FC<ICardDocumentProps> = ({ doc }) => {
 						Читать в источнике
 					</Button>
 				</div>
-				<p className={styles.words}>{doc.attributes.wordCount}</p>
+				<p className={styles.words}>{doc.attributes.wordCount} слова</p>
 			</div>
 		</div>
 	)
